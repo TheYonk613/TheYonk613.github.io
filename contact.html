@@ -260,26 +260,19 @@
 		submitButton.innerHTML = 'Sending...';
 		submitButton.disabled = true;
 		
-		// Prepare data for Google Sheets
-		var formData = {
-			name: name,
-			email: email,
-			message: message
-		};
+		// Create a simple form submission
+		var formData = new FormData();
+		formData.append('name', name);
+		formData.append('email', email);
+		formData.append('message', message);
 		
-		// Send to Google Sheets using form data approach
-		var form = new FormData();
-		form.append('name', name);
-		form.append('email', email);
-		form.append('message', message);
-		
-		fetch('https://script.google.com/macros/s/AKfycbytYvy853tK6gmbXb8Zqqs-qRMkvhRwBqDOM9m5C1WOfrqRCrO_fG3H3m0-5iYz6Z1HOQ/exec', {
+		// Submit using fetch
+		fetch('https://script.google.com/macros/s/AKfycbzRVldru22yPK9I2OJ8ZITg0N4LzS36dsqznOt-p3mFN11_ngDTLEdoakLq9hGzjZKDFg/exec', {
 			method: 'POST',
-			body: form,
-			mode: 'no-cors'
+			body: formData
 		})
-		.then(() => {
-			// Success (we can't get response due to no-cors, but assume success)
+		.then(response => {
+			console.log('Response received:', response);
 			alert('Thank you! Your message has been sent successfully.');
 			// Clear form
 			document.getElementById('contact-name').value = '';
@@ -287,12 +280,8 @@
 			document.getElementById('contact-message').value = '';
 		})
 		.catch(error => {
-			// Fallback to email client
-			console.log('Google Sheets submission failed, falling back to email client');
-			var subject = 'Contact from Younker Studio Website - ' + name;
-			var body = 'Name: ' + name + '\n\nEmail: ' + email + '\n\nMessage:\n' + message;
-			var mailtoLink = 'mailto:younkerstudio@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-			window.open(mailtoLink);
+			console.log('Error:', error);
+			alert('There was an issue sending your message. Please try again or email us directly.');
 		})
 		.finally(() => {
 			// Reset button
