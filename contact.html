@@ -267,17 +267,19 @@
 			message: message
 		};
 		
-		// Send to Google Sheets
+		// Send to Google Sheets using form data approach
+		var form = new FormData();
+		form.append('name', name);
+		form.append('email', email);
+		form.append('message', message);
+		
 		fetch('https://script.google.com/macros/s/AKfycbytYvy853tK6gmbXb8Zqqs-qRMkvhRwBqDOM9m5C1WOfrqRCrO_fG3H3m0-5iYz6Z1HOQ/exec', {
 			method: 'POST',
-			body: JSON.stringify(formData),
-			headers: {
-				'Content-Type': 'application/json'
-			}
+			body: form,
+			mode: 'no-cors'
 		})
-		.then(response => response.json())
-		.then(data => {
-			// Success
+		.then(() => {
+			// Success (we can't get response due to no-cors, but assume success)
 			alert('Thank you! Your message has been sent successfully.');
 			// Clear form
 			document.getElementById('contact-name').value = '';
