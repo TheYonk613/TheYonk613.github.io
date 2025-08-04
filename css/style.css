@@ -1486,31 +1486,39 @@ input[type="text"] {
 /* Resume Page Styles */
 #fh5co-resume {
     padding: 5em 0;
-    color: #333; /* Darker text for better readability */
+    color: #000 !important; /* Much darker text for better readability */
 }
 
 #fh5co-resume p {
-    color: #333; /* Darker paragraph text */
+    color: #000 !important; /* Much darker paragraph text */
 }
 
 #fh5co-resume .resume-section p {
-    color: #333; /* Darker text in resume sections */
+    color: #000 !important; /* Much darker text in resume sections */
 }
 
 #fh5co-resume .company {
-    color: #555; /* Darker company text */
+    color: #333 !important; /* Darker company text */
 }
 
 #fh5co-resume .experience-item li {
-    color: #333; /* Darker list item text */
+    color: #000 !important; /* Much darker list item text */
 }
 
 #fh5co-resume .education-item p {
-    color: #333; /* Darker education text */
+    color: #000 !important; /* Much darker education text */
 }
 
 #fh5co-resume .project-description {
-    color: #333; /* Darker project description text */
+    color: #000 !important; /* Much darker project description text */
+}
+
+#fh5co-resume .contact-info p {
+    color: #000 !important; /* Much darker contact info text */
+}
+
+#fh5co-resume .details {
+    color: #000 !important; /* Much darker details text */
 }
 
 .resume-section {
