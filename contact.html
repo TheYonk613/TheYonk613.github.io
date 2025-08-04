@@ -133,28 +133,30 @@
 					</ul>
 				</div>
 				<div class="col-md-7 col-md-push-1 animate-box">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="text" class="form-control" id="contact-name" placeholder="Name">
+					<form action="https://script.google.com/macros/s/AKfycbzFxhfPcHWRakTWRo45uT4hi5UeTFk9-0dOHJU_31C_Sr_cMQAcgy9Kv98oJ7BBbzwmtQ/exec" method="POST">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control" name="name" id="contact-name" placeholder="Name" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" class="form-control" name="email" id="contact-email" placeholder="Email" required>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<textarea name="message" class="form-control" id="contact-message" cols="30" rows="7" placeholder="Message" required></textarea>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="submit" value="Send Message" class="btn btn-primary btn-modify">
+								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="email" class="form-control" id="contact-email" placeholder="Email">
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<textarea name="" class="form-control" id="contact-message" cols="30" rows="7" placeholder="Message"></textarea>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<button type="button" onclick="sendEmail()" class="btn btn-primary btn-modify">Send Message</button>
-							</div>
-						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -243,53 +245,7 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
-	<script>
-	function sendEmail() {
-		var name = document.getElementById('contact-name').value;
-		var email = document.getElementById('contact-email').value;
-		var message = document.getElementById('contact-message').value;
-		
-		if (!name || !email || !message) {
-			alert('Please fill in all fields before sending.');
-			return;
-		}
-		
-		// Show loading state
-		var submitButton = document.querySelector('.btn-modify');
-		var originalText = submitButton.innerHTML;
-		submitButton.innerHTML = 'Sending...';
-		submitButton.disabled = true;
-		
-		// Create a simple form submission
-		var formData = new FormData();
-		formData.append('name', name);
-		formData.append('email', email);
-		formData.append('message', message);
-		
-		// Submit using fetch
-		fetch('https://script.google.com/macros/s/AKfycbzRVldru22yPK9I2OJ8ZITg0N4LzS36dsqznOt-p3mFN11_ngDTLEdoakLq9hGzjZKDFg/exec', {
-			method: 'POST',
-			body: formData
-		})
-		.then(response => {
-			console.log('Response received:', response);
-			alert('Thank you! Your message has been sent successfully.');
-			// Clear form
-			document.getElementById('contact-name').value = '';
-			document.getElementById('contact-email').value = '';
-			document.getElementById('contact-message').value = '';
-		})
-		.catch(error => {
-			console.log('Error:', error);
-			alert('There was an issue sending your message. Please try again or email us directly.');
-		})
-		.finally(() => {
-			// Reset button
-			submitButton.innerHTML = originalText;
-			submitButton.disabled = false;
-		});
-	}
-	</script>
+
 
 	</body>
 </html>
