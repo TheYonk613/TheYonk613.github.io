@@ -1010,6 +1010,16 @@ input[type="text"] {
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+/* Reduce spacing between footer columns */
+#fh5co-footer .col-md-3 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#fh5co-footer .col-md-6 {
+  padding-right: 20px;
+}
 #fh5co-footer .copyright {
   display: block;
   margin-top: 3em;
