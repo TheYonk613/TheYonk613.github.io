@@ -107,6 +107,16 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-nav .top-menu {
   padding: 34px 30px;
 }
+
+.fh5co-nav .top-menu .row {
+  display: flex;
+  align-items: center;
+}
+
+.fh5co-nav .col-xs-2 {
+  flex-shrink: 0;
+  min-width: 200px;
+}
 @media screen and (max-width: 768px) {
   .fh5co-nav .top-menu {
     padding: 28px 1em;
@@ -119,6 +129,9 @@ h1, h2, h3, h4, h5, h6, figure {
   text-transform: uppercase;
   font-weight: 600;
   font-family: "Source Sans Pro", sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .fh5co-nav #fh5co-logo a span {
   color: #66D37E;
