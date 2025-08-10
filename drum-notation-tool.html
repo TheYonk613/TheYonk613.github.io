@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Drum Notation Generator - Younker Studio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Interactive drum notation generator - Convert drum notation to professional sheet music. Built with modern web technologies." />
+	<meta name="keywords" content="drum notation, sheet music, music generator, interactive tool, Netanel Younker, Younker Studio" />
+	<meta name="author" content="Netanel Moshe Younker" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	Younker Studio - Professional Portfolio & Resume
+	DESIGNED & DEVELOPED by Netanel Moshe Younker
+		
+	Website: 		https://theyonk613.github.io
+	Email: 			Netanelyounker@gmail.com
+	LinkedIn: 		https://linkedin.com/in/netanel-younker
+
+	//////////////////////////////////////////////////////
+	 -->
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content="Drum Notation Generator"/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content="Younker Studio"/>
+	<meta property="og:description" content="Interactive drum notation generator - Convert drum notation to professional sheet music."/>
+	<meta name="twitter:title" content="Drum Notation Generator" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="summary" />
+
+	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	<style>
+		.drum-tool-container {
+			padding: 2rem 0;
+			background: #f8f9fa;
+		}
+		
+		.notation-input {
+			background: white;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			padding: 1.5rem;
+			margin-bottom: 2rem;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+		}
+		
+		.notation-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1rem;
+			margin-bottom: 2rem;
+		}
+		
+		.notation-cell {
+			background: white;
+			border: 2px solid #dee2e6;
+			border-radius: 6px;
+			padding: 1rem;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		
+		.notation-cell:hover {
+			border-color: #66D37E;
+			background: #f8fff9;
+		}
+		
+		.notation-cell.active {
+			background: #66D37E;
+			color: white;
+			border-color: #66D37E;
+		}
+		
+		.measure-container {
+			background: white;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			padding: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		
+		.measure-grid {
+			display: grid;
+			grid-template-columns: repeat(16, 1fr);
+			gap: 0.5rem;
+			margin-bottom: 1rem;
+		}
+		
+		.measure-cell {
+			background: #f8f9fa;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			padding: 0.5rem;
+			text-align: center;
+			cursor: pointer;
+			transition: all 0.2s ease;
+			font-size: 0.8rem;
+		}
+		
+		.measure-cell:hover {
+			background: #e9ecef;
+		}
+		
+		.measure-cell.has-note {
+			background: #66D37E;
+			color: white;
+			border-color: #66D37E;
+		}
+		
+		.generate-btn {
+			background: linear-gradient(135deg, #66D37E 0%, #4CAF50 100%);
+			border: none;
+			color: white;
+			padding: 1rem 2rem;
+			border-radius: 8px;
+			font-size: 1.1rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 15px rgba(102, 211, 126, 0.3);
+		}
+		
+		.generate-btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(102, 211, 126, 0.4);
+		}
+		
+		.sheet-music-output {
+			background: white;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			padding: 2rem;
+			margin-top: 2rem;
+			min-height: 300px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.instructions {
+			background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			color: white;
+			padding: 1.5rem;
+			border-radius: 8px;
+			margin-bottom: 2rem;
+		}
+		
+		.instructions h3 {
+			color: white;
+			margin-bottom: 1rem;
+		}
+		
+		.instructions ul {
+			margin-bottom: 0;
+		}
+		
+		.instructions li {
+			margin-bottom: 0.5rem;
+		}
+	</style>
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container-wrap">
+			<div class="top-menu">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html">Younker Studio</a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="work.html">Work</a></li>
+							<li><a href="blog.html">Blog</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="resume.html">Resume</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+	<div class="container-wrap">
+		<aside id="fh5co-hero">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(images/img_bg_1.jpg);">
+			   		<div class="overlay-gradient"></div>
+		   			<div class="row">
+			   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
+			   				<div class="slider-text-inner text-center">
+			   					<h1>Drum Notation Generator</h1>
+										<h2>Convert Drum Notation to Professional Sheet Music</h2>
+			   				</div>
+			   			</div>
+			   		</div>
+			   	</li>		   	
+			  	</ul>
+		  	</div>
+		</aside>		
+		
+		<div class="drum-tool-container">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="instructions">
+							<h3>How to Use the Drum Notation Generator</h3>
+							<ul>
+								<li><strong>Step 1:</strong> Select the drum notation symbols you want to use from the grid below</li>
+								<li><strong>Step 2:</strong> Click on the measure grid cells to place your drum hits</li>
+								<li><strong>Step 3:</strong> Add multiple measures as needed</li>
+								<li><strong>Step 4:</strong> Click "Generate Sheet Music" to create your professional notation</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-8">
+						<div class="notation-input">
+							<h3>Drum Notation Input</h3>
+							<p>Select your drum notation symbols:</p>
+							
+							<div class="notation-grid">
+								<div class="notation-cell" data-symbol="B">Bass Drum</div>
+								<div class="notation-cell" data-symbol="S">Snare</div>
+								<div class="notation-cell" data-symbol="H">Hi-Hat</div>
+								<div class="notation-cell" data-symbol="C">Crash</div>
+								<div class="notation-cell" data-symbol="R">Ride</div>
+								<div class="notation-cell" data-symbol="T">Tom 1</div>
+								<div class="notation-cell" data-symbol="M">Tom 2</div>
+								<div class="notation-cell" data-symbol="F">Floor Tom</div>
+								<div class="notation-cell" data-symbol="O">Open Hi-Hat</div>
+								<div class="notation-cell" data-symbol="X">Cross Stick</div>
+								<div class="notation-cell" data-symbol="P">Pedal Hi-Hat</div>
+								<div class="notation-cell" data-symbol="K">Kick</div>
+							</div>
+							
+							<div id="measures-container">
+								<div class="measure-container">
+									<h4>Measure 1</h4>
+									<div class="measure-grid" data-measure="1">
+										<!-- 16 cells for 16th notes -->
+									</div>
+									<button class="btn btn-sm btn-danger remove-measure" style="display: none;">Remove Measure</button>
+								</div>
+							</div>
+							
+							<button class="btn btn-primary" id="add-measure">Add Another Measure</button>
+							<button class="generate-btn" id="generate-sheet">Generate Sheet Music</button>
+						</div>
+					</div>
+					
+					<div class="col-md-4">
+						<div class="notation-input">
+							<h3>Current Selection</h3>
+							<div id="current-symbol">None selected</div>
+							
+							<h3>Quick Patterns</h3>
+							<div class="quick-patterns">
+								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="basic-beat">Basic Beat</button>
+								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="rock-beat">Rock Beat</button>
+								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="jazz-beat">Jazz Beat</button>
+								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="funk-beat">Funk Beat</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<div class="sheet-music-output" id="sheet-music-output">
+							<div class="text-center">
+								<h3>Your Sheet Music Will Appear Here</h3>
+								<p>Click "Generate Sheet Music" to create your professional notation</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!-- END container-wrap -->
+
+	<div class="container-wrap">
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-md-6 fh5co-widget">
+					<h4>About Younker Studio</h4>
+					<p>Professional with experience in team leadership, product management, and market research. Passionate about building innovative solutions and driving results through strategic planning and collaboration.</p>
+				</div>
+
+				<div class="col-md-3">
+					<h4>Links</h4>
+					<ul class="fh5co-footer-links">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="work.html">Work</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="resume.html">Resume</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+
+				<div class="col-md-3">
+					<h4>Contact Information</h4>
+					<ul class="fh5co-footer-links">
+						<li>Jerusalem, Israel</li>
+						<li><a href="tel:0556667791">(055) 666-7791</a></li>
+						<li><a href="mailto:Netanelyounker@gmail.com">Netanelyounker@gmail.com</a></li>
+						<li><a href="https://linkedin.com/in/netanel-younker">linkedin.com/in/netanel-younker</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2024 Younker Studio. All Rights Reserved.</small> 
+						<small class="block">Professional Portfolio & Resume</small>
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="https://linkedin.com/in/netanel-younker"><i class="icon-linkedin"></i></a></li>
+							<li><a href="mailto:Netanelyounker@gmail.com"><i class="icon-mail"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</footer>
+	</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
+	<!-- Counters -->
+	<script src="js/jquery.countTo.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			let currentSymbol = null;
+			let measureCount = 1;
+			
+			// Initialize first measure
+			initializeMeasure(1);
+			
+			// Notation symbol selection
+			$('.notation-cell').click(function() {
+				$('.notation-cell').removeClass('active');
+				$(this).addClass('active');
+				currentSymbol = $(this).data('symbol');
+				$('#current-symbol').text($(this).text());
+			});
+			
+			// Measure cell click
+			$(document).on('click', '.measure-cell', function() {
+				if (currentSymbol) {
+					$(this).addClass('has-note').text(currentSymbol);
+				}
+			});
+			
+			// Add measure
+			$('#add-measure').click(function() {
+				measureCount++;
+				const measureHtml = `
+					<div class="measure-container">
+						<h4>Measure ${measureCount}</h4>
+						<div class="measure-grid" data-measure="${measureCount}">
+						</div>
+						<button class="btn btn-sm btn-danger remove-measure">Remove Measure</button>
+					</div>
+				`;
+				$('#measures-container').append(measureHtml);
+				initializeMeasure(measureCount);
+			});
+			
+			// Remove measure
+			$(document).on('click', '.remove-measure', function() {
+				$(this).closest('.measure-container').remove();
+				updateMeasureNumbers();
+			});
+			
+			// Quick patterns
+			$('.pattern-btn').click(function() {
+				const pattern = $(this).data('pattern');
+				applyPattern(pattern);
+			});
+			
+			// Generate sheet music
+			$('#generate-sheet').click(function() {
+				generateSheetMusic();
+			});
+			
+			function initializeMeasure(measureNum) {
+				const measureGrid = $(`.measure-grid[data-measure="${measureNum}"]`);
+				measureGrid.empty();
+				
+				for (let i = 0; i < 16; i++) {
+					measureGrid.append('<div class="measure-cell"></div>');
+				}
+			}
+			
+			function updateMeasureNumbers() {
+				$('.measure-container').each(function(index) {
+					const measureNum = index + 1;
+					$(this).find('h4').text(`Measure ${measureNum}`);
+					$(this).find('.measure-grid').attr('data-measure', measureNum);
+				});
+				measureCount = $('.measure-container').length;
+			}
+			
+			function applyPattern(pattern) {
+				// Clear existing measures
+				$('#measures-container').empty();
+				measureCount = 1;
+				
+				let patternData;
+				switch(pattern) {
+					case 'basic-beat':
+						patternData = {
+							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
+							'2': 'H', '6': 'H', '10': 'H', '14': 'H'
+						};
+						break;
+					case 'rock-beat':
+						patternData = {
+							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
+							'1': 'H', '3': 'H', '5': 'H', '7': 'H',
+							'9': 'H', '11': 'H', '13': 'H', '15': 'H'
+						};
+						break;
+					case 'jazz-beat':
+						patternData = {
+							'0': 'R', '4': 'S', '8': 'R', '12': 'S',
+							'2': 'H', '6': 'H', '10': 'H', '14': 'H'
+						};
+						break;
+					case 'funk-beat':
+						patternData = {
+							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
+							'1': 'H', '3': 'H', '5': 'H', '7': 'H',
+							'9': 'H', '11': 'H', '13': 'H', '15': 'H',
+							'6': 'C'
+						};
+						break;
+				}
+				
+				const measureHtml = `
+					<div class="measure-container">
+						<h4>Measure 1</h4>
+						<div class="measure-grid" data-measure="1">
+						</div>
+						<button class="btn btn-sm btn-danger remove-measure" style="display: none;">Remove Measure</button>
+					</div>
+				`;
+				$('#measures-container').append(measureHtml);
+				initializeMeasure(1);
+				
+				// Apply pattern
+				Object.keys(patternData).forEach(position => {
+					const cell = $(`.measure-grid[data-measure="1"] .measure-cell`).eq(parseInt(position));
+					cell.addClass('has-note').text(patternData[position]);
+				});
+			}
+			
+			function generateSheetMusic() {
+				const measures = [];
+				
+				$('.measure-container').each(function() {
+					const measureNum = $(this).find('.measure-grid').data('measure');
+					const notes = [];
+					
+					$(this).find('.measure-cell').each(function(index) {
+						const note = $(this).text();
+						if (note) {
+							notes.push({
+								position: index,
+								symbol: note
+							});
+						}
+					});
+					
+					measures.push({
+						measure: measureNum,
+						notes: notes
+					});
+				});
+				
+				// Display the generated sheet music
+				displaySheetMusic(measures);
+			}
+			
+			function displaySheetMusic(measures) {
+				let html = '<div class="text-center">';
+				html += '<h3>Generated Drum Sheet Music</h3>';
+				html += '<div class="sheet-music-display">';
+				
+				measures.forEach(measure => {
+					html += `<div class="measure-display" style="margin-bottom: 2rem;">`;
+					html += `<h4>Measure ${measure.measure}</h4>`;
+					html += `<div class="staff-display" style="background: white; border: 2px solid #333; padding: 1rem; border-radius: 8px;">`;
+					
+					// Create a simple staff representation
+					html += '<div class="staff-lines" style="position: relative; height: 80px; background: repeating-linear-gradient(0deg, transparent, transparent 19px, #333 19px, #333 20px);">';
+					
+					measure.notes.forEach(note => {
+						const left = (note.position / 16) * 100;
+						const top = getNotePosition(note.symbol);
+						html += `<div class="note" style="position: absolute; left: ${left}%; top: ${top}px; font-weight: bold; font-size: 1.2rem;">${note.symbol}</div>`;
+					});
+					
+					html += '</div>';
+					html += '</div>';
+					html += '</div>';
+				});
+				
+				html += '</div>';
+				html += '<div class="text-center mt-3">';
+				html += '<button class="btn btn-primary" onclick="downloadSheetMusic()">Download PDF</button>';
+				html += '<button class="btn btn-secondary ml-2" onclick="printSheetMusic()">Print</button>';
+				html += '</div>';
+				html += '</div>';
+				
+				$('#sheet-music-output').html(html);
+			}
+			
+			function getNotePosition(symbol) {
+				const positions = {
+					'B': 10, 'K': 10,  // Bass/Kick at bottom
+					'S': 30, 'X': 30,  // Snare in middle
+					'H': 50, 'O': 50, 'P': 50,  // Hi-hats at top
+					'C': 15, 'R': 25,  // Cymbals
+					'T': 35, 'M': 40, 'F': 45   // Toms
+				};
+				return positions[symbol] || 30;
+			}
+		});
+		
+		function downloadSheetMusic() {
+			alert('PDF download functionality will be implemented with a music notation library like VexFlow or ABC.js');
+		}
+		
+		function printSheetMusic() {
+			window.print();
+		}
+	</script>
+
+	</body>
+</html>
