@@ -496,6 +496,8 @@
 			
 			// Generate sheet music
 			$('#generate-sheet').click(function() {
+				console.log('Generating sheet music...');
+				console.log('Drum data:', drumData);
 				generateSheetMusic();
 			});
 			
@@ -651,6 +653,8 @@
 			}
 			
 			function displaySheetMusic(measures) {
+				console.log('Displaying sheet music for measures:', measures);
+				
 				let html = '<div class="text-center">';
 				html += '<h3>Professional Drum Sheet Music</h3>';
 				html += '<div class="sheet-music-display">';
@@ -675,86 +679,140 @@
 				
 				// Generate actual sheet music using VexFlow
 				setTimeout(() => {
+					console.log('Starting to render staffs...');
 					measures.forEach((measure, index) => {
+						console.log(`Rendering staff ${index}:`, measure);
 						renderDrumStaff(measure, index);
 					});
 				}, 100);
 			}
 			
 			function renderDrumStaff(measure, index) {
-				const { Vex } = VexFlow;
+				try {
+					// Check if VexFlow is available
+					if (typeof VexFlow === 'undefined') {
+						console.error('VexFlow not loaded');
+						renderSimpleStaff(measure, index);
+						return;
+					}
+					
+					const { Vex } = VexFlow;
+					const container = document.getElementById(`staff-${index}`);
+					if (!container) {
+						console.error('Container not found');
+						return;
+					}
+					
+					// Clear container
+					container.innerHTML = '';
+					
+					// Create renderer
+					const renderer = new Vex.Flow.Renderer(container, Vex.Flow.Renderer.Backends.SVG);
+					renderer.resize(800, 250);
+					const context = renderer.getContext();
+					
+					// Create staff
+					const staff = new Vex.Flow.Stave(10, 40, 780);
+					staff.addClef('percussion');
+					staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
+					staff.setContext(context).draw();
+					
+					// Create notes from drum data
+					const notes = [];
+					const notePositions = {};
+					
+					// Group notes by position
+					measure.notes.forEach(note => {
+						if (!notePositions[note.position]) {
+							notePositions[note.position] = [];
+						}
+						notePositions[note.position].push(note.symbol);
+					});
+					
+					// Convert to VexFlow notes
+					Object.keys(notePositions).forEach(position => {
+						const symbols = notePositions[position];
+						const timeValue = getTimeValue(measure.divisions, parseInt(position));
+						
+						// Create a chord for multiple notes at the same position
+						if (symbols.length > 1) {
+							const chordNotes = symbols.map(symbol => createDrumNote(symbol, timeValue)).filter(note => note);
+							if (chordNotes.length > 0) {
+								const chord = new Vex.Flow.StaveNote({
+									clef: 'percussion',
+									keys: chordNotes.map(note => note.getKeys()[0]),
+									duration: chordNotes[0].getDuration().toString()
+								});
+								notes.push(chord);
+							}
+						} else {
+							const note = createDrumNote(symbols[0], timeValue);
+							if (note) {
+								notes.push(note);
+							}
+						}
+					});
+					
+					// Sort notes by time
+					notes.sort((a, b) => a.getDuration().value() - b.getDuration().value());
+					
+					// Create voice and draw
+					if (notes.length > 0) {
+						const voice = new Vex.Flow.Voice({time: {num_beats: measure.beats, beat_value: 4}});
+						voice.addTickables(notes);
+						
+						// Create formatter
+						const formatter = new Vex.Flow.Formatter();
+						formatter.joinVoices([voice]);
+						formatter.format([voice], 750);
+						
+						// Draw notes
+						voice.draw(context, staff);
+					}
+					
+					// Add legend
+					addDrumLegend(context, staff);
+					
+				} catch (error) {
+					console.error('Error rendering staff:', error);
+					renderSimpleStaff(measure, index);
+				}
+			}
+			
+			function renderSimpleStaff(measure, index) {
 				const container = document.getElementById(`staff-${index}`);
 				if (!container) return;
 				
-				// Clear container
-				container.innerHTML = '';
+				let html = '<div style="text-align: center; padding: 20px;">';
+				html += '<div style="background: white; border: 2px solid #333; padding: 20px; border-radius: 8px; margin: 10px 0;">';
 				
-				// Create renderer
-				const renderer = new Vex.Flow.Renderer(container, Vex.Flow.Renderer.Backends.SVG);
-				renderer.resize(800, 250);
-				const context = renderer.getContext();
+				// Create staff lines
+				html += '<div style="position: relative; height: 120px; background: repeating-linear-gradient(0deg, transparent, transparent 19px, #333 19px, #333 20px); margin: 20px 0;">';
 				
-				// Create staff
-				const staff = new Vex.Flow.Stave(10, 40, 780);
-				staff.addClef('percussion');
-				staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
-				staff.setContext(context).draw();
+				// Add clef and time signature
+				html += '<div style="position: absolute; left: 10px; top: 10px; font-size: 24px; font-weight: bold;">𝄀</div>';
+				html += `<div style="position: absolute; left: 50px; top: 10px; font-size: 18px; font-weight: bold;">${measure.beats}/${measure.divisions}</div>`;
 				
-				// Create notes from drum data
-				const notes = [];
-				const notePositions = {};
-				
-				// Group notes by position
+				// Add notes
 				measure.notes.forEach(note => {
-					if (!notePositions[note.position]) {
-						notePositions[note.position] = [];
-					}
-					notePositions[note.position].push(note.symbol);
+					const left = (note.position / measure.divisions) * 80 + 20; // 80% width + 20px offset
+					const top = getNotePosition(note.symbol);
+					html += `<div style="position: absolute; left: ${left}%; top: ${top}px; font-weight: bold; font-size: 1.2rem; color: #66D37E;">${note.symbol}</div>`;
 				});
 				
-				// Convert to VexFlow notes
-				Object.keys(notePositions).forEach(position => {
-					const symbols = notePositions[position];
-					const timeValue = getTimeValue(measure.divisions, parseInt(position));
-					
-					// Create a chord for multiple notes at the same position
-					if (symbols.length > 1) {
-						const chordNotes = symbols.map(symbol => createDrumNote(symbol, timeValue)).filter(note => note);
-						if (chordNotes.length > 0) {
-							const chord = new Vex.Flow.StaveNote({
-								clef: 'percussion',
-								keys: chordNotes.map(note => note.getKeys()[0]),
-								duration: chordNotes[0].getDuration().toString()
-							});
-							notes.push(chord);
-						}
-					} else {
-						const note = createDrumNote(symbols[0], timeValue);
-						if (note) {
-							notes.push(note);
-						}
-					}
-				});
-				
-				// Sort notes by time
-				notes.sort((a, b) => a.getDuration().value() - b.getDuration().value());
-				
-				// Create voice and draw
-				if (notes.length > 0) {
-					const voice = new Vex.Flow.Voice({time: {num_beats: measure.beats, beat_value: 4}});
-					voice.addTickables(notes);
-					
-					// Create formatter
-					const formatter = new Vex.Flow.Formatter();
-					formatter.joinVoices([voice]);
-					formatter.format([voice], 750);
-					
-					// Draw notes
-					voice.draw(context, staff);
-				}
+				html += '</div>';
 				
 				// Add legend
-				addDrumLegend(context, staff);
+				html += '<div style="margin-top: 20px; font-size: 12px; text-align: left;">';
+				html += '<strong>Legend:</strong> ';
+				const legendItems = ['B=Bass', 'S=Snare', 'H=Hi-Hat', 'C=Crash', 'R=Ride', 'T=Tom1', 'M=Tom2', 'F=Floor Tom'];
+				html += legendItems.join(' | ');
+				html += '</div>';
+				
+				html += '</div>';
+				html += '</div>';
+				
+				container.innerHTML = html;
 			}
 			
 			function createDrumNote(symbol, timeValue) {
