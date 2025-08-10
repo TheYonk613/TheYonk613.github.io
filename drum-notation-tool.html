@@ -74,71 +74,100 @@
 			box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 		}
 		
-		.notation-grid {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			gap: 1rem;
-			margin-bottom: 2rem;
-		}
-		
-		.notation-cell {
-			background: white;
-			border: 2px solid #dee2e6;
-			border-radius: 6px;
-			padding: 1rem;
-			text-align: center;
-			cursor: pointer;
-			transition: all 0.3s ease;
-		}
-		
-		.notation-cell:hover {
-			border-color: #66D37E;
-			background: #f8fff9;
-		}
-		
-		.notation-cell.active {
-			background: #66D37E;
-			color: white;
-			border-color: #66D37E;
-		}
-		
-		.notation-cell.selected {
-			background: #ff6b6b;
-			color: white;
-			border-color: #ff6b6b;
-		}
-		
-		.measure-container {
+		.drum-grid-container {
 			background: white;
 			border: 2px solid #e9ecef;
 			border-radius: 8px;
 			padding: 1.5rem;
-			margin-bottom: 1rem;
+			margin-bottom: 2rem;
+			overflow-x: auto;
 		}
 		
-		.measure-grid {
-			display: grid;
-			grid-template-columns: repeat(16, 1fr);
-			gap: 0.5rem;
-			margin-bottom: 1rem;
+		.drum-grid {
+			border-collapse: collapse;
+			width: 100%;
+			min-width: 600px;
 		}
 		
-		.measure-cell {
+		.drum-grid th {
 			background: #f8f9fa;
 			border: 1px solid #dee2e6;
-			border-radius: 4px;
+			padding: 0.75rem 0.5rem;
+			text-align: center;
+			font-weight: 600;
+			font-size: 0.9rem;
+			color: #495057;
+		}
+		
+		.drum-grid td {
+			border: 1px solid #dee2e6;
 			padding: 0.5rem;
 			text-align: center;
 			cursor: pointer;
 			transition: all 0.2s ease;
-			font-size: 0.8rem;
+			min-width: 40px;
+			height: 40px;
+			vertical-align: middle;
 		}
 		
-		.measure-cell:hover {
+		.drum-grid td:hover {
 			background: #e9ecef;
 		}
 		
-		.measure-cell.has-note {
+		.drum-grid td.has-note {
+			background: #66D37E;
+			color: white;
+			border-color: #66D37E;
+			font-weight: bold;
+		}
+		
+		.drum-grid td.drum-label {
+			background: #f8f9fa;
+			font-weight: 600;
+			color: #495057;
+			cursor: default;
+			text-align: left;
+			padding-left: 1rem;
+		}
+		
+		.drum-grid td.drum-label:hover {
+			background: #f8f9fa;
+		}
+		
+		.time-signature-controls {
+			background: white;
+			border: 2px solid #e9ecef;
+			border-radius: 8px;
+			padding: 1.5rem;
+			margin-bottom: 2rem;
+		}
+		
+		.time-signature-controls h3 {
+			margin-bottom: 1rem;
+		}
+		
+		.time-signature-buttons {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+		
+		.time-signature-btn {
+			padding: 0.75rem 1.5rem;
+			border: 2px solid #dee2e6;
+			background: white;
+			border-radius: 6px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-weight: 600;
+		}
+		
+		.time-signature-btn:hover {
+			border-color: #66D37E;
+			background: #f8fff9;
+		}
+		
+		.time-signature-btn.active {
 			background: #66D37E;
 			color: white;
 			border-color: #66D37E;
@@ -261,61 +290,40 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-md-8">
-						<div class="notation-input">
-							<h3>Drum Notation Input</h3>
-							<p>Select your drum notation symbols:</p>
-							
-							<div class="notation-grid">
-								<div class="notation-cell" data-symbol="B">Bass Drum</div>
-								<div class="notation-cell" data-symbol="S">Snare</div>
-								<div class="notation-cell" data-symbol="H">Hi-Hat</div>
-								<div class="notation-cell" data-symbol="C">Crash</div>
-								<div class="notation-cell" data-symbol="R">Ride</div>
-								<div class="notation-cell" data-symbol="T">Tom 1</div>
-								<div class="notation-cell" data-symbol="M">Tom 2</div>
-								<div class="notation-cell" data-symbol="F">Floor Tom</div>
-								<div class="notation-cell" data-symbol="O">Open Hi-Hat</div>
-								<div class="notation-cell" data-symbol="X">Cross Stick</div>
-								<div class="notation-cell" data-symbol="P">Pedal Hi-Hat</div>
-								<div class="notation-cell" data-symbol="K">Kick</div>
+					<div class="col-md-12">
+						<div class="time-signature-controls">
+							<h3>Time Signature & Beats</h3>
+							<div class="time-signature-buttons">
+								<button class="time-signature-btn active" data-beats="4" data-divisions="4">4/4 (4 beats)</button>
+								<button class="time-signature-btn" data-beats="4" data-divisions="8">4/4 (8th notes)</button>
+								<button class="time-signature-btn" data-beats="4" data-divisions="16">4/4 (16th notes)</button>
+								<button class="time-signature-btn" data-beats="3" data-divisions="3">3/4 (3 beats)</button>
+								<button class="time-signature-btn" data-beats="3" data-divisions="6">3/4 (6th notes)</button>
+								<button class="time-signature-btn" data-beats="3" data-divisions="12">3/4 (12th notes)</button>
+								<button class="time-signature-btn" data-beats="6" data-divisions="6">6/8 (6 beats)</button>
+								<button class="time-signature-btn" data-beats="6" data-divisions="12">6/8 (12th notes)</button>
 							</div>
-							
-							<div id="measures-container">
-								<div class="measure-container">
-									<h4>Measure 1</h4>
-									<div class="measure-grid" data-measure="1">
-										<!-- 16 cells for 16th notes -->
-									</div>
-									<button class="btn btn-sm btn-danger remove-measure" style="display: none;">Remove Measure</button>
-								</div>
-							</div>
-							
-							<button class="btn btn-primary" id="add-measure">Add Another Measure</button>
-							<button class="generate-btn" id="generate-sheet">Generate Sheet Music</button>
 						</div>
-					</div>
-					
-					<div class="col-md-4">
-						<div class="notation-input">
-							<h3>Selected Instruments</h3>
-							<div id="selected-instruments">None selected</div>
-							<button class="btn btn-sm btn-outline-danger" id="clear-selection">Clear Selection</button>
-							
-							<h3>Quick Patterns</h3>
-							<div class="quick-patterns">
-								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="basic-beat">Basic Beat</button>
-								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="rock-beat">Rock Beat</button>
-								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="jazz-beat">Jazz Beat</button>
-								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="funk-beat">Funk Beat</button>
+						
+						<div class="drum-grid-container">
+							<h3>Drum Grid - Click cells to add/remove notes</h3>
+							<div id="drum-grid-wrapper">
+								<!-- Drum grid will be generated here -->
 							</div>
-							
-							<h3>Multi-Select Mode</h3>
-							<div class="multi-select-controls">
-								<button class="btn btn-sm btn-success" id="select-all">Select All</button>
-								<button class="btn btn-sm btn-info" id="select-common">Common Set</button>
-								<button class="btn btn-sm btn-warning" id="select-cymbals">Cymbals Only</button>
-								<button class="btn btn-sm btn-secondary" id="select-drums">Drums Only</button>
+						</div>
+						
+						<div class="row">
+							<div class="col-md-6">
+								<button class="generate-btn" id="generate-sheet">Generate Sheet Music</button>
+							</div>
+							<div class="col-md-6">
+								<div class="quick-patterns">
+									<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="basic-beat">Basic Beat</button>
+									<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="rock-beat">Rock Beat</button>
+									<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="jazz-beat">Jazz Beat</button>
+									<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="funk-beat">Funk Beat</button>
+									<button class="btn btn-sm btn-outline-danger" id="clear-grid">Clear Grid</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -408,75 +416,61 @@
 
 	<script>
 		$(document).ready(function() {
-			let selectedSymbols = [];
-			let measureCount = 1;
+			let currentBeats = 4;
+			let currentDivisions = 4;
+			let drumData = {};
 			
-			// Initialize first measure
-			initializeMeasure(1);
+			// Drum instruments configuration
+			const drumInstruments = [
+				{ symbol: 'B', name: 'Bass Drum' },
+				{ symbol: 'S', name: 'Snare' },
+				{ symbol: 'H', name: 'Hi-Hat' },
+				{ symbol: 'C', name: 'Crash' },
+				{ symbol: 'R', name: 'Ride' },
+				{ symbol: 'T', name: 'Tom 1' },
+				{ symbol: 'M', name: 'Tom 2' },
+				{ symbol: 'F', name: 'Floor Tom' },
+				{ symbol: 'O', name: 'Open Hi-Hat' },
+				{ symbol: 'X', name: 'Cross Stick' },
+				{ symbol: 'P', name: 'Pedal Hi-Hat' },
+				{ symbol: 'K', name: 'Kick' }
+			];
 			
-			// Notation symbol selection (multi-select)
-			$('.notation-cell').click(function() {
-				const symbol = $(this).data('symbol');
-				const symbolText = $(this).text();
+			// Initialize the drum grid
+			generateDrumGrid();
+			
+			// Time signature button clicks
+			$('.time-signature-btn').click(function() {
+				$('.time-signature-btn').removeClass('active');
+				$(this).addClass('active');
 				
-				if ($(this).hasClass('selected')) {
-					// Remove from selection
-					$(this).removeClass('selected');
-					selectedSymbols = selectedSymbols.filter(s => s.symbol !== symbol);
+				currentBeats = parseInt($(this).data('beats'));
+				currentDivisions = parseInt($(this).data('divisions'));
+				
+				generateDrumGrid();
+			});
+			
+			// Drum grid cell clicks
+			$(document).on('click', '.drum-grid td:not(.drum-label)', function() {
+				const drumSymbol = $(this).data('drum');
+				const beatPosition = $(this).data('beat');
+				const key = `${drumSymbol}-${beatPosition}`;
+				
+				if ($(this).hasClass('has-note')) {
+					// Remove note
+					$(this).removeClass('has-note').text('');
+					delete drumData[key];
 				} else {
-					// Add to selection
-					$(this).addClass('selected');
-					selectedSymbols.push({ symbol: symbol, text: symbolText });
-				}
-				
-				updateSelectedInstrumentsDisplay();
-			});
-			
-			// Measure cell click (places all selected symbols)
-			$(document).on('click', '.measure-cell', function() {
-				if (selectedSymbols.length > 0) {
-					// Clear the cell first
-					$(this).removeClass('has-note').empty();
-					
-					// Add all selected symbols
-					selectedSymbols.forEach((item, index) => {
-						if (index === 0) {
-							$(this).addClass('has-note').text(item.symbol);
-						} else {
-							// For multiple symbols, create a stacked display
-							const symbolSpan = $('<span>').text(item.symbol).css({
-								'position': 'absolute',
-								'top': (index * 15) + 'px',
-								'left': '50%',
-								'transform': 'translateX(-50%)',
-								'font-size': '0.7rem',
-								'color': '#ff6b6b'
-							});
-							$(this).append(symbolSpan);
-						}
-					});
+					// Add note
+					$(this).addClass('has-note').text(drumSymbol);
+					drumData[key] = drumSymbol;
 				}
 			});
 			
-			// Add measure
-			$('#add-measure').click(function() {
-				measureCount++;
-				const measureHtml = `
-					<div class="measure-container">
-						<h4>Measure ${measureCount}</h4>
-						<div class="measure-grid" data-measure="${measureCount}">
-						</div>
-						<button class="btn btn-sm btn-danger remove-measure">Remove Measure</button>
-					</div>
-				`;
-				$('#measures-container').append(measureHtml);
-				initializeMeasure(measureCount);
-			});
-			
-			// Remove measure
-			$(document).on('click', '.remove-measure', function() {
-				$(this).closest('.measure-container').remove();
-				updateMeasureNumbers();
+			// Clear grid
+			$('#clear-grid').click(function() {
+				$('.drum-grid td').removeClass('has-note').text('');
+				drumData = {};
 			});
 			
 			// Quick patterns
@@ -485,196 +479,156 @@
 				applyPattern(pattern);
 			});
 			
-			// Clear selection
-			$('#clear-selection').click(function() {
-				$('.notation-cell').removeClass('selected');
-				selectedSymbols = [];
-				updateSelectedInstrumentsDisplay();
-			});
-			
-			// Multi-select controls
-			$('#select-all').click(function() {
-				$('.notation-cell').addClass('selected');
-				selectedSymbols = [];
-				$('.notation-cell').each(function() {
-					selectedSymbols.push({
-						symbol: $(this).data('symbol'),
-						text: $(this).text()
-					});
-				});
-				updateSelectedInstrumentsDisplay();
-			});
-			
-			$('#select-common').click(function() {
-				$('.notation-cell').removeClass('selected');
-				selectedSymbols = [];
-				$('.notation-cell').each(function() {
-					const symbol = $(this).data('symbol');
-					if (['B', 'S', 'H', 'C'].includes(symbol)) {
-						$(this).addClass('selected');
-						selectedSymbols.push({
-							symbol: symbol,
-							text: $(this).text()
-						});
-					}
-				});
-				updateSelectedInstrumentsDisplay();
-			});
-			
-			$('#select-cymbals').click(function() {
-				$('.notation-cell').removeClass('selected');
-				selectedSymbols = [];
-				$('.notation-cell').each(function() {
-					const symbol = $(this).data('symbol');
-					if (['H', 'C', 'R', 'O', 'P'].includes(symbol)) {
-						$(this).addClass('selected');
-						selectedSymbols.push({
-							symbol: symbol,
-							text: $(this).text()
-						});
-					}
-				});
-				updateSelectedInstrumentsDisplay();
-			});
-			
-			$('#select-drums').click(function() {
-				$('.notation-cell').removeClass('selected');
-				selectedSymbols = [];
-				$('.notation-cell').each(function() {
-					const symbol = $(this).data('symbol');
-					if (['B', 'S', 'T', 'M', 'F', 'K', 'X'].includes(symbol)) {
-						$(this).addClass('selected');
-						selectedSymbols.push({
-							symbol: symbol,
-							text: $(this).text()
-						});
-					}
-				});
-				updateSelectedInstrumentsDisplay();
-			});
-			
 			// Generate sheet music
 			$('#generate-sheet').click(function() {
 				generateSheetMusic();
 			});
 			
-			function updateSelectedInstrumentsDisplay() {
-				if (selectedSymbols.length === 0) {
-					$('#selected-instruments').text('None selected');
-				} else {
-					const symbolsList = selectedSymbols.map(item => item.text).join(', ');
-					$('#selected-instruments').text(symbolsList);
-				}
-			}
-			
-			function initializeMeasure(measureNum) {
-				const measureGrid = $(`.measure-grid[data-measure="${measureNum}"]`);
-				measureGrid.empty();
+			function generateDrumGrid() {
+				const wrapper = $('#drum-grid-wrapper');
+				wrapper.empty();
 				
-				for (let i = 0; i < 16; i++) {
-					measureGrid.append('<div class="measure-cell"></div>');
+				// Create table
+				const table = $('<table class="drum-grid"></table>');
+				
+				// Create header row with beat numbers
+				const headerRow = $('<tr></tr>');
+				headerRow.append('<th>Drum</th>'); // Empty corner cell
+				
+				for (let i = 0; i < currentDivisions; i++) {
+					const beatLabel = getBeatLabel(i, currentBeats, currentDivisions);
+					headerRow.append(`<th>${beatLabel}</th>`);
 				}
+				table.append(headerRow);
+				
+				// Create rows for each drum instrument
+				drumInstruments.forEach(drum => {
+					const row = $('<tr></tr>');
+					row.append(`<td class="drum-label">${drum.name}</td>`);
+					
+					for (let i = 0; i < currentDivisions; i++) {
+						const cell = $(`<td data-drum="${drum.symbol}" data-beat="${i}"></td>`);
+						
+						// Check if this cell has existing data
+						const key = `${drum.symbol}-${i}`;
+						if (drumData[key]) {
+							cell.addClass('has-note').text(drum.symbol);
+						}
+						
+						row.append(cell);
+					}
+					table.append(row);
+				});
+				
+				wrapper.append(table);
 			}
 			
-			function updateMeasureNumbers() {
-				$('.measure-container').each(function(index) {
-					const measureNum = index + 1;
-					$(this).find('h4').text(`Measure ${measureNum}`);
-					$(this).find('.measure-grid').attr('data-measure', measureNum);
-				});
-				measureCount = $('.measure-container').length;
+			function getBeatLabel(position, beats, divisions) {
+				if (divisions === beats) {
+					// Simple beat numbers (1, 2, 3, 4)
+					return position + 1;
+				} else if (divisions === beats * 2) {
+					// 8th notes (1, &, 2, &, 3, &, 4, &)
+					return position % 2 === 0 ? Math.floor(position / 2) + 1 : '&';
+				} else if (divisions === beats * 4) {
+					// 16th notes (1, e, &, a, 2, e, &, a, etc.)
+					const beat = Math.floor(position / 4) + 1;
+					const subdivision = position % 4;
+					const labels = ['', 'e', '&', 'a'];
+					return beat + labels[subdivision];
+				} else if (divisions === beats * 2 && beats === 3) {
+					// 6th notes for 3/4 (1, &, 2, &, 3, &)
+					return position % 2 === 0 ? Math.floor(position / 2) + 1 : '&';
+				} else if (divisions === beats * 4 && beats === 3) {
+					// 12th notes for 3/4 (1, e, &, a, 2, e, &, a, 3, e, &, a)
+					const beat = Math.floor(position / 4) + 1;
+					const subdivision = position % 4;
+					const labels = ['', 'e', '&', 'a'];
+					return beat + labels[subdivision];
+				} else if (divisions === beats && beats === 6) {
+					// 6/8 time (1, 2, 3, 4, 5, 6)
+					return position + 1;
+				} else if (divisions === beats * 2 && beats === 6) {
+					// 12th notes for 6/8 (1, &, 2, &, 3, &, 4, &, 5, &, 6, &)
+					return position % 2 === 0 ? Math.floor(position / 2) + 1 : '&';
+				}
+				
+				return position + 1; // Fallback
 			}
 			
 			function applyPattern(pattern) {
-				// Clear existing measures
-				$('#measures-container').empty();
-				measureCount = 1;
+				// Clear existing data
+				drumData = {};
+				$('.drum-grid td').removeClass('has-note').text('');
 				
 				let patternData;
 				switch(pattern) {
 					case 'basic-beat':
 						patternData = {
-							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
-							'2': ['H'], '6': ['H'], '10': ['H'], '14': ['H']
+							'B': [0, 4, 8, 12],
+							'S': [4, 12],
+							'H': [2, 6, 10, 14]
 						};
 						break;
 					case 'rock-beat':
 						patternData = {
-							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
-							'1': ['H'], '3': ['H'], '5': ['H'], '7': ['H'],
-							'9': ['H'], '11': ['H'], '13': ['H'], '15': ['H']
+							'B': [0, 4, 8, 12],
+							'S': [4, 12],
+							'H': [1, 3, 5, 7, 9, 11, 13, 15]
 						};
 						break;
 					case 'jazz-beat':
 						patternData = {
-							'0': ['R'], '4': ['S'], '8': ['R'], '12': ['S'],
-							'2': ['H'], '6': ['H'], '10': ['H'], '14': ['H']
+							'R': [0, 8],
+							'S': [4, 12],
+							'H': [2, 6, 10, 14]
 						};
 						break;
 					case 'funk-beat':
 						patternData = {
-							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
-							'1': ['H'], '3': ['H'], '5': ['H'], '7': ['H'],
-							'9': ['H'], '11': ['H'], '13': ['H'], '15': ['H'],
-							'6': ['C']
+							'B': [0, 4, 8, 12],
+							'S': [4, 12],
+							'H': [1, 3, 5, 7, 9, 11, 13, 15],
+							'C': [6]
 						};
 						break;
 				}
 				
-				const measureHtml = `
-					<div class="measure-container">
-						<h4>Measure 1</h4>
-						<div class="measure-grid" data-measure="1">
-						</div>
-						<button class="btn btn-sm btn-danger remove-measure" style="display: none;">Remove Measure</button>
-					</div>
-				`;
-				$('#measures-container').append(measureHtml);
-				initializeMeasure(1);
-				
-				// Apply pattern with multiple symbols support
-				Object.keys(patternData).forEach(position => {
-					const cell = $(`.measure-grid[data-measure="1"] .measure-cell`).eq(parseInt(position));
-					const symbols = patternData[position];
-					
-					cell.addClass('has-note').text(symbols[0]);
-					
-					// Add additional symbols if there are multiple
-					symbols.slice(1).forEach((symbol, index) => {
-						const symbolSpan = $('<span>').text(symbol).css({
-							'position': 'absolute',
-							'top': ((index + 1) * 15) + 'px',
-							'left': '50%',
-							'transform': 'translateX(-50%)',
-							'font-size': '0.7rem',
-							'color': '#ff6b6b'
-						});
-						cell.append(symbolSpan);
+				// Apply pattern to current grid
+				Object.keys(patternData).forEach(drum => {
+					patternData[drum].forEach(beat => {
+						if (beat < currentDivisions) {
+							const key = `${drum}-${beat}`;
+							drumData[key] = drum;
+							
+							const cell = $(`.drum-grid td[data-drum="${drum}"][data-beat="${beat}"]`);
+							cell.addClass('has-note').text(drum);
+						}
 					});
 				});
 			}
 			
 			function generateSheetMusic() {
 				const measures = [];
+				const notes = [];
 				
-				$('.measure-container').each(function() {
-					const measureNum = $(this).find('.measure-grid').data('measure');
-					const notes = [];
-					
-					$(this).find('.measure-cell').each(function(index) {
-						const note = $(this).text();
-						if (note) {
-							notes.push({
-								position: index,
-								symbol: note
-							});
-						}
+				// Convert drum data to notes array
+				Object.keys(drumData).forEach(key => {
+					const [drum, beat] = key.split('-');
+					notes.push({
+						position: parseInt(beat),
+						symbol: drum
 					});
-					
-					measures.push({
-						measure: measureNum,
-						notes: notes
-					});
+				});
+				
+				// Sort notes by position
+				notes.sort((a, b) => a.position - b.position);
+				
+				measures.push({
+					measure: 1,
+					notes: notes,
+					beats: currentBeats,
+					divisions: currentDivisions
 				});
 				
 				// Display the generated sheet music
@@ -688,14 +642,14 @@
 				
 				measures.forEach(measure => {
 					html += `<div class="measure-display" style="margin-bottom: 2rem;">`;
-					html += `<h4>Measure ${measure.measure}</h4>`;
+					html += `<h4>Measure ${measure.measure} (${measure.beats}/${measure.divisions})</h4>`;
 					html += `<div class="staff-display" style="background: white; border: 2px solid #333; padding: 1rem; border-radius: 8px;">`;
 					
 					// Create a simple staff representation
 					html += '<div class="staff-lines" style="position: relative; height: 80px; background: repeating-linear-gradient(0deg, transparent, transparent 19px, #333 19px, #333 20px);">';
 					
 					measure.notes.forEach(note => {
-						const left = (note.position / 16) * 100;
+						const left = (note.position / measure.divisions) * 100;
 						const top = getNotePosition(note.symbol);
 						html += `<div class="note" style="position: absolute; left: ${left}%; top: ${top}px; font-weight: bold; font-size: 1.2rem;">${note.symbol}</div>`;
 					});
