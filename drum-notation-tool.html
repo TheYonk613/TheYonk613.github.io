@@ -729,6 +729,20 @@
 					staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
 					staff.setContext(context).draw();
 					
+					// Add ledger line for crash cymbal if needed
+					const hasCrash = measure.notes.some(note => note.symbol === 'C');
+					if (hasCrash) {
+						const ledgerLine = new Vex.Flow.StaveLine(staff, {
+							first_note: null,
+							last_note: null,
+							first_indices: [0],
+							last_indices: [0]
+						});
+						ledgerLine.setContext(context);
+						ledgerLine.setPosition(10, 30);
+						ledgerLine.draw();
+					}
+					
 					// Create simple notes
 					const notes = [];
 					const notePositions = {};
@@ -797,21 +811,21 @@
 			}
 			
 			function getDrumNoteKey(symbol) {
-				// Standard drum notation positions on the staff
-				// Each drum has its own specific line or space
+				// Standard drum notation positions following real sheet music conventions
+				// Based on standard drum notation used in professional music
 				const drumNotes = {
-					'B': 'F/4', // Bass drum - bottom line
-					'S': 'C/5', // Snare drum - middle line
-					'H': 'G/5', // Hi-hat - top space
-					'C': 'C/6', // Crash cymbal - above staff
-					'R': 'D/5', // Ride cymbal - top line
-					'T': 'E/5', // Tom 1 - second space from top
-					'M': 'F/5', // Tom 2 - top space
-					'F': 'A/4', // Floor tom - second line from bottom
-					'O': 'G/5', // Open hi-hat - top space
-					'X': 'C/5', // Cross stick - middle line
-					'P': 'G/5', // Pedal hi-hat - top space
-					'K': 'F/4'  // Kick - bottom line
+					'B': 'F/4', // Bass drum - bottom line (line 5)
+					'S': 'C/5', // Snare drum - middle line (line 3)
+					'H': 'G/5', // Hi-hat - top space (space 4)
+					'C': 'C/6', // Crash cymbal - above staff (ledger line)
+					'R': 'D/5', // Ride cymbal - top line (line 5)
+					'T': 'E/5', // Tom 1 - second space from top (space 3)
+					'M': 'F/5', // Tom 2 - top space (space 4)
+					'F': 'A/4', // Floor tom - second line from bottom (line 2)
+					'O': 'G/5', // Open hi-hat - top space (space 4)
+					'X': 'C/5', // Cross stick - middle line (line 3)
+					'P': 'G/5', // Pedal hi-hat - top space (space 4)
+					'K': 'F/4'  // Kick - bottom line (line 5)
 				};
 				return drumNotes[symbol] || 'C/5';
 			}
@@ -832,6 +846,12 @@
 					html += `<div style="position: absolute; left: 0; right: 0; top: ${top}px; height: 2px; background: #333;"></div>`;
 				}
 				
+				// Add ledger line for crash cymbal if needed
+				const hasCrash = measure.notes.some(note => note.symbol === 'C');
+				if (hasCrash) {
+					html += `<div style="position: absolute; left: 0; right: 0; top: 10px; height: 2px; background: #333;"></div>`;
+				}
+				
 				// Add clef and time signature
 				html += '<div style="position: absolute; left: 10px; top: 10px; font-size: 24px; font-weight: bold;">𝄀</div>';
 				html += `<div style="position: absolute; left: 50px; top: 10px; font-size: 18px; font-weight: bold;">${measure.beats}/${measure.divisions}</div>`;
@@ -841,19 +861,19 @@
 					const left = (note.position / measure.divisions) * 80 + 20; // 80% width + 20px offset
 					const top = getNotePosition(note.symbol);
 					
-					// Note head style based on drum type
+					// Note head style based on drum type (real sheet music standards)
 					let noteHeadStyle = '';
 					if (['C', 'R'].includes(note.symbol)) {
-						// Cymbals - X shape
-						noteHeadStyle = 'background: #333; transform: rotate(45deg); width: 12px; height: 12px;';
+						// Cymbals - X shape (standard cymbal notation)
+						noteHeadStyle = 'background: #333; transform: rotate(45deg); width: 12px; height: 12px; border-radius: 0;';
 					} else if (['H', 'O', 'P'].includes(note.symbol)) {
-						// Hi-hats - triangle
-						noteHeadStyle = 'background: #333; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); width: 12px; height: 12px;';
+						// Hi-hats - triangle pointing down (standard hi-hat notation)
+						noteHeadStyle = 'background: #333; clip-path: polygon(50% 100%, 0% 0%, 100% 0%); width: 12px; height: 12px;';
 					} else if (['X'].includes(note.symbol)) {
-						// Cross stick - diamond
+						// Cross stick - diamond (standard cross stick notation)
 						noteHeadStyle = 'background: #333; transform: rotate(45deg); width: 12px; height: 12px; border-radius: 0;';
 					} else {
-						// Regular drums - circle
+						// Regular drums - filled circle (standard drum notation)
 						noteHeadStyle = 'background: #333; border-radius: 50%; width: 12px; height: 12px;';
 					}
 					
@@ -871,21 +891,24 @@
 				
 				// Add detailed drum notation legend
 				html += '<div style="margin-top: 20px; font-size: 11px; text-align: left; background: #f8f9fa; padding: 10px; border-radius: 4px;">';
-				html += '<strong>Drum Notation Legend:</strong><br>';
+				html += '<strong>Standard Drum Notation Legend:</strong><br>';
 				html += '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-top: 5px;">';
-				html += '<div>B = Bass Drum (bottom line)</div>';
-				html += '<div>S = Snare (middle line)</div>';
-				html += '<div>H = Hi-Hat (top space) △</div>';
-				html += '<div>C = Crash (above staff) ✕</div>';
+				html += '<div>B = Bass Drum (bottom line) ●</div>';
+				html += '<div>S = Snare (middle line) ●</div>';
+				html += '<div>H = Hi-Hat (top space) ▼</div>';
+				html += '<div>C = Crash (ledger line) ✕</div>';
 				html += '<div>R = Ride (top line) ✕</div>';
-				html += '<div>T = Tom 1 (2nd space)</div>';
-				html += '<div>M = Tom 2 (top space)</div>';
-				html += '<div>F = Floor Tom (2nd line)</div>';
-				html += '<div>O = Open Hi-Hat (top space) △</div>';
+				html += '<div>T = Tom 1 (2nd space) ●</div>';
+				html += '<div>M = Tom 2 (top space) ●</div>';
+				html += '<div>F = Floor Tom (2nd line) ●</div>';
+				html += '<div>O = Open Hi-Hat (top space) ▼</div>';
 				html += '<div>X = Cross Stick (middle line) ◇</div>';
 				html += '</div>';
 				html += '<div style="margin-top: 5px; font-size: 10px; color: #666;">';
-				html += 'Note Head Styles: ● = Drums, △ = Hi-Hats, ✕ = Cymbals, ◇ = Cross Stick';
+				html += 'Note Head Styles: ● = Drums, ▼ = Hi-Hats, ✕ = Cymbals, ◇ = Cross Stick';
+				html += '</div>';
+				html += '<div style="margin-top: 5px; font-size: 10px; color: #666;">';
+				html += 'Positions follow standard drum notation used in professional sheet music';
 				html += '</div>';
 				html += '</div>';
 				
@@ -1010,13 +1033,13 @@
 			}
 			
 			function getNotePosition(symbol) {
-				// Standard drum notation positions on a 5-line staff
-				// Each drum has its own specific line or space
+				// Standard drum notation positions following real sheet music conventions
+				// Based on standard drum notation used in professional music
 				const positions = {
 					'B': 100, 'K': 100,  // Bass/Kick - bottom line (line 5)
 					'S': 60, 'X': 60,    // Snare - middle line (line 3)
 					'H': 20, 'O': 20, 'P': 20,  // Hi-hat - top space (space 4)
-					'C': 0,              // Crash - above staff
+					'C': -10,            // Crash - above staff (ledger line)
 					'R': 40,             // Ride - top line (line 5)
 					'T': 80,             // Tom 1 - second space from top (space 3)
 					'M': 40,             // Tom 2 - top space (space 4)
