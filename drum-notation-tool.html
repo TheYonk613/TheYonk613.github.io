@@ -52,6 +52,9 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- VexFlow for music notation -->
+	<script src="https://unpkg.com/vexflow@4.2.2/build/cjs/vexflow.js"></script>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -222,6 +225,18 @@
 		
 		.instructions li {
 			margin-bottom: 0.5rem;
+		}
+		
+		.vex-staff {
+			background: white;
+			border-radius: 4px;
+			padding: 10px;
+			margin: 10px 0;
+		}
+		
+		.vex-staff svg {
+			max-width: 100%;
+			height: auto;
 		}
 	</style>
 
@@ -637,24 +652,14 @@
 			
 			function displaySheetMusic(measures) {
 				let html = '<div class="text-center">';
-				html += '<h3>Generated Drum Sheet Music</h3>';
+				html += '<h3>Professional Drum Sheet Music</h3>';
 				html += '<div class="sheet-music-display">';
 				
-				measures.forEach(measure => {
+				measures.forEach((measure, index) => {
 					html += `<div class="measure-display" style="margin-bottom: 2rem;">`;
 					html += `<h4>Measure ${measure.measure} (${measure.beats}/${measure.divisions})</h4>`;
 					html += `<div class="staff-display" style="background: white; border: 2px solid #333; padding: 1rem; border-radius: 8px;">`;
-					
-					// Create a simple staff representation
-					html += '<div class="staff-lines" style="position: relative; height: 80px; background: repeating-linear-gradient(0deg, transparent, transparent 19px, #333 19px, #333 20px);">';
-					
-					measure.notes.forEach(note => {
-						const left = (note.position / measure.divisions) * 100;
-						const top = getNotePosition(note.symbol);
-						html += `<div class="note" style="position: absolute; left: ${left}%; top: ${top}px; font-weight: bold; font-size: 1.2rem;">${note.symbol}</div>`;
-					});
-					
-					html += '</div>';
+					html += `<div id="staff-${index}" class="vex-staff"></div>`;
 					html += '</div>';
 					html += '</div>';
 				});
@@ -667,6 +672,181 @@
 				html += '</div>';
 				
 				$('#sheet-music-output').html(html);
+				
+				// Generate actual sheet music using VexFlow
+				setTimeout(() => {
+					measures.forEach((measure, index) => {
+						renderDrumStaff(measure, index);
+					});
+				}, 100);
+			}
+			
+			function renderDrumStaff(measure, index) {
+				const { Vex } = VexFlow;
+				const container = document.getElementById(`staff-${index}`);
+				if (!container) return;
+				
+				// Clear container
+				container.innerHTML = '';
+				
+				// Create renderer
+				const renderer = new Vex.Flow.Renderer(container, Vex.Flow.Renderer.Backends.SVG);
+				renderer.resize(800, 250);
+				const context = renderer.getContext();
+				
+				// Create staff
+				const staff = new Vex.Flow.Stave(10, 40, 780);
+				staff.addClef('percussion');
+				staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
+				staff.setContext(context).draw();
+				
+				// Create notes from drum data
+				const notes = [];
+				const notePositions = {};
+				
+				// Group notes by position
+				measure.notes.forEach(note => {
+					if (!notePositions[note.position]) {
+						notePositions[note.position] = [];
+					}
+					notePositions[note.position].push(note.symbol);
+				});
+				
+				// Convert to VexFlow notes
+				Object.keys(notePositions).forEach(position => {
+					const symbols = notePositions[position];
+					const timeValue = getTimeValue(measure.divisions, parseInt(position));
+					
+					// Create a chord for multiple notes at the same position
+					if (symbols.length > 1) {
+						const chordNotes = symbols.map(symbol => createDrumNote(symbol, timeValue)).filter(note => note);
+						if (chordNotes.length > 0) {
+							const chord = new Vex.Flow.StaveNote({
+								clef: 'percussion',
+								keys: chordNotes.map(note => note.getKeys()[0]),
+								duration: chordNotes[0].getDuration().toString()
+							});
+							notes.push(chord);
+						}
+					} else {
+						const note = createDrumNote(symbols[0], timeValue);
+						if (note) {
+							notes.push(note);
+						}
+					}
+				});
+				
+				// Sort notes by time
+				notes.sort((a, b) => a.getDuration().value() - b.getDuration().value());
+				
+				// Create voice and draw
+				if (notes.length > 0) {
+					const voice = new Vex.Flow.Voice({time: {num_beats: measure.beats, beat_value: 4}});
+					voice.addTickables(notes);
+					
+					// Create formatter
+					const formatter = new Vex.Flow.Formatter();
+					formatter.joinVoices([voice]);
+					formatter.format([voice], 750);
+					
+					// Draw notes
+					voice.draw(context, staff);
+				}
+				
+				// Add legend
+				addDrumLegend(context, staff);
+			}
+			
+			function createDrumNote(symbol, timeValue) {
+				const { Vex } = VexFlow;
+				
+				// Drum note mappings
+				const drumNotes = {
+					'B': 'B/4', // Bass drum
+					'S': 'C/5', // Snare drum
+					'H': 'G/5', // Hi-hat
+					'C': 'C/6', // Crash cymbal
+					'R': 'D/5', // Ride cymbal
+					'T': 'E/5', // Tom 1
+					'M': 'F/5', // Tom 2
+					'F': 'A/4', // Floor tom
+					'O': 'G/5', // Open hi-hat
+					'X': 'C/5', // Cross stick
+					'P': 'G/5', // Pedal hi-hat
+					'K': 'B/4'  // Kick
+				};
+				
+				const noteKey = drumNotes[symbol];
+				if (!noteKey) return null;
+				
+				// Create note based on time value
+				let note;
+				if (timeValue === 1) {
+					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: 'q'});
+				} else if (timeValue === 0.5) {
+					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: '8'});
+				} else if (timeValue === 0.25) {
+					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: '16'});
+				} else if (timeValue === 0.333) {
+					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: '8d'});
+				} else {
+					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: 'q'});
+				}
+				
+				// Add note head style for different drums
+				if (['B', 'K'].includes(symbol)) {
+					note.addAccidental(0, new Vex.Flow.Accidental('bb'));
+				} else if (['C', 'R'].includes(symbol)) {
+					note.setNoteHeadType(Vex.Flow.NoteHeadType.X);
+				}
+				
+				return note;
+			}
+			
+			function getTimeValue(divisions, position) {
+				if (divisions === 4) return 1; // Quarter notes
+				if (divisions === 8) return 0.5; // Eighth notes
+				if (divisions === 16) return 0.25; // Sixteenth notes
+				if (divisions === 3) return 1; // Quarter notes
+				if (divisions === 6) return 0.5; // Eighth notes
+				if (divisions === 12) return 0.25; // Sixteenth notes
+				return 1; // Default
+			}
+			
+			function addDrumLegend(context, staff) {
+				const { Vex } = VexFlow;
+				
+				// Add legend below the staff
+				const legendY = staff.getY() + staff.getHeight() + 30;
+				let legendX = staff.getX();
+				
+				const legendItems = [
+					{ symbol: 'B', name: 'Bass Drum' },
+					{ symbol: 'S', name: 'Snare' },
+					{ symbol: 'H', name: 'Hi-Hat' },
+					{ symbol: 'C', name: 'Crash' },
+					{ symbol: 'R', name: 'Ride' },
+					{ symbol: 'T', name: 'Tom 1' },
+					{ symbol: 'M', name: 'Tom 2' },
+					{ symbol: 'F', name: 'Floor Tom' }
+				];
+				
+				legendItems.forEach((item, index) => {
+					if (index > 0 && index % 4 === 0) {
+						legendX = staff.getX();
+						legendY += 20;
+					}
+					
+					const text = new Vex.Flow.TextNote({
+						text: `${item.symbol} = ${item.name}`,
+						font: { family: 'Arial', size: 10 }
+					});
+					text.setContext(context);
+					text.setPosition(legendX, legendY);
+					text.draw();
+					
+					legendX += 150;
+				});
 			}
 			
 			function getNotePosition(symbol) {
@@ -682,7 +862,38 @@
 		});
 		
 		function downloadSheetMusic() {
-			alert('PDF download functionality will be implemented with a music notation library like VexFlow or ABC.js');
+			// Create a new window for printing
+			const printWindow = window.open('', '_blank');
+			printWindow.document.write(`
+				<!DOCTYPE html>
+				<html>
+				<head>
+					<title>Drum Sheet Music</title>
+					<style>
+						body { font-family: Arial, sans-serif; margin: 20px; }
+						.sheet-music { text-align: center; margin-bottom: 30px; }
+						.vex-staff { margin: 20px 0; }
+						@media print {
+							body { margin: 0; }
+							.sheet-music { page-break-inside: avoid; }
+						}
+					</style>
+				</head>
+				<body>
+					<h1>Drum Sheet Music</h1>
+					<div class="sheet-music">
+						${$('#sheet-music-output').html()}
+					</div>
+				</body>
+				</html>
+			`);
+			printWindow.document.close();
+			printWindow.focus();
+			
+			// Wait for content to load then print
+			setTimeout(() => {
+				printWindow.print();
+			}, 1000);
 		}
 		
 		function printSheetMusic() {
