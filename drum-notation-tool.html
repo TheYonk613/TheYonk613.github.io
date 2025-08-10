@@ -754,9 +754,20 @@
 							duration: getDurationString(timeValue)
 						});
 						
-						// Set note head style
-						if (['C', 'R'].includes(symbols[0])) {
+						// Set note head style based on drum type
+						const symbol = symbols[0];
+						if (['C', 'R'].includes(symbol)) {
+							// Cymbals - X note head
 							note.setNoteHeadType(Vex.Flow.NoteHeadType.X);
+						} else if (['H', 'O', 'P'].includes(symbol)) {
+							// Hi-hats - triangle note head
+							note.setNoteHeadType(Vex.Flow.NoteHeadType.TRIANGLE_DOWN);
+						} else if (['X'].includes(symbol)) {
+							// Cross stick - diamond note head
+							note.setNoteHeadType(Vex.Flow.NoteHeadType.DIAMOND);
+						} else {
+							// Regular drums - normal filled note head
+							note.setNoteHeadType(Vex.Flow.NoteHeadType.NORMAL);
 						}
 						
 						note.setStemDirection(Vex.Flow.Stem.UP);
@@ -786,19 +797,21 @@
 			}
 			
 			function getDrumNoteKey(symbol) {
+				// Standard drum notation positions on the staff
+				// Each drum has its own specific line or space
 				const drumNotes = {
-					'B': 'F/4', // Bass drum
-					'S': 'C/5', // Snare drum
-					'H': 'G/5', // Hi-hat
-					'C': 'C/6', // Crash cymbal
-					'R': 'D/5', // Ride cymbal
-					'T': 'E/5', // Tom 1
-					'M': 'F/5', // Tom 2
-					'F': 'A/4', // Floor tom
-					'O': 'G/5', // Open hi-hat
-					'X': 'C/5', // Cross stick
-					'P': 'G/5', // Pedal hi-hat
-					'K': 'F/4'  // Kick
+					'B': 'F/4', // Bass drum - bottom line
+					'S': 'C/5', // Snare drum - middle line
+					'H': 'G/5', // Hi-hat - top space
+					'C': 'C/6', // Crash cymbal - above staff
+					'R': 'D/5', // Ride cymbal - top line
+					'T': 'E/5', // Tom 1 - second space from top
+					'M': 'F/5', // Tom 2 - top space
+					'F': 'A/4', // Floor tom - second line from bottom
+					'O': 'G/5', // Open hi-hat - top space
+					'X': 'C/5', // Cross stick - middle line
+					'P': 'G/5', // Pedal hi-hat - top space
+					'K': 'F/4'  // Kick - bottom line
 				};
 				return drumNotes[symbol] || 'C/5';
 			}
@@ -823,13 +836,29 @@
 				html += '<div style="position: absolute; left: 10px; top: 10px; font-size: 24px; font-weight: bold;">𝄀</div>';
 				html += `<div style="position: absolute; left: 50px; top: 10px; font-size: 18px; font-weight: bold;">${measure.beats}/${measure.divisions}</div>`;
 				
-				// Add notes with stems
+				// Add notes with stems and proper note head styles
 				measure.notes.forEach(note => {
 					const left = (note.position / measure.divisions) * 80 + 20; // 80% width + 20px offset
 					const top = getNotePosition(note.symbol);
 					
+					// Note head style based on drum type
+					let noteHeadStyle = '';
+					if (['C', 'R'].includes(note.symbol)) {
+						// Cymbals - X shape
+						noteHeadStyle = 'background: #333; transform: rotate(45deg); width: 12px; height: 12px;';
+					} else if (['H', 'O', 'P'].includes(note.symbol)) {
+						// Hi-hats - triangle
+						noteHeadStyle = 'background: #333; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); width: 12px; height: 12px;';
+					} else if (['X'].includes(note.symbol)) {
+						// Cross stick - diamond
+						noteHeadStyle = 'background: #333; transform: rotate(45deg); width: 12px; height: 12px; border-radius: 0;';
+					} else {
+						// Regular drums - circle
+						noteHeadStyle = 'background: #333; border-radius: 50%; width: 12px; height: 12px;';
+					}
+					
 					// Note head
-					html += `<div style="position: absolute; left: ${left}%; top: ${top}px; width: 12px; height: 12px; background: #333; border-radius: 50%;"></div>`;
+					html += `<div style="position: absolute; left: ${left}%; top: ${top}px; ${noteHeadStyle}"></div>`;
 					
 					// Stem
 					html += `<div style="position: absolute; left: ${left + 0.5}%; top: ${top - 10}px; width: 2px; height: 30px; background: #333;"></div>`;
@@ -840,10 +869,24 @@
 				
 				html += '</div>';
 				
-				// Add legend
-				html += '<div style="margin-top: 20px; font-size: 12px; text-align: left;">';
+				// Add detailed drum notation legend
+				html += '<div style="margin-top: 20px; font-size: 11px; text-align: left; background: #f8f9fa; padding: 10px; border-radius: 4px;">';
 				html += '<strong>Drum Notation Legend:</strong><br>';
-				html += 'B=Bass Drum | S=Snare | H=Hi-Hat | C=Crash | R=Ride | T=Tom1 | M=Tom2 | F=Floor Tom';
+				html += '<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; margin-top: 5px;">';
+				html += '<div>B = Bass Drum (bottom line)</div>';
+				html += '<div>S = Snare (middle line)</div>';
+				html += '<div>H = Hi-Hat (top space) △</div>';
+				html += '<div>C = Crash (above staff) ✕</div>';
+				html += '<div>R = Ride (top line) ✕</div>';
+				html += '<div>T = Tom 1 (2nd space)</div>';
+				html += '<div>M = Tom 2 (top space)</div>';
+				html += '<div>F = Floor Tom (2nd line)</div>';
+				html += '<div>O = Open Hi-Hat (top space) △</div>';
+				html += '<div>X = Cross Stick (middle line) ◇</div>';
+				html += '</div>';
+				html += '<div style="margin-top: 5px; font-size: 10px; color: #666;">';
+				html += 'Note Head Styles: ● = Drums, △ = Hi-Hats, ✕ = Cymbals, ◇ = Cross Stick';
+				html += '</div>';
 				html += '</div>';
 				
 				html += '</div>';
@@ -967,14 +1010,19 @@
 			}
 			
 			function getNotePosition(symbol) {
+				// Standard drum notation positions on a 5-line staff
+				// Each drum has its own specific line or space
 				const positions = {
-					'B': 10, 'K': 10,  // Bass/Kick at bottom
-					'S': 30, 'X': 30,  // Snare in middle
-					'H': 50, 'O': 50, 'P': 50,  // Hi-hats at top
-					'C': 15, 'R': 25,  // Cymbals
-					'T': 35, 'M': 40, 'F': 45   // Toms
+					'B': 100, 'K': 100,  // Bass/Kick - bottom line (line 5)
+					'S': 60, 'X': 60,    // Snare - middle line (line 3)
+					'H': 20, 'O': 20, 'P': 20,  // Hi-hat - top space (space 4)
+					'C': 0,              // Crash - above staff
+					'R': 40,             // Ride - top line (line 5)
+					'T': 80,             // Tom 1 - second space from top (space 3)
+					'M': 40,             // Tom 2 - top space (space 4)
+					'F': 80              // Floor Tom - second line from bottom (line 2)
 				};
-				return positions[symbol] || 30;
+				return positions[symbol] || 60;
 			}
 		});
 		
