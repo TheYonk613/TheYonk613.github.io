@@ -102,6 +102,12 @@
 			border-color: #66D37E;
 		}
 		
+		.notation-cell.selected {
+			background: #ff6b6b;
+			color: white;
+			border-color: #ff6b6b;
+		}
+		
 		.measure-container {
 			background: white;
 			border: 2px solid #e9ecef;
@@ -244,10 +250,11 @@
 						<div class="instructions">
 							<h3>How to Use the Drum Notation Generator</h3>
 							<ul>
-								<li><strong>Step 1:</strong> Select the drum notation symbols you want to use from the grid below</li>
-								<li><strong>Step 2:</strong> Click on the measure grid cells to place your drum hits</li>
-								<li><strong>Step 3:</strong> Add multiple measures as needed</li>
-								<li><strong>Step 4:</strong> Click "Generate Sheet Music" to create your professional notation</li>
+								<li><strong>Step 1:</strong> Select multiple drum notation symbols by clicking them (they'll turn red when selected)</li>
+								<li><strong>Step 2:</strong> Use quick-select buttons for common instrument groups</li>
+								<li><strong>Step 3:</strong> Click on measure grid cells to place all selected instruments at once</li>
+								<li><strong>Step 4:</strong> Add multiple measures and repeat the process</li>
+								<li><strong>Step 5:</strong> Click "Generate Sheet Music" to create your professional notation</li>
 							</ul>
 						</div>
 					</div>
@@ -291,8 +298,9 @@
 					
 					<div class="col-md-4">
 						<div class="notation-input">
-							<h3>Current Selection</h3>
-							<div id="current-symbol">None selected</div>
+							<h3>Selected Instruments</h3>
+							<div id="selected-instruments">None selected</div>
+							<button class="btn btn-sm btn-outline-danger" id="clear-selection">Clear Selection</button>
 							
 							<h3>Quick Patterns</h3>
 							<div class="quick-patterns">
@@ -300,6 +308,14 @@
 								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="rock-beat">Rock Beat</button>
 								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="jazz-beat">Jazz Beat</button>
 								<button class="btn btn-sm btn-outline-primary pattern-btn" data-pattern="funk-beat">Funk Beat</button>
+							</div>
+							
+							<h3>Multi-Select Mode</h3>
+							<div class="multi-select-controls">
+								<button class="btn btn-sm btn-success" id="select-all">Select All</button>
+								<button class="btn btn-sm btn-info" id="select-common">Common Set</button>
+								<button class="btn btn-sm btn-warning" id="select-cymbals">Cymbals Only</button>
+								<button class="btn btn-sm btn-secondary" id="select-drums">Drums Only</button>
 							</div>
 						</div>
 					</div>
@@ -392,24 +408,53 @@
 
 	<script>
 		$(document).ready(function() {
-			let currentSymbol = null;
+			let selectedSymbols = [];
 			let measureCount = 1;
 			
 			// Initialize first measure
 			initializeMeasure(1);
 			
-			// Notation symbol selection
+			// Notation symbol selection (multi-select)
 			$('.notation-cell').click(function() {
-				$('.notation-cell').removeClass('active');
-				$(this).addClass('active');
-				currentSymbol = $(this).data('symbol');
-				$('#current-symbol').text($(this).text());
+				const symbol = $(this).data('symbol');
+				const symbolText = $(this).text();
+				
+				if ($(this).hasClass('selected')) {
+					// Remove from selection
+					$(this).removeClass('selected');
+					selectedSymbols = selectedSymbols.filter(s => s.symbol !== symbol);
+				} else {
+					// Add to selection
+					$(this).addClass('selected');
+					selectedSymbols.push({ symbol: symbol, text: symbolText });
+				}
+				
+				updateSelectedInstrumentsDisplay();
 			});
 			
-			// Measure cell click
+			// Measure cell click (places all selected symbols)
 			$(document).on('click', '.measure-cell', function() {
-				if (currentSymbol) {
-					$(this).addClass('has-note').text(currentSymbol);
+				if (selectedSymbols.length > 0) {
+					// Clear the cell first
+					$(this).removeClass('has-note').empty();
+					
+					// Add all selected symbols
+					selectedSymbols.forEach((item, index) => {
+						if (index === 0) {
+							$(this).addClass('has-note').text(item.symbol);
+						} else {
+							// For multiple symbols, create a stacked display
+							const symbolSpan = $('<span>').text(item.symbol).css({
+								'position': 'absolute',
+								'top': (index * 15) + 'px',
+								'left': '50%',
+								'transform': 'translateX(-50%)',
+								'font-size': '0.7rem',
+								'color': '#ff6b6b'
+							});
+							$(this).append(symbolSpan);
+						}
+					});
 				}
 			});
 			
@@ -440,10 +485,87 @@
 				applyPattern(pattern);
 			});
 			
+			// Clear selection
+			$('#clear-selection').click(function() {
+				$('.notation-cell').removeClass('selected');
+				selectedSymbols = [];
+				updateSelectedInstrumentsDisplay();
+			});
+			
+			// Multi-select controls
+			$('#select-all').click(function() {
+				$('.notation-cell').addClass('selected');
+				selectedSymbols = [];
+				$('.notation-cell').each(function() {
+					selectedSymbols.push({
+						symbol: $(this).data('symbol'),
+						text: $(this).text()
+					});
+				});
+				updateSelectedInstrumentsDisplay();
+			});
+			
+			$('#select-common').click(function() {
+				$('.notation-cell').removeClass('selected');
+				selectedSymbols = [];
+				$('.notation-cell').each(function() {
+					const symbol = $(this).data('symbol');
+					if (['B', 'S', 'H', 'C'].includes(symbol)) {
+						$(this).addClass('selected');
+						selectedSymbols.push({
+							symbol: symbol,
+							text: $(this).text()
+						});
+					}
+				});
+				updateSelectedInstrumentsDisplay();
+			});
+			
+			$('#select-cymbals').click(function() {
+				$('.notation-cell').removeClass('selected');
+				selectedSymbols = [];
+				$('.notation-cell').each(function() {
+					const symbol = $(this).data('symbol');
+					if (['H', 'C', 'R', 'O', 'P'].includes(symbol)) {
+						$(this).addClass('selected');
+						selectedSymbols.push({
+							symbol: symbol,
+							text: $(this).text()
+						});
+					}
+				});
+				updateSelectedInstrumentsDisplay();
+			});
+			
+			$('#select-drums').click(function() {
+				$('.notation-cell').removeClass('selected');
+				selectedSymbols = [];
+				$('.notation-cell').each(function() {
+					const symbol = $(this).data('symbol');
+					if (['B', 'S', 'T', 'M', 'F', 'K', 'X'].includes(symbol)) {
+						$(this).addClass('selected');
+						selectedSymbols.push({
+							symbol: symbol,
+							text: $(this).text()
+						});
+					}
+				});
+				updateSelectedInstrumentsDisplay();
+			});
+			
 			// Generate sheet music
 			$('#generate-sheet').click(function() {
 				generateSheetMusic();
 			});
+			
+			function updateSelectedInstrumentsDisplay() {
+				if (selectedSymbols.length === 0) {
+					$('#selected-instruments').text('None selected');
+				} else {
+					const symbolsList = selectedSymbols.map(item => item.text).join(', ');
+					$('#selected-instruments').text(symbolsList);
+				}
+			}
 			
 			function initializeMeasure(measureNum) {
 				const measureGrid = $(`.measure-grid[data-measure="${measureNum}"]`);
@@ -472,29 +594,29 @@
 				switch(pattern) {
 					case 'basic-beat':
 						patternData = {
-							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
-							'2': 'H', '6': 'H', '10': 'H', '14': 'H'
+							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
+							'2': ['H'], '6': ['H'], '10': ['H'], '14': ['H']
 						};
 						break;
 					case 'rock-beat':
 						patternData = {
-							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
-							'1': 'H', '3': 'H', '5': 'H', '7': 'H',
-							'9': 'H', '11': 'H', '13': 'H', '15': 'H'
+							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
+							'1': ['H'], '3': ['H'], '5': ['H'], '7': ['H'],
+							'9': ['H'], '11': ['H'], '13': ['H'], '15': ['H']
 						};
 						break;
 					case 'jazz-beat':
 						patternData = {
-							'0': 'R', '4': 'S', '8': 'R', '12': 'S',
-							'2': 'H', '6': 'H', '10': 'H', '14': 'H'
+							'0': ['R'], '4': ['S'], '8': ['R'], '12': ['S'],
+							'2': ['H'], '6': ['H'], '10': ['H'], '14': ['H']
 						};
 						break;
 					case 'funk-beat':
 						patternData = {
-							'0': 'B', '4': 'S', '8': 'B', '12': 'S',
-							'1': 'H', '3': 'H', '5': 'H', '7': 'H',
-							'9': 'H', '11': 'H', '13': 'H', '15': 'H',
-							'6': 'C'
+							'0': ['B'], '4': ['S'], '8': ['B'], '12': ['S'],
+							'1': ['H'], '3': ['H'], '5': ['H'], '7': ['H'],
+							'9': ['H'], '11': ['H'], '13': ['H'], '15': ['H'],
+							'6': ['C']
 						};
 						break;
 				}
@@ -510,10 +632,25 @@
 				$('#measures-container').append(measureHtml);
 				initializeMeasure(1);
 				
-				// Apply pattern
+				// Apply pattern with multiple symbols support
 				Object.keys(patternData).forEach(position => {
 					const cell = $(`.measure-grid[data-measure="1"] .measure-cell`).eq(parseInt(position));
-					cell.addClass('has-note').text(patternData[position]);
+					const symbols = patternData[position];
+					
+					cell.addClass('has-note').text(symbols[0]);
+					
+					// Add additional symbols if there are multiple
+					symbols.slice(1).forEach((symbol, index) => {
+						const symbolSpan = $('<span>').text(symbol).css({
+							'position': 'absolute',
+							'top': ((index + 1) * 15) + 'px',
+							'left': '50%',
+							'transform': 'translateX(-50%)',
+							'font-size': '0.7rem',
+							'color': '#ff6b6b'
+						});
+						cell.append(symbolSpan);
+					});
 				});
 			}
 			
