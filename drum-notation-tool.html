@@ -711,11 +711,20 @@
 					renderer.resize(800, 250);
 					const context = renderer.getContext();
 					
-					// Create staff
-					const staff = new Vex.Flow.Stave(10, 40, 780);
-					staff.addClef('percussion');
-					staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
-					staff.setContext(context).draw();
+									// Create staff
+				const staff = new Vex.Flow.Stave(10, 40, 780);
+				staff.addClef('percussion');
+				staff.addTimeSignature(`${measure.beats}/${measure.divisions}`);
+				staff.setContext(context).draw();
+				
+				// Add drum set label
+				const drumLabel = new Vex.Flow.TextNote({
+					text: 'Drum Set',
+					font: { family: 'Arial', size: 12, weight: 'bold' }
+				});
+				drumLabel.setPosition(10, 20);
+				drumLabel.setContext(context);
+				drumLabel.draw();
 					
 					// Create notes from drum data
 					const notes = [];
@@ -729,29 +738,64 @@
 						notePositions[note.position].push(note.symbol);
 					});
 					
-					// Convert to VexFlow notes
-					Object.keys(notePositions).forEach(position => {
-						const symbols = notePositions[position];
-						const timeValue = getTimeValue(measure.divisions, parseInt(position));
-						
-						// Create a chord for multiple notes at the same position
-						if (symbols.length > 1) {
-							const chordNotes = symbols.map(symbol => createDrumNote(symbol, timeValue)).filter(note => note);
-							if (chordNotes.length > 0) {
+					// Convert to VexFlow notes with proper timing
+					const noteArray = [];
+					for (let i = 0; i < measure.divisions; i++) {
+						if (notePositions[i]) {
+							const symbols = notePositions[i];
+							const timeValue = getTimeValue(measure.divisions, i);
+							
+							// Create a chord for multiple notes at the same position
+							if (symbols.length > 1) {
+								const chordKeys = symbols.map(symbol => {
+									const drumNotes = {
+										'B': 'F/4', 'S': 'C/5', 'H': 'G/5', 'C': 'C/6',
+										'R': 'D/5', 'T': 'E/5', 'M': 'F/5', 'F': 'A/4',
+										'O': 'G/5', 'X': 'C/5', 'P': 'G/5', 'K': 'F/4'
+									};
+									return drumNotes[symbol] || 'C/5';
+								});
+								
 								const chord = new Vex.Flow.StaveNote({
 									clef: 'percussion',
-									keys: chordNotes.map(note => note.getKeys()[0]),
-									duration: chordNotes[0].getDuration().toString()
+									keys: chordKeys,
+									duration: getDurationString(timeValue)
 								});
-								notes.push(chord);
+								
+								// Set note head styles
+								chordKeys.forEach((key, index) => {
+									const symbol = symbols[index];
+									if (['C', 'R'].includes(symbol)) {
+										chord.setNoteHeadType(Vex.Flow.NoteHeadType.X, index);
+									} else if (['H', 'O', 'P'].includes(symbol)) {
+										chord.setNoteHeadType(Vex.Flow.NoteHeadType.TRIANGLE_DOWN, index);
+									} else if (['X'].includes(symbol)) {
+										chord.setNoteHeadType(Vex.Flow.NoteHeadType.DIAMOND, index);
+									}
+								});
+								
+								chord.setStemDirection(Vex.Flow.Stem.UP);
+								noteArray.push(chord);
+							} else {
+								const note = createDrumNote(symbols[0], timeValue);
+								if (note) {
+									noteArray.push(note);
+								}
 							}
 						} else {
-							const note = createDrumNote(symbols[0], timeValue);
-							if (note) {
-								notes.push(note);
-							}
+							// Add rest for empty positions
+							const rest = new Vex.Flow.StaveNote({
+								clef: 'percussion',
+								keys: ['b/4'],
+								duration: getDurationString(getTimeValue(measure.divisions, i))
+							});
+							rest.setNoteHeadType(Vex.Flow.NoteHeadType.HIDDEN);
+							rest.setStemDirection(Vex.Flow.Stem.UP);
+							noteArray.push(rest);
 						}
-					});
+					}
+					
+					notes.push(...noteArray);
 					
 					// Sort notes by time
 					notes.sort((a, b) => a.getDuration().value() - b.getDuration().value());
@@ -818,20 +862,20 @@
 			function createDrumNote(symbol, timeValue) {
 				const { Vex } = VexFlow;
 				
-				// Drum note mappings
+				// Drum note mappings with proper drum notation positions
 				const drumNotes = {
-					'B': 'B/4', // Bass drum
-					'S': 'C/5', // Snare drum
-					'H': 'G/5', // Hi-hat
-					'C': 'C/6', // Crash cymbal
-					'R': 'D/5', // Ride cymbal
-					'T': 'E/5', // Tom 1
-					'M': 'F/5', // Tom 2
-					'F': 'A/4', // Floor tom
-					'O': 'G/5', // Open hi-hat
-					'X': 'C/5', // Cross stick
-					'P': 'G/5', // Pedal hi-hat
-					'K': 'B/4'  // Kick
+					'B': 'F/4', // Bass drum (lowest line)
+					'S': 'C/5', // Snare drum (middle line)
+					'H': 'G/5', // Hi-hat (top space)
+					'C': 'C/6', // Crash cymbal (above staff)
+					'R': 'D/5', // Ride cymbal (top line)
+					'T': 'E/5', // Tom 1 (second space from top)
+					'M': 'F/5', // Tom 2 (top space)
+					'F': 'A/4', // Floor tom (second line from bottom)
+					'O': 'G/5', // Open hi-hat (top space)
+					'X': 'C/5', // Cross stick (middle line)
+					'P': 'G/5', // Pedal hi-hat (top space)
+					'K': 'F/4'  // Kick (lowest line)
 				};
 				
 				const noteKey = drumNotes[symbol];
@@ -851,12 +895,26 @@
 					note = new Vex.Flow.StaveNote({clef: 'percussion', keys: [noteKey], duration: 'q'});
 				}
 				
-				// Add note head style for different drums
+				// Set note head styles for different drums
 				if (['B', 'K'].includes(symbol)) {
-					note.addAccidental(0, new Vex.Flow.Accidental('bb'));
+					// Bass drum - filled note head
+					note.setNoteHeadType(Vex.Flow.NoteHeadType.NORMAL);
 				} else if (['C', 'R'].includes(symbol)) {
+					// Cymbals - X note head
 					note.setNoteHeadType(Vex.Flow.NoteHeadType.X);
+				} else if (['H', 'O', 'P'].includes(symbol)) {
+					// Hi-hats - triangle note head
+					note.setNoteHeadType(Vex.Flow.NoteHeadType.TRIANGLE_DOWN);
+				} else if (['X'].includes(symbol)) {
+					// Cross stick - diamond note head
+					note.setNoteHeadType(Vex.Flow.NoteHeadType.DIAMOND);
+				} else {
+					// Regular drums - normal note head
+					note.setNoteHeadType(Vex.Flow.NoteHeadType.NORMAL);
 				}
+				
+				// Add stems for all notes
+				note.setStemDirection(Vex.Flow.Stem.UP);
 				
 				return note;
 			}
@@ -871,6 +929,14 @@
 				return 1; // Default
 			}
 			
+			function getDurationString(timeValue) {
+				if (timeValue === 1) return 'q'; // Quarter note
+				if (timeValue === 0.5) return '8'; // Eighth note
+				if (timeValue === 0.25) return '16'; // Sixteenth note
+				if (timeValue === 0.333) return '8d'; // Dotted eighth note
+				return 'q'; // Default to quarter note
+			}
+			
 			function addDrumLegend(context, staff) {
 				const { Vex } = VexFlow;
 				
@@ -879,14 +945,14 @@
 				let legendX = staff.getX();
 				
 				const legendItems = [
-					{ symbol: 'B', name: 'Bass Drum' },
-					{ symbol: 'S', name: 'Snare' },
-					{ symbol: 'H', name: 'Hi-Hat' },
-					{ symbol: 'C', name: 'Crash' },
-					{ symbol: 'R', name: 'Ride' },
-					{ symbol: 'T', name: 'Tom 1' },
-					{ symbol: 'M', name: 'Tom 2' },
-					{ symbol: 'F', name: 'Floor Tom' }
+					{ symbol: 'B', name: 'Bass Drum', position: 'Bottom Line' },
+					{ symbol: 'S', name: 'Snare', position: 'Middle Line' },
+					{ symbol: 'H', name: 'Hi-Hat', position: 'Top Space' },
+					{ symbol: 'C', name: 'Crash', position: 'Above Staff' },
+					{ symbol: 'R', name: 'Ride', position: 'Top Line' },
+					{ symbol: 'T', name: 'Tom 1', position: '2nd Space' },
+					{ symbol: 'M', name: 'Tom 2', position: 'Top Space' },
+					{ symbol: 'F', name: 'Floor Tom', position: '2nd Line' }
 				];
 				
 				legendItems.forEach((item, index) => {
@@ -896,14 +962,14 @@
 					}
 					
 					const text = new Vex.Flow.TextNote({
-						text: `${item.symbol} = ${item.name}`,
-						font: { family: 'Arial', size: 10 }
+						text: `${item.symbol} = ${item.name} (${item.position})`,
+						font: { family: 'Arial', size: 9 }
 					});
 					text.setContext(context);
 					text.setPosition(legendX, legendY);
 					text.draw();
 					
-					legendX += 150;
+					legendX += 180;
 				});
 			}
 			
