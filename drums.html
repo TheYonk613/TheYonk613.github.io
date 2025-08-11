@@ -55,25 +55,30 @@
 	<!-- VexFlow for music notation -->
 	<script src="https://unpkg.com/vexflow@4.2.2/build/cjs/vexflow.js"></script>
 	<script>
+		// Global flag for VexFlow availability
+		window.vexFlowAvailable = false;
+		
 		// Check if VexFlow loaded
 		window.addEventListener('load', function() {
-			if (typeof VexFlow === 'undefined') {
-				console.log('VexFlow failed to load, will use fallback rendering');
-			} else {
+			if (typeof VexFlow !== 'undefined') {
 				console.log('VexFlow loaded successfully');
+				window.vexFlowAvailable = true;
+				$('#loading-indicator').hide();
+			} else {
+				console.log('VexFlow failed to load, will use fallback rendering');
+				window.vexFlowAvailable = false;
+				$('#loading-indicator').hide();
 			}
 		});
 		
-		// Fallback if VexFlow doesn't load
+		// Fallback if VexFlow doesn't load after timeout
 		setTimeout(function() {
-			if (typeof VexFlow === 'undefined') {
+			if (!window.vexFlowAvailable) {
 				console.log('VexFlow not loaded, using fallback mode');
 				$('#error-message').show();
 				$('#loading-indicator').hide();
-			} else {
-				$('#loading-indicator').hide();
 			}
-		}, 3000);
+		}, 5000);
 		
 		// Show loading indicator when page loads
 		$(document).ready(function() {
@@ -335,7 +340,7 @@
 							<i class="icon-spinner2"></i> Loading drum notation tool...
 						</div>
 						<div id="error-message" style="display: none; text-align: center; color: #e74c3c; margin: 20px 0;">
-							<i class="icon-warning"></i> There was an issue loading the tool. Please refresh the page.
+							<i class="icon-warning"></i> The advanced music notation library is loading slowly. The tool will still work with basic notation - try using it anyway!
 						</div>
 					</div>
 				</div>
@@ -728,7 +733,7 @@
 				
 				try {
 					// Check if VexFlow is available
-					if (typeof VexFlow === 'undefined') {
+					if (typeof VexFlow === 'undefined' || !window.vexFlowAvailable) {
 						console.log('VexFlow not loaded, using fallback');
 						renderSimpleStaff(measure, index);
 						return;
