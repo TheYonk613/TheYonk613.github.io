@@ -63,6 +63,25 @@
 				console.log('VexFlow loaded successfully');
 			}
 		});
+		
+		// Fallback if VexFlow doesn't load
+		setTimeout(function() {
+			if (typeof VexFlow === 'undefined') {
+				console.log('VexFlow not loaded, using fallback mode');
+				$('#error-message').show();
+				$('#loading-indicator').hide();
+			} else {
+				$('#loading-indicator').hide();
+			}
+		}, 3000);
+		
+		// Show loading indicator when page loads
+		$(document).ready(function() {
+			$('#loading-indicator').show();
+			setTimeout(function() {
+				$('#loading-indicator').hide();
+			}, 2000);
+		});
 	</script>
 
 	<!-- Modernizr JS -->
@@ -267,10 +286,10 @@
 						<ul>
 							<li><a href="/">Home</a></li>
 							<li class="active"><a href="/drums.html">Drums</a></li>
-							<li><a href="/blog">Blog</a></li>
-							<li><a href="/about">About</a></li>
-							<li><a href="/resume">Resume</a></li>
-							<li><a href="/contact">Contact</a></li>
+							<li><a href="/blog.html">Blog</a></li>
+							<li><a href="/about.html">About</a></li>
+							<li><a href="/resume.html">Resume</a></li>
+							<li><a href="/contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -310,6 +329,13 @@
 								<li><strong>Step 4:</strong> Add multiple measures and repeat the process</li>
 								<li><strong>Step 5:</strong> Click "Generate Sheet Music" to create your professional notation</li>
 							</ul>
+						</div>
+						
+						<div id="loading-indicator" style="display: none; text-align: center; color: #2c98f0; margin: 20px 0;">
+							<i class="icon-spinner2"></i> Loading drum notation tool...
+						</div>
+						<div id="error-message" style="display: none; text-align: center; color: #e74c3c; margin: 20px 0;">
+							<i class="icon-warning"></i> There was an issue loading the tool. Please refresh the page.
 						</div>
 					</div>
 				</div>
@@ -381,9 +407,9 @@
 					<ul class="fh5co-footer-links">
 						<li><a href="/">Home</a></li>
 						<li><a href="/drums.html">Drums</a></li>
-						<li><a href="/about">About</a></li>
-						<li><a href="/resume">Resume</a></li>
-						<li><a href="/contact">Contact</a></li>
+						<li><a href="/about.html">About</a></li>
+						<li><a href="/resume.html">Resume</a></li>
+						<li><a href="/contact.html">Contact</a></li>
 					</ul>
 				</div>
 
