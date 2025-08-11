@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/drums",
+      "destination": "/drums.html",
+      "permanent": false
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html",
+      "permanent": false
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": false
+    },
+    {
+      "source": "/resume",
+      "destination": "/resume.html",
+      "permanent": false
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": false
+    }
+  ]
+}
