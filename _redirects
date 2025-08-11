@@ -1,5 +1,17 @@
-/drums /drums.html
-/blog /blog.html
-/about /about.html
-/resume /resume.html
-/contact /contact.html
+/resume /resume.html 200
+/about /about.html 200
+/contact /contact.html 200
+/blog /blog.html 200
+/drums /drums.html 200
+/project-rapaport /project-rapaport.html 200
+/project-eagle-rose /project-eagle-rose.html 200
+/project-impact-energi /project-impact-energi.html 200
+/project-kranorganics /project-kranorganics.html 200
+/project-younker-studio /project-younker-studio.html 200
+/project-veracity-ads /project-veracity-ads.html 200
+/blog-post-1 /blog-post-1.html 200
+/blog-post-2 /blog-post-2.html 200
+/blog-post-3 /blog-post-3.html 200
+/blog-post-4 /blog-post-4.html 200
+/blog-post-5 /blog-post-5.html 200
+/blog-post-6 /blog-post-6.html 200
