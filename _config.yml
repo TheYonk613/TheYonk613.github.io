@@ -7,3 +7,14 @@ relative_links:
 # Base URL for custom domain
 baseurl: ""
 url: "https://younkerstudio.com"
+
+# GitHub Pages specific settings
+markdown: kramdown
+highlighter: rouge
+safe: true
+
+# Collections for blog posts
+collections:
+  posts:
+    output: true
+    permalink: /:title/
