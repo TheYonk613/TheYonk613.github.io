@@ -41,7 +41,8 @@ class BlogPostGenerator {
     getGitActivity() {
         try {
             const today = this.getTodayDate();
-            const commits = execSync(`git log --since="${today}" --pretty=format:"%h|%s|%an|%ad" --date=short`, { encoding: 'utf8' });
+            // Use a more flexible date range to account for timezone differences
+            const commits = execSync(`git log --since="${today} 00:00" --until="${today} 23:59" --pretty=format:"%h|%s|%an|%ad" --date=short`, { encoding: 'utf8' });
             return commits.trim().split('\n').filter(line => line.length > 0);
         } catch (error) {
             console.log('No git activity found for today');
