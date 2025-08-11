@@ -3,10 +3,10 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Younker Studio &mdash; Professional Portfolio & Resume</title>
+	<title>Younker Studio - Professional Portfolio & Resume</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Professional portfolio and resume of Netanel Moshe Younker - Dynamic manager with experience in team leadership, product management, and market research." />
-	<meta name="keywords" content="portfolio, resume, professional, Netanel Younker, Younker Studio, management, product management" />
+	<meta name="keywords" content="portfolio, resume, Netanel Younker, Younker Studio, professional, management" />
 	<meta name="author" content="Netanel Moshe Younker" />
 
 	<!-- 
@@ -15,7 +15,7 @@
 	Younker Studio - Professional Portfolio & Resume
 	DESIGNED & DEVELOPED by Netanel Moshe Younker
 		
-	Website: 		https://theyonk613.github.io
+	Website: 		https://younkerstudio.com
 	Email: 			Netanelyounker@gmail.com
 	LinkedIn: 		https://linkedin.com/in/netanel-younker
 
@@ -59,6 +59,49 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	<script>
+	// Handle clean URL routing
+	(function() {
+		var path = window.location.pathname;
+		var cleanPath = path.replace(/\/$/, ''); // Remove trailing slash
+		
+		// Define route mappings
+		var routes = {
+			'/about': '/about.html',
+			'/resume': '/resume.html',
+			'/contact': '/contact.html',
+			'/blog': '/blog.html',
+			'/drums': '/drums.html',
+			'/project-rapaport': '/project-rapaport.html',
+			'/project-eagle-rose': '/project-eagle-rose.html',
+			'/project-impact-energi': '/project-impact-energi.html',
+			'/project-kranorganics': '/project-kranorganics.html',
+			'/project-younker-studio': '/project-younker-studio.html',
+			'/project-veracity-ads': '/project-veracity-ads.html',
+			'/blog-post-1': '/blog-post-1.html',
+			'/blog-post-2': '/blog-post-2.html',
+			'/blog-post-3': '/blog-post-3.html',
+			'/blog-post-4': '/blog-post-4.html',
+			'/blog-post-5': '/blog-post-5.html',
+			'/blog-post-6': '/blog-post-6.html'
+		};
+		
+		// If this is a clean URL, redirect to the .html file
+		if (routes[cleanPath]) {
+			window.location.href = routes[cleanPath];
+			return;
+		}
+		
+		// If this is the home page, continue with normal loading
+		if (cleanPath === '' || cleanPath === '/') {
+			// Continue with normal page load
+		} else {
+			// If it's not a recognized route, redirect to home
+			window.location.href = '/';
+		}
+	})();
+	</script>
+
 	</head>
 	<body>
 		
@@ -93,209 +136,199 @@
 				<ul class="slides">
 			   	<li style="background-image: url(images/img_bg_1.jpg);">
 			   		<div class="overlay-gradient"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 slider-text">
-				   				<div class="slider-text-inner">
-				   					<h1>Dynamic Manager & Strategic Problem Solver</h1>
-										<h2>Driving results across diverse industries through leadership, innovation, and data-driven decision making</h2>
-										<p><a class="btn btn-primary btn-demo" href="/drums">View Projects</a> <a class="btn btn-primary btn-learn" href="/resume">View Resume</a></p>
-				   				</div>
-				   			</div>
-				   		</div>
+		   			<div class="row">
+			   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
+			   				<div class="slider-text-inner text-center">
+			   					<h1>Netanel Moshe Younker</h1>
+									<h2>Dynamic Manager & Strategic Leader</h2>
+									<p><a class="btn btn-primary btn-demo" href="/about">About Me</a> <a class="btn btn-primary btn-learn" href="/resume">View Resume</a></p>
+			   				</div>
+			   			</div>
 			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/img_bg_2.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 slider-text">
-				   				<div class="slider-text-inner">
-				   					<h1>Executive Operations & Multi-Project Management</h1>
-										<h2>Leading complex operations across diamond industry, real estate, and startup environments</h2>
-										<p><a class="btn btn-primary btn-demo" href="/drums">View Projects</a> <a class="btn btn-primary btn-learn" href="/resume">View Resume</a></p>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/img_bg_3.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container-fluids">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 slider-text">
-				   				<div class="slider-text-inner text-center">
-				   					<h1>Ready to Drive Your Next Success Story?</h1>
-										<h2>Let's collaborate on strategic initiatives that deliver measurable results</h2>
-										<p><a class="btn btn-primary btn-demo" href="/drums">View Projects</a> <a class="btn btn-primary btn-learn" href="/contact">Get In Touch</a></p>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/img_bg_4.jpg);">
-			   		<div class="overlay-gradient"></div>
-			   		<div class="container-fluid">
-			   			<div class="row">
-				   			<div class="col-md-6 col-md-offset-3 col-md-push-3 slider-text">
-				   				<div class="slider-text-inner">
-				   					<h1>Passionate About Building Successful Teams & Organizations</h1>
-										<h2>Transforming challenges into opportunities through strategic leadership and operational excellence</h2>
-										<p><a class="btn btn-primary btn-demo" href="/drums">View Projects</a> <a class="btn btn-primary btn-learn" href="/about">Learn More</a></p>
-				   				</div>
-				   			</div>
-				   		</div>
-			   		</div>
-			   	</li>	   	
+			   	</li>		   	
 			  	</ul>
 		  	</div>
-		</aside>
+		</aside>		
 		<div id="fh5co-services">
-			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-diamond"></i>
-						</span>
-						<div class="desc">
-							<h3><a href="#">Executive Operations Management</a></h3>
-							<p>Leading comprehensive operations across multiple projects, managing digital platforms, CRM systems, and executive support functions.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
-						<div class="desc">
-							<h3><a href="#">Digital Marketing & Analytics</a></h3>
-							<p>Developing data-driven marketing strategies, leveraging CRM systems, and optimizing campaigns for maximum ROI and performance.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-settings"></i>
-						</span>
-						<div class="desc">
-							<h3><a href="#">Project & Portfolio Management</a></h3>
-							<p>Managing complex portfolios worth $50M+, leading cross-functional teams, and delivering strategic initiatives on time and budget.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="fh5co-work" class="fh5co-light-grey">
 			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-					<h2>Featured Projects</h2>
-					<p>Showcasing strategic leadership and operational excellence across diverse industries and complex challenges.</p>
+				<div class="col-md-6 col-md-offset-3 text-center heading-section">
+					<h3>Professional Services</h3>
+					<p>Specializing in team leadership, product management, market research, and relationship management across diverse industries.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4 text-center animate-box">
-					<a href="/project-rapaport" class="work"  style="background-image: url(images/portfolio-1.jpg);">
+					<div class="services">
+						<span class="icon">
+							<i class="icon-shield"></i>
+						</span>
 						<div class="desc">
-							<h3>Executive Operations Management</h3>
-							<span>Rapaport - Platform & Project Management</span>
+							<h3>Team Leadership</h3>
+							<p>Proven ability to lead and manage cross-functional teams, from interviewing and training to coordinating complex projects across multiple stakeholders.</p>
 						</div>
-					</a>
+					</div>
 				</div>
 				<div class="col-md-4 text-center animate-box">
-					<a href="/project-eagle-rose" class="work" style="background-image: url(images/portfolio-3.jpg);">
+					<div class="services">
+						<span class="icon">
+							<i class="icon-bargraph"></i>
+						</span>
 						<div class="desc">
-							<h3>Real Estate Portfolio Management</h3>
-							<span>Eagle Rose - $50M+ Portfolio</span>
+							<h3>Product Management</h3>
+							<p>Experience in developing SOPs, managing product portfolios, and driving strategic initiatives that result in measurable business outcomes.</p>
 						</div>
-					</a>
+					</div>
 				</div>
 				<div class="col-md-4 text-center animate-box">
-					<a href="/project-impact-energi" class="work" style="background-image: url(images/portfolio-2.jpg);">
+					<div class="services">
+						<span class="icon">
+							<i class="icon-search"></i>
+						</span>
 						<div class="desc">
-							<h3>Digital Marketing Strategy</h3>
-							<span>Impact Energi - B2B Marketing</span>
+							<h3>Market Research</h3>
+							<p>Data-driven approach to market analysis, leveraging tools like HubSpot and Looker Studio for strategic decision-making and campaign optimization.</p>
 						</div>
-					</a>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="fh5co-counter" class="fh5co-counters">
-			<div class="row">
-				<div class="col-md-6 col-md-offset-3 text-center animate-box">
-					<p>Professional achievements and milestones across diverse industries and leadership roles.</p>
-					</div>
-			</div>
+		<div id="fh5co-work" class="fh5co-bg-section">
 			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="row">
-						<div class="col-md-3 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="6" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Major Projects Led</span>
+				<div class="col-md-6 col-md-offset-3 text-center heading-section">
+					<h3>Featured Projects</h3>
+					<p>Recent work showcasing expertise in operations management, digital marketing, and strategic planning.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 text-center animate-box">
+					<a class="work" href="/project-rapaport">
+						<div class="work-grid" style="background-image:url(images/portfolio-1.jpg);">
+							<div class="inner">
+								<div class="desc">
+									<h3>Executive Operations Management</h3>
+									<span class="cat">Rapaport</span>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-3 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="50" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Million Portfolio Value</span>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box">
+					<a class="work" href="/drums">
+						<div class="work-grid" style="background-image:url(images/portfolio-2.jpg);">
+							<div class="inner">
+								<div class="desc">
+									<h3>Drum Notation Generator</h3>
+									<span class="cat">Interactive Tool</span>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-3 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="4" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">Industries Experience</span>
+					</a>
+				</div>
+				<div class="col-md-4 text-center animate-box">
+					<a class="work" href="/project-eagle-rose">
+						<div class="work-grid" style="background-image:url(images/portfolio-3.jpg);">
+							<div class="inner">
+								<div class="desc">
+									<h3>Real Estate Project Management</h3>
+									<span class="cat">Eagle Rose</span>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-3 text-center">
-							<span class="fh5co-counter js-counter" data-from="0" data-to="200" data-speed="5000" data-refresh-interval="50"></span>
-							<span class="fh5co-counter-label">K Capital Raised</span>
-						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="fh5co-counter" class="fh5co-bg-section">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center heading-section">
+					<h3>Professional Achievements</h3>
+					<p>Key metrics and accomplishments across diverse industries and roles.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 animate-box">
+					<div class="feature-center">
+						<span class="icon">
+							<i class="icon-briefcase"></i>
+						</span>
+						<span class="counter js-counter" data-from="0" data-to="5" data-speed="1500" data-refresh-interval="50">1</span>
+						<span class="counter-label">Industries</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box">
+					<div class="feature-center">
+						<span class="icon">
+							<i class="icon-users"></i>
+						</span>
+						<span class="counter js-counter" data-from="0" data-to="80" data-speed="1500" data-refresh-interval="50">1</span>
+						<span class="counter-label">Projects Managed</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box">
+					<div class="feature-center">
+						<span class="icon">
+							<i class="icon-dollar"></i>
+						</span>
+						<span class="counter js-counter" data-from="0" data-to="50" data-speed="1500" data-refresh-interval="50">1</span>
+						<span class="counter-label">Million+ Portfolio</span>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 animate-box">
+					<div class="feature-center">
+						<span class="icon">
+							<i class="icon-trophy"></i>
+						</span>
+						<span class="counter js-counter" data-from="0" data-to="200" data-speed="1500" data-refresh-interval="50">1</span>
+						<span class="counter-label">K Capital Raised</span>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="fh5co-blog" class="blog-flex">
-			<div class="featured-blog" style="background-image: url(images/blog-1.jpg);">
-				<div class="desc-t">
-					<div class="desc-tc">
-						<span class="featured-head">Featured Posts</span>
-						<h3><a href="/blog-post-1">Building a Professional Portfolio Website</a></h3>
-						<span><a href="/blog-post-1" class="read-button">Learn More</a></span>
-					</div>
+		<div id="fh5co-blog" class="fh5co-bg-section">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center heading-section">
+					<h3>Latest Insights</h3>
+					<p>Professional thoughts, industry perspectives, and development updates.</p>
 				</div>
 			</div>
-			<div class="blog-entry fh5co-light-grey">
-				<div class="row animate-box">
-					<div class="col-md-12">
-						<h2>Latest Posts</h2>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text">
+							<span class="posted_on">Latest</span>
+							<h3><a href="/blog-post-1">Building a Professional Portfolio Website</a></h3>
+							<p>From template to personal brand - the journey of transforming a generic website into a professional portfolio that showcases skills, experience, and personality.</p>
+							<ul class="stuff">
+								<li><a href="/blog-post-1">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12 animate-box">
-						<a href="/blog-post-2" class="blog-post">
-							<span class="img" style="background-image: url(images/blog-2.jpg);"></span>
-							<div class="desc">
-								<h3>Digital Marketing Strategy: Data-Driven Decision Making</h3>
-								<span class="cat">Marketing & Analytics</span>
-							</div>
-						</a>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text">
+							<span class="posted_on">Recent</span>
+							<h3><a href="/blog-post-2">Digital Marketing Strategy: Data-Driven Decision Making</a></h3>
+							<p>How leveraging analytics and market research transformed marketing outcomes in the energy sector - insights from real-world B2B marketing experience.</p>
+							<ul class="stuff">
+								<li><a href="/blog-post-2">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
-					<div class="col-md-12 animate-box">
-						<a href="/blog-post-1" class="blog-post">
-							<span class="img" style="background-image: url(images/blog-1.jpg);"></span>
-							<div class="desc">
-								<h3>Building a Professional Portfolio Website</h3>
-								<span class="cat">Web Development</span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-12 animate-box">
-						<a href="/blog" class="blog-post">
-							<span class="img" style="background-image: url(images/blog-3.jpg);"></span>
-							<div class="desc">
-								<h3>Professional Insights & Industry Perspectives</h3>
-								<span class="cat">Leadership & Strategy</span>
-							</div>
-						</a>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-text">
+							<span class="posted_on">Featured</span>
+							<h3><a href="/blog-post-3">The Power of Personal Branding Online</a></h3>
+							<p>Why having a professional online presence matters in today's digital landscape and how to effectively showcase your unique skills and experience.</p>
+							<ul class="stuff">
+								<li><a href="/blog-post-3">Read More<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 			</div>
