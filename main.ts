@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.208.0/http/file_server.ts";
 
-// Define clean URL routes
+// Define clean URL routes - serve files directly
 const routes: Record<string, string> = {
   "/about": "/about.html",
   "/resume": "/resume.html", 
@@ -27,18 +27,22 @@ async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname;
 
-  // Handle clean URL routes
+  // Handle clean URL routes - serve the HTML file directly
   if (routes[path]) {
-    const redirectUrl = new URL(routes[path], url);
-    return new Response(null, {
-      status: 302,
-      headers: {
-        "Location": redirectUrl.pathname + url.search
-      }
-    });
+    const filePath = routes[path].substring(1); // Remove leading slash
+    try {
+      const file = await Deno.readFile(filePath);
+      return new Response(file, {
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+        },
+      });
+    } catch {
+      return new Response("Page not found", { status: 404 });
+    }
   }
 
-  // Serve static files
+  // Serve static files normally
   return serveDir(req, {
     fsRoot: ".",
     urlRoot: "",
@@ -47,10 +51,7 @@ async function handler(req: Request): Promise<Response> {
   });
 }
 
-console.log("🚀 Younker Studio server running on http://localhost:8000");
-console.log("📝 Clean URLs enabled:");
-Object.keys(routes).forEach(route => {
-  console.log(`   ${route} → ${routes[route]}`);
-});
+console.log("🚀 Younker Studio server running");
+console.log("📝 Clean URLs working perfectly:");
 
-await serve(handler, { port: 8000 });
+await serve(handler);
