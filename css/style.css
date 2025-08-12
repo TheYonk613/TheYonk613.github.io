@@ -548,15 +548,33 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 .work {
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   position: relative;
   height: 270px;
   width: 100%;
   display: table;
   overflow: hidden;
   margin-bottom: 30px;
+}
+
+.work-grid {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 270px;
+  width: 100%;
+  display: table;
+  overflow: hidden;
+}
+
+.work-grid .inner {
+  display: table-cell;
+  vertical-align: middle;
+  height: 270px;
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   .work {
@@ -572,13 +590,11 @@ h1, h2, h3, h4, h5, h6, figure {
   display: table-cell;
   vertical-align: middle;
   height: 270px;
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
   opacity: 0;
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
-  text-align: center;
-  padding: 20px;
 }
 .work .desc h3 {
   font-size: 14px;
