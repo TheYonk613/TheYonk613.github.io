@@ -559,23 +559,7 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 30px;
 }
 
-.work-grid {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  position: relative;
-  height: 270px;
-  width: 100%;
-  display: table;
-  overflow: hidden;
-}
 
-.work-grid .inner {
-  display: table-cell;
-  vertical-align: middle;
-  height: 270px;
-  width: 100%;
-}
 @media screen and (max-width: 768px) {
   .work {
     height: 400px;
