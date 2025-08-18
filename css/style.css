@@ -905,6 +905,25 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #000;
 }
 
+/* Prevent long links from wrapping/overflowing in contact info */
+#fh5co-contact .contact-info li {
+  overflow: hidden;
+}
+#fh5co-contact .contact-info li a {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Slight spacing tweak on wider screens so text doesn't touch borders */
+@media (min-width: 992px) {
+  #fh5co-contact .contact-info {
+    padding-right: 10px;
+  }
+}
+
 .form-control {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
