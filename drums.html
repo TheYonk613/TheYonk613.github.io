@@ -104,7 +104,7 @@
 		
 		.notation-input {
 			background: white;
-			border: 1px solid #e9ecef;
+			border: 2px solid #e9ecef;
 			border-radius: 8px;
 			padding: 1.5rem;
 			margin-bottom: 2rem;
@@ -113,18 +113,13 @@
 		
 		.drum-grid-container {
 			background: white;
-			border: 1px solid #e9ecef;
+			border: 2px solid #e9ecef;
 			border-radius: 8px;
 			padding: 1.5rem;
 			margin-bottom: 2rem;
 			overflow-x: auto;
 		}
 
-		/* Ensure visible right/bottom edge even when table collapses borders */
-		#drum-grid-wrapper {
-			border-right: 1px solid #e9ecef;
-			border-bottom: 1px solid #e9ecef;
-		}
 		
 		.drum-grid {
 			border-collapse: collapse;
@@ -132,19 +127,6 @@
 			min-width: 600px;
 		}
 
-		/* Ensure outer table edges render cleanly on right and bottom */
-		.drum-grid {
-			border-right: 1px solid #e9ecef;
-			border-bottom: 1px solid #e9ecef;
-		}
-		.drum-grid th:last-child,
-		.drum-grid td:last-child {
-			border-right: 0;
-		}
-		.drum-grid tr:last-child td,
-		.drum-grid tr:last-child th {
-			border-bottom: 0;
-		}
 		
 		.drum-grid th {
 			background: #f8f9fa;
@@ -193,7 +175,7 @@
 		
 		.time-signature-controls {
 			background: white;
-			border: 1px solid #e9ecef;
+			border: 2px solid #e9ecef;
 			border-radius: 8px;
 			padding: 1.5rem;
 			margin-bottom: 2rem;
@@ -250,7 +232,7 @@
 		
 		.sheet-music-output {
 			background: white;
-			border: 1px solid #e9ecef;
+			border: 2px solid #e9ecef;
 			border-radius: 8px;
 			padding: 2rem;
 			margin-top: 2rem;
@@ -258,6 +240,15 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+
+		/* Align drums content edges with global container-wrap (remove inner container side padding) */
+		.drum-tool-container > .container {
+			max-width: 1060px;
+			padding-left: 0;
+			padding-right: 0;
+			margin-left: auto;
+			margin-right: auto;
 		}
 		
 		.instructions {
