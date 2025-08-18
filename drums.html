@@ -125,6 +125,20 @@
 			width: 100%;
 			min-width: 600px;
 		}
+
+		/* Ensure outer table edges render cleanly on right and bottom */
+		.drum-grid {
+			border-right: 1px solid #e9ecef;
+			border-bottom: 1px solid #e9ecef;
+		}
+		.drum-grid th:last-child,
+		.drum-grid td:last-child {
+			border-right: 0;
+		}
+		.drum-grid tr:last-child td,
+		.drum-grid tr:last-child th {
+			border-bottom: 0;
+		}
 		
 		.drum-grid th {
 			background: #f8f9fa;
