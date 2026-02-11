@@ -1,358 +1,730 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Younker Studio - Professional Portfolio & Resume</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Professional portfolio and resume of Netanel Moshe Younker - Dynamic manager with experience in team leadership, product management, and market research." />
-	<meta name="keywords" content="portfolio, resume, Netanel Younker, Younker Studio, professional, management" />
-	<meta name="author" content="Netanel Moshe Younker" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Name</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    @theme {
+      --font-heading: 'Instrument Sans', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+      --color-accent: #34d399;
+      --color-accent2: #22d3ee;
+    }
+    /* Change these two colors to re-theme the whole page */
+    :root {
+      --accent: 160 84% 52%;   /* emerald-ish */
+      --accent2: 187 92% 57%;  /* cyan-ish */
+    }
+    @keyframes pulse-slow { 0%,100%{opacity:.08} 50%{opacity:.15} }
+    .orb { animation: pulse-slow 6s ease-in-out infinite; }
+    .orb-delay { animation-delay: 2s; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-[family-name:var(--font-heading)]">
 
-	<!-- 
-	//////////////////////////////////////////////////////
+  <!-- ===================== GLOWING ORBS (background decoration) ===================== -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+    <div class="orb absolute -top-20 right-0 w-[500px] h-[500px] rounded-full blur-[120px] bg-emerald-500 opacity-10"></div>
+    <div class="orb orb-delay absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full blur-[120px] bg-cyan-500 opacity-10"></div>
+  </div>
 
-	Younker Studio - Professional Portfolio & Resume
-	DESIGNED & DEVELOPED by Netanel Moshe Younker
-		
-	Website: 		https://younkerstudio.com
-	Email: 			Netanelyounker@gmail.com
-	LinkedIn: 		https://linkedin.com/in/netanel-younker
+  <!-- ===================== HERO ===================== -->
+  <section class="relative px-6 pt-20 pb-28 lg:pb-36">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-	//////////////////////////////////////////////////////
-	 -->
+      <!-- Left -->
+      <div class="space-y-8">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-[family-name:var(--font-mono)] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          YOUR TAGLINE HERE
+        </div>
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+        <!-- Headline -->
+        <h1 class="text-6xl lg:text-8xl font-black leading-[0.95] tracking-tight">
+          One Word.
+          <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400">
+            Another Word.
+          </span>
+        </h1>
 
-	<link href="https://fonts.googleapis.com/css?family=Oxygen:300,400" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+        <!-- Subheadline -->
+        <p class="text-xl text-zinc-400 leading-relaxed max-w-lg">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Complete control. No compromise.
+        </p>
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+        <!-- Pill tags -->
+        <div class="flex flex-wrap gap-3 text-sm font-[family-name:var(--font-mono)] text-zinc-500">
+          <span class="px-3 py-1 bg-zinc-800 rounded">Tag One</span>
+          <span class="px-3 py-1 bg-zinc-800 rounded">Tag Two</span>
+          <span class="px-3 py-1 bg-zinc-800 rounded">Tag Three</span>
+          <span class="px-3 py-1 bg-zinc-800 rounded">Tag Four</span>
+        </div>
 
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#"
+             class="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-500 text-zinc-950 font-bold text-lg rounded-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/50 text-center">
+            <span class="relative z-10">Primary Action →</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </a>
+          <button class="px-8 py-4 border-2 border-zinc-700 text-zinc-300 font-semibold text-lg rounded-lg hover:border-emerald-500 hover:text-emerald-400 hover:bg-emerald-500/5 transition-all">
+            Secondary Action
+          </button>
+        </div>
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-6 pt-8 border-t border-zinc-800/50">
+          <div>
+            <div class="text-3xl font-bold text-emerald-400">99%</div>
+            <div class="text-sm text-zinc-500 font-[family-name:var(--font-mono)]">STAT ONE</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-cyan-400">100+</div>
+            <div class="text-sm text-zinc-500 font-[family-name:var(--font-mono)]">STAT TWO</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-emerald-400">∞</div>
+            <div class="text-sm text-zinc-500 font-[family-name:var(--font-mono)]">STAT THREE</div>
+          </div>
+        </div>
+      </div>
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+      <!-- Right – Card stack visual -->
+      <div class="relative">
+        <div class="absolute top-4 left-4 right-4 h-80 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700/50 rotate-3 opacity-40"></div>
+        <div class="absolute top-2 left-2 right-2 h-80 bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700/50 rotate-1 opacity-60"></div>
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container-wrap">
-			<div class="top-menu">
-				<div class="row">
-					<div class="col-xs-2">
-						<div id="fh5co-logo"><a href="/">Younker Studio</a></div>
-					</div>
-					<div class="col-xs-10 text-right menu-1">
-						<ul>
-							<li class="active"><a href="/">Home</a></li>
-							<li><a href="/drums.html">Drums</a></li>
-							<li><a href="/blog.html">Blog</a></li>
-							<li><a href="/about.html">About</a></li>
-							<li><a href="/resume.html">Resume</a></li>
-							<li><a href="/contact.html">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</nav>
-	<div class="container-wrap">
-		<aside id="fh5co-hero">
-			<div class="flexslider">
-				<ul class="slides">
-			   	<li style="background-image: url(images/img_bg_1.jpg);">
-			   		<div class="overlay-gradient"></div>
-		   			<div class="row">
-			   			<div class="col-md-6 col-md-offset-3 slider-text slider-text-bg">
-			   				<div class="slider-text-inner text-center">
-			   					<h1>Netanel Moshe Younker</h1>
-									<h2>Dynamic Manager & Strategic Leader</h2>
-									<p><a class="btn btn-primary btn-demo" href="/about.html">About Me</a> <a class="btn btn-primary btn-learn" href="/resume.html">View Resume</a></p>
-			   				</div>
-			   			</div>
-			   		</div>
-			   	</li>		   	
-			  	</ul>
-		  	</div>
-		</aside>		
-		<div id="fh5co-services">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center heading-section">
-					<h3>Professional Services</h3>
-					<p>Specializing in team leadership, product management, market research, and relationship management across diverse industries.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-shield"></i>
-						</span>
-						<div class="desc">
-							<h3>Team Leadership</h3>
-							<p>Proven ability to lead and manage cross-functional teams, from interviewing and training to coordinating complex projects across multiple stakeholders.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-bargraph"></i>
-						</span>
-						<div class="desc">
-							<h3>Product Management</h3>
-							<p>Experience in developing SOPs, managing product portfolios, and driving strategic initiatives that result in measurable business outcomes.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<div class="services">
-						<span class="icon">
-							<i class="icon-search"></i>
-						</span>
-						<div class="desc">
-							<h3>Market Research</h3>
-							<p>Data-driven approach to market analysis, leveraging tools like HubSpot and Looker Studio for strategic decision-making and campaign optimization.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="relative bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900 rounded-2xl border border-zinc-700/50 p-8 shadow-2xl">
+          <!-- Card header -->
+          <div class="flex justify-between items-start mb-6">
+            <div>
+              <div class="text-xs text-zinc-500 font-[family-name:var(--font-mono)] mb-1">MAIN METRIC</div>
+              <div class="text-3xl font-bold text-white">$123,456</div>
+              <div class="text-xs text-emerald-400 font-[family-name:var(--font-mono)] mt-1">↑ $1,234 THIS MONTH</div>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded-full">
+              <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              <span class="text-xs text-emerald-400 font-[family-name:var(--font-mono)]">LIVE</span>
+            </div>
+          </div>
 
-		<div id="fh5co-work" class="fh5co-bg-section">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center heading-section">
-					<h3>Featured Projects</h3>
-					<p>Recent work showcasing expertise in operations management, digital marketing, and strategic planning.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 text-center animate-box">
-					<a href="/project-rapaport.html" class="work" style="background-image: url(images/portfolio-1.jpg);">
-						<div class="desc">
-							<h3>Executive Operations Management</h3>
-							<span>Rapaport</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="/drums.html" class="work" style="background-image: url(images/portfolio-2.jpg);">
-						<div class="desc">
-							<h3>Drum Notation Generator</h3>
-							<span>Interactive Tool</span>
-						</div>
-					</a>
-				</div>
-				<div class="col-md-4 text-center animate-box">
-					<a href="/project-eagle-rose.html" class="work" style="background-image: url(images/portfolio-3.jpg);">
-						<div class="desc">
-							<h3>Real Estate Project Management</h3>
-							<span>Eagle Rose</span>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
+          <!-- Mini bar chart -->
+          <div class="relative h-32 mb-6 bg-zinc-800/30 rounded-lg flex items-end justify-around p-4 gap-2">
+            <div class="w-full h-3/5 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t opacity-70"></div>
+            <div class="w-full h-4/5 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t opacity-70"></div>
+            <div class="w-full h-2/5 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t opacity-70"></div>
+            <div class="w-full h-3/4 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t opacity-70"></div>
+            <div class="w-full h-4/5 bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t opacity-70"></div>
+            <div class="w-full h-full  bg-gradient-to-t from-emerald-500 to-emerald-400 rounded-t"></div>
+          </div>
 
-		<div id="fh5co-counter" class="fh5co-bg-section">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center heading-section">
-					<h3>Professional Achievements</h3>
-					<p>Key metrics and accomplishments across diverse industries and roles.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="feature-center">
-						<span class="icon">
-							<i class="icon-briefcase"></i>
-						</span>
-						<span class="counter js-counter" data-from="0" data-to="5" data-speed="1500" data-refresh-interval="50">1</span>
-						<span class="counter-label">Industries</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="feature-center">
-						<span class="icon">
-							<i class="icon-users"></i>
-						</span>
-						<span class="counter js-counter" data-from="0" data-to="80" data-speed="1500" data-refresh-interval="50">1</span>
-						<span class="counter-label">Projects Managed</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="feature-center">
-						<span class="icon">
-							<i class="icon-dollar"></i>
-						</span>
-						<span class="counter js-counter" data-from="0" data-to="50" data-speed="1500" data-refresh-interval="50">1</span>
-						<span class="counter-label">Million+ Portfolio</span>
-					</div>
-				</div>
-				<div class="col-md-3 col-sm-6 animate-box">
-					<div class="feature-center">
-						<span class="icon">
-							<i class="icon-trophy"></i>
-						</span>
-						<span class="counter js-counter" data-from="0" data-to="200" data-speed="1500" data-refresh-interval="50">1</span>
-						<span class="counter-label">K Capital Raised</span>
-					</div>
-				</div>
-			</div>
-		</div>
+          <!-- Quick stats -->
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <div class="bg-zinc-800/50 rounded-lg p-3 border border-zinc-700/30">
+              <div class="text-xs text-zinc-500 font-[family-name:var(--font-mono)] mb-1">SUB-METRIC A</div>
+              <div class="text-lg font-bold text-emerald-400">$8,432</div>
+            </div>
+            <div class="bg-zinc-800/50 rounded-lg p-3 border border-zinc-700/30">
+              <div class="text-xs text-zinc-500 font-[family-name:var(--font-mono)] mb-1">SUB-METRIC B</div>
+              <div class="text-lg font-bold text-cyan-400">3 ITEMS</div>
+            </div>
+          </div>
 
-		<div id="fh5co-blog" class="fh5co-bg-section">
-			<div class="row animate-box">
-				<div class="col-md-6 col-md-offset-3 text-center heading-section">
-					<h3>Latest Insights</h3>
-					<p>Professional thoughts, industry perspectives, and development updates.</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<span class="posted_on">Latest</span>
-							<h3><a href="/blog-post-1.html">Building a Professional Portfolio Website</a></h3>
-							<p>From template to personal brand - the journey of transforming a generic website into a professional portfolio that showcases skills, experience, and personality.</p>
-							<ul class="stuff">
-								<li><a href="/blog-post-1.html">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<span class="posted_on">Recent</span>
-							<h3><a href="/blog-post-2.html">Digital Marketing Strategy: Data-Driven Decision Making</a></h3>
-							<p>How leveraging analytics and market research transformed marketing outcomes in the energy sector - insights from real-world B2B marketing experience.</p>
-							<ul class="stuff">
-								<li><a href="/blog-post-2.html">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<div class="blog-text">
-							<span class="posted_on">Featured</span>
-							<h3><a href="/blog-post-3.html">The Power of Personal Branding Online</a></h3>
-							<p>Why having a professional online presence matters in today's digital landscape and how to effectively showcase your unique skills and experience.</p>
-							<ul class="stuff">
-								<li><a href="/blog-post-3.html">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div><!-- END container-wrap -->
+          <!-- Row item -->
+          <div class="flex justify-between items-center p-3 bg-zinc-800/50 rounded-lg border border-zinc-700/30">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-emerald-500/20 rounded flex items-center justify-center text-emerald-400 text-sm font-bold">↓</div>
+              <div>
+                <div class="text-sm text-white font-medium">Recent Activity Item</div>
+                <div class="text-xs text-zinc-500 font-[family-name:var(--font-mono)]">2 days ago</div>
+              </div>
+            </div>
+            <div class="text-emerald-400 font-[family-name:var(--font-mono)] font-semibold">+$2,800</div>
+          </div>
+        </div>
+      </div>
 
-	<div class="container-wrap">
-		<footer id="fh5co-footer" role="contentinfo">
-			<div class="row">
-				<div class="col-md-6 fh5co-widget">
-					<h4>About Younker Studio</h4>
-					<p>Professional with experience in team leadership, product management, and market research. Passionate about building innovative solutions and driving results through strategic planning and collaboration.</p>
-				</div>
+    </div>
+  </section>
 
-				<div class="col-md-3">
-					<h4>Links</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="/">Home</a></li>
-						<li><a href="/drums.html">Drums</a></li>
-						<li><a href="/about.html">About</a></li>
-						<li><a href="/resume.html">Resume</a></li>
-						<li><a href="/contact.html">Contact</a></li>
-					</ul>
-				</div>
+  <!-- ===================== PRINCIPLES / PILLARS (4-column) ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4">
+          Built on <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Core Principles</span>
+        </h2>
+        <p class="text-xl text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
 
-				<div class="col-md-3">
-					<h4>Contact Information</h4>
-					<ul class="fh5co-footer-links">
-						<li>Jerusalem, Israel</li>
-						<li><a href="tel:0556667791">(055) 666-7791</a></li>
-						<li><a href="mailto:Netanelyounker@gmail.com">Netanelyounker@gmail.com</a></li>
-						<li><a href="https://linkedin.com/in/netanel-younker">linkedin.com/in/netanel-younker</a></li>
-					</ul>
-				</div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Pillar 1 -->
+        <div class="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700/50 hover:border-emerald-500/50 transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🔒</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Pillar One</h3>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+          </div>
+        </div>
+        <!-- Pillar 2 -->
+        <div class="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700/50 hover:border-cyan-500/50 transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-emerald-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🔓</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Pillar Two</h3>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+          </div>
+        </div>
+        <!-- Pillar 3 -->
+        <div class="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700/50 hover:border-emerald-500/50 transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-emerald-500/20 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🛡️</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Pillar Three</h3>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+          </div>
+        </div>
+        <!-- Pillar 4 -->
+        <div class="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 rounded-2xl border border-zinc-700/50 hover:border-cyan-500/50 transition-all hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-emerald-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">⚡</div>
+            <h3 class="text-2xl font-bold text-white mb-3">Pillar Four</h3>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			</div>
+  <!-- ===================== SPLIT SECTION (text left + info card right) ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">&copy; 2024 Younker Studio. All Rights Reserved.</small> 
-						<small class="block">Professional Portfolio & Resume</small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="https://linkedin.com/in/netanel-younker" target="_blank"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-		</footer>
-	</div><!-- END container-wrap -->
-	</div>
+      <!-- Left copy -->
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-[family-name:var(--font-mono)] text-blue-400 bg-blue-500/10 border border-blue-500/30">
+          SECTION LABEL
+        </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-	<!-- Counters -->
-	<script src="js/jquery.countTo.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
+        <h2 class="text-5xl font-bold text-white leading-tight">
+          Big Claim Here.
+          <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Gradient Subline.</span>
+        </h2>
 
-	</body>
+        <div class="space-y-4 text-lg text-zinc-300 leading-relaxed">
+          <p><span class="text-white font-bold">Bold opening statement.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+          <p>Ut enim ad minim veniam, <span class="text-emerald-400 font-semibold">quis nostrud exercitation</span> ullamco laboris nisi ut aliquip. <span class="text-white font-semibold">Ex ea commodo consequat.</span></p>
+        </div>
+
+        <!-- Comparison boxes -->
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div class="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+            <div class="text-sm font-[family-name:var(--font-mono)] text-red-400 mb-2">❌ THE OLD WAY</div>
+            <ul class="text-sm text-zinc-400 space-y-1">
+              <li>• Problem one</li>
+              <li>• Problem two</li>
+              <li>• Problem three</li>
+              <li>• Problem four</li>
+            </ul>
+          </div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-lg p-4">
+            <div class="text-sm font-[family-name:var(--font-mono)] text-emerald-400 mb-2">✓ THE NEW WAY</div>
+            <ul class="text-sm text-zinc-400 space-y-1">
+              <li>• Solution one</li>
+              <li>• Solution two</li>
+              <li>• Solution three</li>
+              <li>• Solution four</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right info card -->
+      <div class="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700/50 p-8 space-y-6">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center shrink-0 text-xl">📦</div>
+          <div>
+            <h4 class="text-xl font-bold text-white mb-2">Feature Heading One</h4>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center shrink-0 text-xl">✅</div>
+          <div>
+            <h4 class="text-xl font-bold text-white mb-2">Feature Heading Two</h4>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-cyan-500/20 rounded-lg flex items-center justify-center shrink-0 text-xl">🚀</div>
+          <div>
+            <h4 class="text-xl font-bold text-white mb-2">Feature Heading Three</h4>
+            <p class="text-zinc-400 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+          </div>
+        </div>
+        <div class="pt-4 border-t border-zinc-700/50">
+          <div class="text-sm text-zinc-500 leading-relaxed">
+            <span class="text-emerald-400 font-semibold">Summary note:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== QUOTE / CALLOUT BANNER ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50">
+    <div class="max-w-4xl mx-auto text-center">
+      <a href="#" class="group inline-block w-full">
+        <div class="relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-12 rounded-2xl border-2 border-zinc-700/50 hover:border-emerald-500/50 transition-all hover:scale-[1.02] overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="relative">
+            <h3 class="text-4xl md:text-5xl font-bold text-white leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all">
+              "A powerful quote or
+              <br />
+              philosophy goes here."
+            </h3>
+            <div class="mt-6 text-zinc-500 font-[family-name:var(--font-mono)] text-sm">— Attribution or source</div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURE SHOWCASE (split: text + code preview) ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50 bg-gradient-to-b from-transparent to-zinc-900/50">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Left copy -->
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-[family-name:var(--font-mono)] text-purple-400 bg-purple-500/10 border border-purple-500/30">
+          POWER FEATURE
+        </div>
+
+        <h2 class="text-5xl font-bold text-white leading-tight">
+          Feature Name
+          <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Gradient Tagline</span>
+        </h2>
+
+        <p class="text-xl text-zinc-400 leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        </p>
+
+        <!-- Option cards -->
+        <div class="bg-zinc-900/50 border border-purple-500/30 rounded-xl p-6 space-y-4">
+          <h4 class="text-lg font-bold text-white">Choose Your Mode</h4>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-emerald-400 text-xl shrink-0 mt-0.5">●</span>
+              <div>
+                <span class="text-white font-semibold">Option A (Local)</span>
+                <p class="text-sm text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-cyan-400 text-xl shrink-0 mt-0.5">●</span>
+              <div>
+                <span class="text-white font-semibold">Option B (Remote)</span>
+                <p class="text-sm text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-purple-400 text-xl shrink-0 mt-0.5">●</span>
+              <div>
+                <span class="text-white font-semibold">Option C (Cloud)</span>
+                <p class="text-sm text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkmark list -->
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="text-emerald-400 text-xl shrink-0 mt-0.5">✓</span>
+            <div><span class="text-white font-semibold">Benefit one</span><span class="text-zinc-400"> — short description here</span></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-emerald-400 text-xl shrink-0 mt-0.5">✓</span>
+            <div><span class="text-white font-semibold">Benefit two</span><span class="text-zinc-400"> — short description here</span></div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-emerald-400 text-xl shrink-0 mt-0.5">✓</span>
+            <div><span class="text-white font-semibold">Benefit three</span><span class="text-zinc-400"> — short description here</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right – Code / terminal mockup -->
+      <div class="bg-zinc-900 rounded-xl border border-zinc-700 overflow-hidden shadow-2xl">
+        <div class="flex items-center gap-2 px-4 py-3 bg-zinc-800 border-b border-zinc-700">
+          <div class="flex gap-2">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+          </div>
+          <span class="text-xs text-zinc-400 font-[family-name:var(--font-mono)] ml-2">example_file.py</span>
+        </div>
+        <div class="p-6 font-[family-name:var(--font-mono)] text-sm space-y-2">
+          <div><span class="text-purple-400">import</span> <span class="text-white">your_product</span> <span class="text-purple-400">as</span> <span class="text-white">yp</span></div>
+          <div><span class="text-purple-400">import</span> <span class="text-white">pandas</span> <span class="text-purple-400">as</span> <span class="text-white">pd</span></div>
+          <div class="h-4"></div>
+          <div><span class="text-zinc-500"># Get all records</span></div>
+          <div><span class="text-white">data</span> <span class="text-purple-400">=</span> <span class="text-white">yp</span><span class="text-cyan-400">.records</span><span class="text-white">()</span></div>
+          <div class="h-4"></div>
+          <div><span class="text-zinc-500"># Process and analyze</span></div>
+          <div><span class="text-white">df</span> <span class="text-purple-400">=</span> <span class="text-white">pd</span><span class="text-cyan-400">.DataFrame</span><span class="text-white">(data)</span></div>
+          <div><span class="text-white">result</span> <span class="text-purple-400">=</span> <span class="text-white">df</span><span class="text-cyan-400">.groupby</span><span class="text-white">(</span><span class="text-orange-400">'category'</span><span class="text-white">)</span></div>
+          <div class="h-4"></div>
+          <div><span class="text-zinc-500"># Visualize</span></div>
+          <div><span class="text-white">yp</span><span class="text-cyan-400">.plot</span><span class="text-white">(result, kind</span><span class="text-purple-400">=</span><span class="text-orange-400">'bar'</span><span class="text-white">)</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sub-feature cards -->
+    <div class="max-w-7xl mx-auto mt-16 grid md:grid-cols-3 gap-6">
+      <div class="bg-zinc-900 rounded-xl border border-purple-500/30 p-6">
+        <div class="text-2xl mb-4">🧩</div>
+        <h4 class="text-lg font-bold text-white mb-2">Sub-Feature A</h4>
+        <p class="text-sm text-zinc-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="text-xs font-[family-name:var(--font-mono)] text-zinc-500 bg-zinc-800/50 p-3 rounded">
+          yp.do_thing(<br />
+          &nbsp;&nbsp;param=value<br />
+          )
+        </div>
+      </div>
+      <div class="bg-zinc-900 rounded-xl border border-purple-500/30 p-6">
+        <div class="text-2xl mb-4">🤖</div>
+        <h4 class="text-lg font-bold text-white mb-2">Sub-Feature B</h4>
+        <p class="text-sm text-zinc-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="text-xs font-[family-name:var(--font-mono)] text-zinc-500 bg-zinc-800/50 p-3 rounded">
+          yp.ai.analyze(<br />
+          &nbsp;&nbsp;"natural language"<br />
+          )
+        </div>
+      </div>
+      <div class="bg-zinc-900 rounded-xl border border-purple-500/30 p-6">
+        <div class="text-2xl mb-4">⏱️</div>
+        <h4 class="text-lg font-bold text-white mb-2">Sub-Feature C</h4>
+        <p class="text-sm text-zinc-400 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="text-xs font-[family-name:var(--font-mono)] text-zinc-500 bg-zinc-800/50 p-3 rounded">
+          @yp.schedule('daily')<br />
+          def run_task():<br />
+          &nbsp;&nbsp;...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DUAL HIGHLIGHT CARDS ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-5xl font-bold text-white mb-4">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Key Differentiators</span>
+        </h2>
+        <p class="text-xl text-zinc-400">Lorem ipsum dolor sit amet.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <!-- Card A -->
+        <div class="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border-2 border-emerald-500/30 p-8">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 bg-emerald-500/20 rounded-xl flex items-center justify-center shrink-0 text-2xl">🚫</div>
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Differentiator One</h3>
+              <div class="text-xs text-emerald-400 font-[family-name:var(--font-mono)] mb-3">BOLD SUBTITLE</div>
+            </div>
+          </div>
+          <div class="space-y-3 text-zinc-300">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+            <p class="text-white font-semibold">Bold claim about this differentiator.</p>
+            <p class="text-sm text-zinc-400">Supporting detail with technical backing.</p>
+          </div>
+        </div>
+        <!-- Card B -->
+        <div class="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border-2 border-cyan-500/30 p-8">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 bg-cyan-500/20 rounded-xl flex items-center justify-center shrink-0 text-2xl">👁️‍🗨️</div>
+            <div>
+              <h3 class="text-2xl font-bold text-white mb-2">Differentiator Two</h3>
+              <div class="text-xs text-cyan-400 font-[family-name:var(--font-mono)] mb-3">BOLD SUBTITLE</div>
+            </div>
+          </div>
+          <div class="space-y-3 text-zinc-300">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+            <p class="text-white font-semibold">Bold claim about this differentiator.</p>
+            <p class="text-sm text-zinc-400">Supporting detail with technical backing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary grid -->
+      <div class="bg-zinc-900 rounded-2xl border border-zinc-700/50 p-8">
+        <h3 class="text-2xl font-bold text-white mb-6">What This Actually Means</h3>
+        <div class="grid md:grid-cols-3 gap-6 text-sm">
+          <div>
+            <div class="text-white font-semibold mb-2">🔒 Point One</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div>
+            <div class="text-white font-semibold mb-2">🔐 Point Two</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div>
+            <div class="text-white font-semibold mb-2">🛡️ Point Three</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div>
+            <div class="text-white font-semibold mb-2">📱 Point Four</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div>
+            <div class="text-white font-semibold mb-2">🔓 Point Five</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div>
+            <div class="text-white font-semibold mb-2">⚡ Point Six</div>
+            <p class="text-zinc-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPARISON TABLE ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4">
+          Stop Using <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Inferior Alternatives</span>
+        </h2>
+        <p class="text-xl text-zinc-400">Here's how we compare</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-zinc-900 to-zinc-800 rounded-2xl border border-zinc-700/50 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="border-b border-zinc-700/50">
+                <th class="text-left p-6 text-zinc-400 font-[family-name:var(--font-mono)] text-sm uppercase">Feature</th>
+                <th class="p-6 text-center">
+                  <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Yours</div>
+                </th>
+                <th class="p-6 text-center"><div class="text-lg text-zinc-500">Competitor A</div></th>
+                <th class="p-6 text-center"><div class="text-lg text-zinc-500">Competitor B</div></th>
+                <th class="p-6 text-center"><div class="text-lg text-zinc-500">Competitor C</div></th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <tr class="border-b border-zinc-700/30">
+                <td class="p-4 text-zinc-300">Feature One</td>
+                <td class="p-4 text-center text-emerald-400 text-xl">✓</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-zinc-600">Partial</td>
+              </tr>
+              <tr class="border-b border-zinc-700/30">
+                <td class="p-4 text-zinc-300">Feature Two</td>
+                <td class="p-4 text-center text-emerald-400 text-xl">✓</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+              </tr>
+              <tr class="border-b border-zinc-700/30">
+                <td class="p-4 text-zinc-300">Feature Three</td>
+                <td class="p-4 text-center text-emerald-400 text-xl">✓</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-zinc-600">Partial</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+              </tr>
+              <tr class="border-b border-zinc-700/30">
+                <td class="p-4 text-zinc-300">Feature Four</td>
+                <td class="p-4 text-center text-emerald-400 text-xl">✓</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+              </tr>
+              <tr class="border-b border-zinc-700/30">
+                <td class="p-4 text-zinc-300">Feature Five</td>
+                <td class="p-4 text-center text-emerald-400 text-xl">✓</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+                <td class="p-4 text-center text-red-400 text-xl">✗</td>
+              </tr>
+              <tr>
+                <td class="p-4 text-zinc-300 font-semibold">Monthly Cost</td>
+                <td class="p-4 text-center"><div class="text-2xl font-bold text-emerald-400">$XX</div></td>
+                <td class="p-4 text-center text-zinc-400">$XX</td>
+                <td class="p-4 text-center text-zinc-400">$XX</td>
+                <td class="p-4 text-center text-zinc-400">$XX</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Comparison callout boxes -->
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div class="p-6 bg-red-500/10 border-2 border-red-500/30 rounded-xl">
+          <div class="flex items-start gap-4">
+            <span class="text-3xl shrink-0">❌</span>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">The Problem with Alternatives</h3>
+              <p class="text-zinc-300 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <span class="text-white font-semibold">You're trapped.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl">
+          <div class="flex items-start gap-4">
+            <span class="text-3xl shrink-0">✅</span>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">Our Approach</h3>
+              <p class="text-zinc-300 leading-relaxed"><span class="text-white font-semibold">Your rules.</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURE GRID (compact) ===================== -->
+  <section class="relative px-6 py-20 border-t border-zinc-800/50">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-white mb-4">
+          Every Feature. <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">No Exceptions.</span>
+        </h2>
+        <p class="text-xl text-zinc-400">Lorem ipsum dolor sit amet.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Category 1 -->
+        <div class="space-y-4">
+          <h4 class="text-xl font-bold text-white">Category A</h4>
+          <div class="space-y-3 text-sm text-zinc-400">
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item one</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item two</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item three</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item four</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item five</span></div>
+          </div>
+        </div>
+        <!-- Category 2 -->
+        <div class="space-y-4">
+          <h4 class="text-xl font-bold text-white">Category B</h4>
+          <div class="space-y-3 text-sm text-zinc-400">
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item one</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item two</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item three</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item four</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item five</span></div>
+          </div>
+        </div>
+        <!-- Category 3 -->
+        <div class="space-y-4">
+          <h4 class="text-xl font-bold text-white">Category C</h4>
+          <div class="space-y-3 text-sm text-zinc-400">
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item one</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item two</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item three</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item four</span></div>
+            <div class="flex items-start gap-2"><span class="text-emerald-400 shrink-0 mt-0.5">✓</span><span>Feature item five</span></div>
+          </div>
+        </div>
+        <!-- Category 4 -->
+        <div class="space-y-4">
+          <h4 class="text-xl font-bold text-white">Category D</h4>
+          <div class="space-y-3 text-sm text-zinc-400">
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item one</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item two</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item three</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item four</span></div>
+            <div class="flex items-start gap-2"><span class="text-cyan-400 shrink-0 mt-0.5">✓</span><span>Feature item five</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="relative px-6 py-32 border-t border-zinc-800/50">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="relative bg-gradient-to-br from-zinc-900 to-zinc-800 p-16 rounded-3xl border-2 border-emerald-500/30 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10"></div>
+
+        <div class="relative space-y-8">
+          <div class="inline-block mb-4">
+            <div class="px-6 py-3 bg-emerald-500/20 border border-emerald-500/50 rounded-full">
+              <span class="text-emerald-400 font-[family-name:var(--font-mono)] font-bold text-sm">YOUR TAGLINE HERE</span>
+            </div>
+          </div>
+
+          <h2 class="text-5xl lg:text-6xl font-black text-white leading-tight">
+            Call to Action.
+            <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Gradient Closer.</span>
+          </h2>
+
+          <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#"
+               class="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-emerald-500 to-cyan-500 text-zinc-950 font-bold text-xl rounded-xl hover:scale-105 transition-all hover:shadow-2xl hover:shadow-emerald-500/50">
+              Primary Action →
+            </a>
+            <button class="px-10 py-5 border-2 border-emerald-500 text-emerald-400 font-bold text-xl rounded-xl hover:bg-emerald-500/10 transition-all">
+              Secondary Action
+            </button>
+          </div>
+
+          <div class="pt-6 text-sm text-zinc-500">
+            <span class="text-white font-semibold">$XX/month</span> • Feature • Feature • Feature
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="relative px-6 py-12 border-t border-zinc-800/50">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded flex items-center justify-center text-zinc-950 font-bold text-lg">P</div>
+        <div>
+          <span class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 block">ProductName</span>
+          <span class="text-xs text-zinc-600 font-[family-name:var(--font-mono)]">TAGLINE</span>
+        </div>
+      </div>
+
+      <div class="text-zinc-500 font-[family-name:var(--font-mono)] text-sm text-center">
+        © 2026 ProductName. All rights reserved.
+        <br />
+        <span class="text-xs text-zinc-600">Short descriptor line here</span>
+      </div>
+
+      <div class="flex gap-6 text-zinc-400 text-sm">
+        <a href="#" class="hover:text-emerald-400 transition-colors">GitHub</a>
+        <a href="#" class="hover:text-emerald-400 transition-colors">Twitter</a>
+        <a href="#" class="hover:text-emerald-400 transition-colors">Discord</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
 </html>
-
