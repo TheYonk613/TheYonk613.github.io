@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — YounkerStudio</title>
+  <meta name="description" content="Common questions about working with YounkerStudio — process, pricing, and what to expect." />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ANALYTICS: uncomment and paste your GA4 measurement ID to activate
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════ -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="wordmark">Younker<span>Studio</span></a>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="index.html#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="faq.html">FAQ</a>
+    <a href="index.html#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
+  </div>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="section-label section-label--dark reveal">Questions</span>
+      <h1 class="reveal reveal-delay-1">
+        Things people<br />
+        actually <span class="display-violet--light">ask.</span>
+      </h1>
+      <p class="reveal reveal-delay-2">
+        If your question isn't here, just reach out directly.
+        There are no bad questions — only problems that haven't been solved yet.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ════════════════════════════════════════════════ -->
+  <section class="section">
+    <div class="wrap-narrow">
+      <span class="section-label reveal">01 — FAQ</span>
+
+      <!--
+        ╔══════════════════════════════════════════════════╗
+        ║  HOW TO ADD OR EDIT FAQ ITEMS                   ║
+        ║                                                  ║
+        ║  1. Copy one full "FAQ ITEM" block below        ║
+        ║  2. Paste it inside the .faq-list div           ║
+        ║  3. Update the question text in the <button>    ║
+        ║  4. Update the answer in .faq-answer-inner      ║
+        ║  5. Give the button a new unique id (faq-9 etc) ║
+        ║     and update aria-controls to match           ║
+        ╚══════════════════════════════════════════════════╝
+      -->
+
+      <div class="faq-list reveal reveal-delay-1">
+
+        <!-- FAQ ITEM 1 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-1" aria-expanded="false" aria-controls="faq-answer-1">
+            What kinds of businesses do you work with?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-1">
+            <div class="faq-answer-inner">
+              Small businesses, primarily. The sweet spot is a founder-led operation — somewhere between
+              "just getting started" and "things are working but we're drowning in the manual overhead."
+              Industry doesn't matter much. What matters is that you've got a real problem and you're ready to fix it.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 1 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 2 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-2" aria-expanded="false" aria-controls="faq-answer-2">
+            I'm not sure exactly what I need — can you still help?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-2">
+            <div class="faq-answer-inner">
+              Yes — this is actually the most common way people come in. You don't need to have the
+              solution figured out. That's my job. All you need to bring is an honest description of
+              what's frustrating you, where time is being lost, or what's not working the way it should.
+              From there, I'll figure out what's actually going on and what needs to happen.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 2 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 3 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-3" aria-expanded="false" aria-controls="faq-answer-3">
+            What does working together actually look like?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-3">
+            <div class="faq-answer-inner">
+              It starts with a conversation — no agenda, no pitch deck. You tell me what's going on,
+              I ask questions, and I get a picture of the situation. From there I'll put together a
+              clear plan: what needs to happen, in what order, and what it'll cost. Once we agree
+              on scope, I execute. You'll have one point of contact from start to finish — no
+              hand-offs, no subcontractors, no broken telephone.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 3 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 4 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-4" aria-expanded="false" aria-controls="faq-answer-4">
+            How does pricing work?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-4">
+            <div class="faq-answer-inner">
+              For defined-scope projects — a website build, an automation setup, a CRM cleanup —
+              I work at $50/hr. You'll know the scope and estimate before we start, so there are
+              no surprises. For larger, multi-phase builds or ongoing operational support, I quote
+              based on what's actually needed. Either way, you'll have a clear number before any
+              work begins.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 4 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 5 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-5" aria-expanded="false" aria-controls="faq-answer-5">
+            How long do projects typically take?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-5">
+            <div class="faq-answer-inner">
+              It depends entirely on the scope. A focused automation can be designed, built, and
+              deployed in a few days. A full website build typically runs two to four weeks from
+              kick-off to launch. Larger operational projects are scoped individually. I'll give
+              you a realistic timeline before we start, and I don't pad it.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 5 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 6 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-6" aria-expanded="false" aria-controls="faq-answer-6">
+            Do you work remotely or on-site?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-6">
+            <div class="faq-answer-inner">
+              Primarily remote. Most of what I do — system design, automation builds, web development,
+              strategy — doesn't require physical presence and works better with async communication
+              anyway. If your situation genuinely needs an in-person component, we can talk about it.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 6 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 7 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-7" aria-expanded="false" aria-controls="faq-answer-7">
+            Do I own everything you build?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-7">
+            <div class="faq-answer-inner">
+              Yes, fully. Every deliverable, every file, every tool account belongs to you. I don't
+              use proprietary systems that require ongoing access to me. I build things you can
+              maintain, hand off to someone else, or pick up yourself. Creating dependencies on
+              my continued involvement isn't something I do.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 7 ─────────────────────────────── -->
+
+        <!-- FAQ ITEM 8 ─────────────────────────────────── -->
+        <div class="faq-item">
+          <button class="faq-trigger" id="faq-8" aria-expanded="false" aria-controls="faq-answer-8">
+            How do I get started?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-8">
+            <div class="faq-answer-inner">
+              Fill out the contact form on the home page or email me directly at
+              <a href="mailto:younkerstudio@gmail.com" style="color:var(--violet); font-weight:500;">younkerstudio@gmail.com</a>.
+              Tell me what's going on — a paragraph is enough. I'll respond within one business day
+              and we'll set up a time to talk.
+            </div>
+          </div>
+        </div>
+        <!-- END FAQ ITEM 8 ─────────────────────────────── -->
+
+      </div><!-- end .faq-list -->
+    </div>
+  </section>
+
+  <!-- ══ CTA STRIP ═════════════════════════════════════════ -->
+  <div class="cta-strip">
+    <div class="wrap" style="text-align:center;">
+      <h2 class="reveal" style="color:#fff;">Still have a question?</h2>
+      <p class="reveal reveal-delay-1" style="margin:16px auto 36px; color:rgba(255,255,255,0.75);">
+        Just ask. There's no form or format required — a single sentence is enough to get started.
+      </p>
+      <a href="index.html#contact" class="btn btn-ghost reveal reveal-delay-2">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a href="index.html" class="footer-wordmark">Younker<span>Studio</span></a>
+          <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <!-- TODO: add GitHub URL -->
+          <a href="#">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    nav.classList.add('scrolled');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    let menuOpen = false;
+
+    function toggleMenu(open) {
+      menuOpen = open;
+      hamburger.setAttribute('aria-expanded', open);
+      mobileNav.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+      const [top, mid, bot] = hamburger.querySelectorAll('span');
+      top.style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+      mid.style.opacity = open ? '0' : '1';
+      bot.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+    }
+
+    hamburger.addEventListener('click', () => toggleMenu(!menuOpen));
+    document.getElementById('mobile-nav-cta').addEventListener('click', () => toggleMenu(false));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) toggleMenu(false); });
+
+    // ── FAQ ACCORDION ──────────────────────────────────────
+    document.querySelectorAll('.faq-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        const answerId = trigger.getAttribute('aria-controls');
+        const answer = document.getElementById(answerId);
+
+        // Close all others
+        document.querySelectorAll('.faq-trigger').forEach(t => {
+          if (t !== trigger) {
+            t.setAttribute('aria-expanded', 'false');
+            const id = t.getAttribute('aria-controls');
+            document.getElementById(id)?.classList.remove('open');
+          }
+        });
+
+        // Toggle this one
+        trigger.setAttribute('aria-expanded', !expanded);
+        answer.classList.toggle('open', !expanded);
+      });
+    });
+
+    // ── SCROLL REVEAL ──────────────────────────────────────
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal, .drawn-rule').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal, .drawn-rule').forEach(el => el.classList.add('revealed'));
+    }
+  </script>
+
+</body>
+</html>
