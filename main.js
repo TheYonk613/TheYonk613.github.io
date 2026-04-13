@@ -1,15 +1,4 @@
 (function () {
-  // ── THEME TOGGLE ───────────────────────────────────────
-  const themeToggle = document.getElementById('theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('ys-theme', next);
-    });
-  }
-
   // ── NAV: scroll state ──────────────────────────────────
   // Inner pages (no #home section) start in the scrolled state.
   const nav = document.getElementById('nav');
