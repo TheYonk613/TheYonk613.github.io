@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="violet-glow" cx="15%" cy="30%" r="60%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1A1A2E"/>
+
+  <!-- Violet ambient glow (top-left) -->
+  <ellipse cx="180" cy="200" rx="520" ry="360" fill="url(#violet-glow)"/>
+
+  <!-- Top-left violet accent bar -->
+  <rect x="80" y="100" width="56" height="4" rx="2" fill="#7C3AED"/>
+
+  <!-- Wordmark — Younker (white) + Studio (violet) -->
+  <text x="80" y="332"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="86"
+    font-weight="800"
+    letter-spacing="-3">
+    <tspan fill="#FFFFFF">Younker</tspan><tspan fill="#7C3AED">Studio</tspan>
+  </text>
+
+  <!-- Tagline -->
+  <text x="80" y="405"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="27"
+    font-weight="400"
+    fill="rgba(255,255,255,0.55)">Every problem has a solution waiting to be built.</text>
+
+  <!-- Horizontal rule -->
+  <rect x="80" y="488" width="1040" height="1" fill="rgba(255,255,255,0.1)"/>
+
+  <!-- Domain -->
+  <text x="80" y="540"
+    font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"
+    font-size="15"
+    font-weight="600"
+    letter-spacing="2.5"
+    fill="rgba(255,255,255,0.3)">YOUNKERSTUDIO.COM</text>
+
+  <!-- Decorative rings (top-right) -->
+  <circle cx="1108" cy="118" r="108" fill="none" stroke="#7C3AED" stroke-opacity="0.15" stroke-width="1"/>
+  <circle cx="1108" cy="118" r="66" fill="none" stroke="#7C3AED" stroke-opacity="0.1" stroke-width="1"/>
+  <circle cx="1108" cy="118" r="24" fill="#7C3AED" fill-opacity="0.12"/>
+</svg>
