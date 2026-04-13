@@ -7,8 +7,42 @@
   <meta name="description" content="YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it." />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="canonical" href="https://younkerstudio.com/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-  <!-- ANALYTICS: uncomment and paste your GA4 measurement ID to activate
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:title" content="YounkerStudio — Every Problem Has a Solution Waiting to Be Built" />
+  <meta property="og:description" content="YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
+  <meta property="og:url" content="https://younkerstudio.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "YounkerStudio",
+    "url": "https://younkerstudio.com",
+    "description": "YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it.",
+    "priceRange": "$50/hr",
+    "founder": {
+      "@type": "Person",
+      "name": "Netanel Younker",
+      "sameAs": [
+        "https://linkedin.com/in/netanel-younker",
+        "https://github.com/TheYonk613"
+      ]
+    },
+    "sameAs": [
+      "https://linkedin.com/in/netanel-younker",
+      "https://github.com/TheYonk613"
+    ]
+  }
+  </script>
+
+  <!-- ANALYTICS: paste your GA4 measurement ID and uncomment to activate
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,9 +59,9 @@
     <div class="nav-inner">
       <a href="index.html" class="wordmark">Younker<span>Studio</span></a>
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="work/">Work</a></li>
+        <li><a href="faq/">FAQ</a></li>
         <li><a href="#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -38,9 +72,9 @@
 
   <!-- Mobile nav overlay -->
   <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="about.html">About</a>
-    <a href="work.html">Work</a>
-    <a href="faq.html">FAQ</a>
+    <a href="about/">About</a>
+    <a href="work/">Work</a>
+    <a href="faq/">FAQ</a>
     <a href="#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
   </div>
 
@@ -59,7 +93,7 @@
       </p>
       <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:40px;" class="reveal reveal-delay-3">
         <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-        <a href="work.html" class="btn btn-ghost">See the Work</a>
+        <a href="work/" class="btn btn-ghost">See the Work</a>
       </div>
     </div>
     <div class="wrap" style="margin-top:72px;">
@@ -112,7 +146,7 @@
             Process design, project management, CRM buildouts and cleanups, vendor coordination —
             the infrastructure work that makes everything else possible.
           </p>
-          <a href="work.html" class="tile-link">
+          <a href="work/" class="tile-link">
             See examples
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -125,7 +159,7 @@
           <p class="tile-desc">
             Zapier, Make, n8n, webhooks, AI integrations — if data is moving between tools by hand, that's a problem I can solve.
           </p>
-          <a href="work.html" class="tile-link">
+          <a href="work/" class="tile-link">
             See examples
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -138,7 +172,7 @@
           <p class="tile-desc">
             Clean, fast, hand-coded websites. No page builders, no bloat — just something you're proud to send.
           </p>
-          <a href="work.html" class="tile-link">
+          <a href="work/" class="tile-link">
             See examples
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -256,6 +290,8 @@
 
         <div class="reveal reveal-delay-1">
           <form class="form" id="contact-form" novalidate>
+            <!-- Honeypot: hidden from humans, bots fill it — reject on server side too -->
+            <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;overflow:hidden;" />
             <div class="form-row">
               <div class="form-group">
                 <label for="name" class="form-label">Name</label>
@@ -292,9 +328,9 @@
           <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
         </div>
         <ul class="footer-nav">
-          <li><a href="about.html">About</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about/">About</a></li>
+          <li><a href="work/">Work</a></li>
+          <li><a href="faq/">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -309,55 +345,8 @@
     </div>
   </footer>
 
+  <script src="main.js" defer></script>
   <script>
-    // ── NAV: scroll state ──────────────────────────────────
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // ── HAMBURGER ──────────────────────────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobile-nav');
-    let menuOpen = false;
-
-    function toggleMenu(open) {
-      menuOpen = open;
-      hamburger.setAttribute('aria-expanded', open);
-      mobileNav.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-      const [top, mid, bot] = hamburger.querySelectorAll('span');
-      top.style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
-      mid.style.opacity = open ? '0' : '1';
-      bot.style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
-    }
-
-    hamburger.addEventListener('click', () => toggleMenu(!menuOpen));
-
-    document.getElementById('mobile-nav-cta').addEventListener('click', () => toggleMenu(false));
-
-    // Close on escape
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && menuOpen) toggleMenu(false);
-    });
-
-    // ── SCROLL REVEAL ──────────────────────────────────────
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-      document.querySelectorAll('.reveal, .drawn-rule').forEach(el => observer.observe(el));
-    } else {
-      // If reduced motion, just show everything
-      document.querySelectorAll('.reveal, .drawn-rule').forEach(el => el.classList.add('revealed'));
-    }
-
     // ── CONTACT FORM ───────────────────────────────────────
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('form-submit');
@@ -368,6 +357,9 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Honeypot check — bots fill this field, humans don't
+      if (document.getElementById('hp-website').value) return;
 
       // Basic validation
       const name = form.name.value.trim();
@@ -389,7 +381,8 @@
         email,
         business: form.business.value.trim(),
         message,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        hp: document.getElementById('hp-website').value  // Apps Script should reject if non-empty
       };
 
       try {

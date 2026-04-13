@@ -1296,3 +1296,26 @@ footer {
   h1 { font-size: 44px; }
   h2 { font-size: 32px; }
 }
+
+/* ── About page grids ─────────────────────────────────── */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .bio-grid,
+  .timeline-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
