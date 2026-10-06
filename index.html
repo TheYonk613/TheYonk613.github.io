@@ -3,17 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YounkerStudio — Every Problem Has a Solution Waiting to Be Built</title>
-  <meta name="description" content="YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>YounkerStudio — Consulting and Systems for Small Businesses</title>
+  <meta name="description" content="YounkerStudio helps small businesses find where time and money are leaking, then builds the simple systems that fix it. One person, start to finish." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://younkerstudio.com/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Open Graph / Twitter Card -->
-  <meta property="og:title" content="YounkerStudio — Every Problem Has a Solution Waiting to Be Built" />
-  <meta property="og:description" content="YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it." />
-  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.svg" />
+  <meta property="og:title" content="YounkerStudio — Consulting and Systems for Small Businesses" />
+  <meta property="og:description" content="YounkerStudio helps small businesses find where time and money are leaking, then builds the simple systems that fix it. One person, start to finish." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
   <meta property="og:url" content="https://younkerstudio.com/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -25,20 +31,14 @@
     "@type": "ProfessionalService",
     "name": "YounkerStudio",
     "url": "https://younkerstudio.com",
-    "description": "YounkerStudio gives small businesses the outside perspective they've been missing — then builds the systems, workflows, and tools to actually fix it.",
+    "description": "YounkerStudio helps small businesses find where time and money are leaking, then builds the simple systems that fix it. One person, start to finish.",
     "priceRange": "$50/hr",
     "founder": {
       "@type": "Person",
       "name": "Netanel Younker",
-      "sameAs": [
-        "https://linkedin.com/in/netanel-younker",
-        "https://github.com/TheYonk613"
-      ]
+      "sameAs": ["https://linkedin.com/in/netanel-younker", "https://github.com/TheYonk613"]
     },
-    "sameAs": [
-      "https://linkedin.com/in/netanel-younker",
-      "https://github.com/TheYonk613"
-    ]
+    "sameAs": ["https://linkedin.com/in/netanel-younker", "https://github.com/TheYonk613"]
   }
   </script>
 
@@ -55,270 +55,409 @@
 <body>
 
   <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <!-- ══ NAV ══════════════════════════════════════════════ -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="wordmark">Younker<span>Studio</span></a>
-      <ul class="nav-links">
-        <li><a href="about/">About</a></li>
-        <li><a href="work/">Work</a></li>
-        <li><a href="faq/">FAQ</a></li>
-        <li><a href="#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/">Work</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
 
-  <!-- Mobile nav overlay -->
-  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="about/">About</a>
-    <a href="work/">Work</a>
-    <a href="faq/">FAQ</a>
-    <a href="#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </div>
+
+  <div class="boot" aria-hidden="true">
+    <span class="boot__msg">YounkerStudio<br />Mapping the system</span>
+    <span class="boot__mark"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></span>
+    <span class="boot__n">000</span>
   </div>
 
   <main id="main-content" tabindex="-1">
 
   <!-- ══ HERO ══════════════════════════════════════════════ -->
-  <section class="page-hero" id="home">
-    <div class="wrap">
-      <span class="section-label section-label--dark reveal">Solutions Studio</span>
-      <h1 class="reveal reveal-delay-1">
+  <section class="hero" id="home" data-theme="dark">
+    <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
+      <span class="label">Consulting for small businesses</span>
+      <h1 class="h1" data-split>
         Every problem has a<br />
         solution waiting<br />
-        to be <span class="display-violet--light">built.</span>
+        to be <em>built.</em>
       </h1>
-      <p class="reveal reveal-delay-2">
-        YounkerStudio gives small businesses the outside perspective they've been missing —
-        then builds the systems, workflows, and tools to actually fix it.
-      </p>
-      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:40px;" class="reveal reveal-delay-3">
-        <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-        <a href="work/" class="btn btn-ghost">See the Work</a>
-      </div>
-    </div>
-    <div class="wrap" style="margin-top:72px;">
-      <div class="drawn-rule drawn-rule--dark"></div>
-    </div>
-  </section>
-
-  <!-- ══ PROOF STRIP ══════════════════════════════════════ -->
-  <section class="section">
-    <div class="wrap">
-      <span class="section-label reveal">01 — Results</span>
-      <div class="proof-strip reveal reveal-delay-1">
-        <div class="proof-item">
-          <!-- TODO: replace placeholder number with real stat -->
-          <span class="proof-num" data-count="350">350<span class="accent">+</span></span>
-          <span class="proof-label">hours per year recovered through automation</span>
-        </div>
-        <div class="proof-item">
-          <!-- TODO: replace placeholder number with real stat -->
-          <span class="proof-num" data-count="200">200<span class="accent">K+</span></span>
-          <span class="proof-label">records cleaned and organized in a single CRM</span>
-        </div>
-        <div class="proof-item">
-          <!-- TODO: replace placeholder number with real stat -->
-          <span class="proof-num" data-count="10">10<span class="accent">+</span></span>
-          <span class="proof-label">tools and systems built and shipped</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SERVICES BENTO ════════════════════════════════════ -->
-  <section class="section section--soft" id="services">
-    <div class="wrap">
-      <div class="section-header">
-        <span class="section-label reveal">02 — What I Do</span>
-        <h2 class="reveal reveal-delay-1">One operator.<br />Every layer.</h2>
-        <p class="reveal reveal-delay-2" style="margin-top:16px;">
-          Not sure which one you need? Most people aren't. Just tell me what's going on — I'll figure out the rest.
+      <div class="hero__row">
+        <p class="lede" data-reveal style="--d:4">
+          I help small businesses find where time and money are leaking, then I build the fix.
+          It's usually simpler than you'd expect, and we start with one small project.
         </p>
+        <div class="hero__cta" data-reveal style="--d:5">
+          <a href="#contact" class="btn" data-magnetic>Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a href="/work/" class="btn btn--ghost" data-magnetic>See recent work</a>
+        </div>
       </div>
-
-      <div class="bento reveal reveal-delay-1">
-
-        <!-- Large tile — Operations -->
-        <div class="bento-tile bento-tile--large">
-          <span class="tile-eyebrow">Operations &amp; Systems</span>
-          <div class="tile-title">Get the operation<br />running the way it should.</div>
-          <p class="tile-desc">
-            Process design, project management, CRM buildouts and cleanups, vendor coordination —
-            the infrastructure work that makes everything else possible.
-          </p>
-          <a href="work/" class="tile-link">
-            See examples
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <!-- Automation -->
-        <div class="bento-tile">
-          <span class="tile-eyebrow">Automation &amp; Workflow</span>
-          <div class="tile-title">Stop doing manually what a system can do.</div>
-          <p class="tile-desc">
-            Zapier, Make, n8n, webhooks, AI integrations — if data is moving between tools by hand, that's a problem I can solve.
-          </p>
-          <a href="work/" class="tile-link">
-            See examples
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <!-- Web Creation -->
-        <div class="bento-tile">
-          <span class="tile-eyebrow">Web Creation</span>
-          <div class="tile-title">A site that actually represents what you've built.</div>
-          <p class="tile-desc">
-            Clean, fast, hand-coded websites. No page builders, no bloat — just something you're proud to send.
-          </p>
-          <a href="work/" class="tile-link">
-            See examples
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
-        <!-- Strategy — spans bottom row -->
-        <div class="bento-tile" style="border-right:none;border-bottom:none;">
-          <span class="tile-eyebrow">Strategy &amp; Consulting</span>
-          <div class="tile-title">The outside eyes your business has been missing.</div>
-          <p class="tile-desc">
-            Sometimes you need someone to look at the whole picture without the bias of being inside it. That's what I do.
-          </p>
-          <a href="#contact" class="tile-link">
-            Start a conversation
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-        </div>
-
+      <div class="hero__foot mono" data-reveal style="--d:6">
+        <span>Scroll</span>
+        <button class="status mono" id="hero-status" type="button" aria-label="Replay the hero animation">
+          <i class="status__dot"></i><span id="hero-status-text">System tangled</span><u>replay</u>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- ══ HOW IT WORKS ══════════════════════════════════════ -->
-  <section class="section section--dark">
-    <div class="wrap">
-      <div class="section-header">
-        <span class="section-label section-label--dark reveal">03 — Process</span>
-        <h2 class="reveal reveal-delay-1" style="color:#fff;">Three steps.<br />No surprises.</h2>
+  <!-- ══ TOOL MARQUEE ══════════════════════════════════════ -->
+  <div class="marquee" data-theme="dark" aria-label="Platforms I work in">
+    <div class="marquee__track">
+      <div class="marquee__set">
+        <span>HubSpot</span><i></i>
+        <span>Zapier</span><i></i>
+        <span>Make</span><i></i>
+        <span>n8n</span><i></i>
+        <span>Monday.com</span><i></i>
+        <span>Airtable</span><i></i>
+        <span>Salesforce</span><i></i>
+        <span>Asana</span><i></i>
+        <span>Webhooks &amp; APIs</span><i></i>
+        <span>HTML / CSS / JS</span><i></i>
+        <span>Tailwind</span><i></i>
+        <span>Git</span><i></i>
       </div>
-      <div class="steps">
-        <div class="step reveal">
-          <span class="step-num">01</span>
-          <div class="step-title">Tell me what's broken</div>
-          <p class="step-desc">A 30-minute conversation. No prep, no deck, no commitment — just tell me what's going on.</p>
+    </div>
+  </div>
+  <div style="height:var(--sheet);background:var(--ink)"></div>
+
+  <!-- ══ CLIENT IMPACT ════════════════════════════════════ -->
+  <section class="sec sec--sheet" data-theme="light">
+    <div class="wrap">
+      <span class="label" data-reveal>Results</span>
+      <div class="stats">
+        <div class="stat" data-reveal>
+          <!-- TODO: replace placeholder number with real stat -->
+          <span class="stat__n"><span data-count="350">350</span><sup>+</sup></span>
+          <span class="stat__l">hours a year handed back to owners and their teams</span>
         </div>
-        <div class="step reveal reveal-delay-1">
-          <span class="step-num">02</span>
-          <div class="step-title">I map the solution</div>
-          <p class="step-desc">I audit the situation, identify the root problem, and put together a clear, scoped plan of what actually needs to happen.</p>
+        <div class="stat" data-reveal style="--d:1">
+          <!-- TODO: replace placeholder number with real stat -->
+          <span class="stat__n"><span data-count="200">200</span><sup>K+</sup></span>
+          <span class="stat__l">CRM records cleaned up in a single database</span>
         </div>
-        <div class="step reveal reveal-delay-2">
-          <span class="step-num">03</span>
-          <div class="step-title">We build and ship it</div>
-          <p class="step-desc">I execute. No hand-offs, no vendor management, no gaps between strategy and delivery. One person, start to finish.</p>
+        <div class="stat" data-reveal style="--d:2">
+          <!-- TODO: replace placeholder number with real stat -->
+          <span class="stat__n"><span data-count="10">10</span><sup>+</sup></span>
+          <span class="stat__l">systems and tools built and in daily use</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ PRICING ═══════════════════════════════════════════ -->
-  <section class="section section--soft" id="pricing">
+  <!-- ══ CAPABILITIES — pinned layer stack ═════════════════ -->
+  <section class="layers sec--sheet" id="services" data-theme="dark">
+    <div class="layers__pin">
+      <div class="wrap layers__grid">
+        <div class="layers__copy">
+          <span class="label">Capabilities</span>
+          <h2 class="h2">One operator.<br /><em>Every</em> layer.</h2>
+          <ul class="layers__list">
+            <li class="layer is-active">
+              <button class="layer__head" type="button"><span class="layer__name">Strategy &amp; Advice</span></button>
+              <div class="layer__body"><div>
+                <h3 class="h3">A fresh pair of eyes on the whole business.</h3>
+                <p>When you're in the business every day, it's hard to see where the time goes. I look at it from the outside, find the one problem that matters most, and tell you what it's costing.</p>
+              </div></div>
+            </li>
+            <li class="layer">
+              <button class="layer__head" type="button"><span class="layer__name">Operations &amp; Systems</span></button>
+              <div class="layer__body"><div>
+                <h3 class="h3">Day-to-day work that runs properly.</h3>
+                <p>Clear processes, purchasing that goes through one door, a simple way to track projects, and a CRM people trust. It isn't glamorous, but everything else sits on it.</p>
+              </div></div>
+            </li>
+            <li class="layer">
+              <button class="layer__head" type="button"><span class="layer__name">Automation &amp; Workflow</span></button>
+              <div class="layer__body"><div>
+                <h3 class="h3">Stop doing by hand what a system can do.</h3>
+                <p>If someone is copying data from one tool to another, that's a job for software. I connect your tools with Zapier, Make, n8n or a bit of code, and write it down so your team can run it without me.</p>
+              </div></div>
+            </li>
+            <li class="layer">
+              <button class="layer__head" type="button"><span class="layer__name">Web Development</span></button>
+              <div class="layer__body"><div>
+                <h3 class="h3">A website you're happy to send people to.</h3>
+                <p>Fast, hand-coded sites with no page builders. Easy to find on Google and easy for you to update.</p>
+              </div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="stage" aria-hidden="true">
+          <div class="stack">
+            <div class="plane" data-i="0" style="--i:0">
+              <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="62"/><circle cx="100" cy="100" r="36"/><circle cx="100" cy="100" r="6"/><path d="M100 20v36M100 144v36M20 100h36M144 100h36M128 72l22-22"/></svg>
+              <span class="plane__tag">Strategy</span>
+            </div>
+            <div class="plane" data-i="1" style="--i:1">
+              <svg viewBox="0 0 200 200"><rect x="24" y="30" width="44" height="130" rx="8"/><rect x="78" y="30" width="44" height="130" rx="8"/><rect x="132" y="30" width="44" height="130" rx="8"/><path d="M34 48h24M34 62h24M34 76h14M88 48h24M88 62h14M142 48h24M142 62h24M142 76h24M142 90h14"/></svg>
+              <span class="plane__tag">Operations</span>
+            </div>
+            <div class="plane" data-i="2" style="--i:2">
+              <svg viewBox="0 0 200 200"><circle cx="36" cy="100" r="12"/><circle cx="100" cy="48" r="12"/><circle cx="100" cy="134" r="12"/><circle cx="164" cy="92" r="12"/><path d="M48 96C70 90 70 52 88 50M48 104c22 6 22 26 40 28M112 48c24 2 24 36 40 40M112 134c24-2 24-32 40-38"/></svg>
+              <span class="plane__tag">Automation</span>
+            </div>
+            <div class="plane" data-i="3" style="--i:3">
+              <svg viewBox="0 0 200 200"><rect x="22" y="30" width="156" height="128" rx="10"/><path d="M22 54h156M36 42h.1M48 42h.1M60 42h.1M40 78h66M40 94h44M40 126h28"/><rect x="118" y="74" width="44" height="64" rx="6"/></svg>
+              <span class="plane__tag">Web</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LIVE DEMO ═════════════════════════════════════════ -->
+  <section class="sec sec--sheet" data-theme="light">
     <div class="wrap">
-      <div class="section-header">
-        <span class="section-label reveal">04 — Pricing</span>
-        <h2 class="reveal reveal-delay-1">Simple,<br />transparent pricing.</h2>
+      <div class="sec__head">
+        <span class="label" data-reveal>See it run</span>
+        <h2 class="h2" data-split>What “automated” looks like in <em>practice.</em></h2>
+        <p data-reveal>A new inquiry comes in and five things need to happen. Here, nobody has to remember any of them. <span class="mono">(Simulated demo.)</span></p>
       </div>
-      <div class="pricing-grid reveal reveal-delay-1">
-        <div class="pricing-card pricing-card--featured">
-          <span class="pricing-eyebrow">Project Work</span>
-          <div class="pricing-rate">$50<span> / hr</span></div>
-          <p class="pricing-desc">
-            For defined-scope projects — automations, website builds, CRM setups, operations audits.
-            You know roughly what you need, I scope it and we get it done.
-          </p>
-        </div>
-        <div class="pricing-card">
-          <span class="pricing-eyebrow">Larger Builds &amp; Ongoing</span>
-          <div class="pricing-rate" style="font-size:36px; letter-spacing:-0.02em;">Let's talk</div>
-          <p class="pricing-desc">
-            For multi-phase builds, ongoing operational support, or anything complex enough that
-            a flat hourly rate doesn't capture the scope. I'll quote based on what you actually need.
-          </p>
+
+      <div class="flow" id="flow" data-reveal>
+        <ol class="flow__track">
+          <li class="flow__node" data-key="trigger" data-log="New inquiry from the contact form.">
+            <span class="flow__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h6"/></svg></span>
+            <span><span class="flow__name">Form submitted</span><span class="flow__tool">Website</span></span>
+          </li>
+          <li class="flow__link" aria-hidden="true"><i></i></li>
+          <li class="flow__node" data-key="validate" data-log="Email valid. No duplicate found.">
+            <span class="flow__icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.500-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <span><span class="flow__name">Validate &amp; dedupe</span><span class="flow__tool">Webhook</span></span>
+          </li>
+          <li class="flow__link" aria-hidden="true"><i></i></li>
+          <li class="flow__node" data-key="crm" data-log="Contact created, owner assigned, source tagged.">
+            <span class="flow__icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.700 3.600 3 8 3s8-1.300 8-3V6M4 12v6c0 1.700 3.600 3 8 3s8-1.300 8-3v-6"/></svg></span>
+            <span><span class="flow__name">Create the contact</span><span class="flow__tool">CRM</span></span>
+          </li>
+          <li class="flow__link" aria-hidden="true"><i></i></li>
+          <li class="flow__node" data-key="notify" data-log="Team notified with the full context.">
+            <span class="flow__icon"><svg viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.500 7 2.500 7h-17S6 15 6 9M10 20a2 2 0 0 0 4 0"/></svg></span>
+            <span><span class="flow__name">Notify the team</span><span class="flow__tool">Chat</span></span>
+          </li>
+          <li class="flow__link" aria-hidden="true"><i></i></li>
+          <li class="flow__node" data-key="report" data-log="Added to the weekly report. Follow-up scheduled.">
+            <span class="flow__icon"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
+            <span><span class="flow__name">Update the report</span><span class="flow__tool">Dashboard</span></span>
+          </li>
+        </ol>
+
+        <div class="term">
+          <div class="term__bar">
+            <span class="term__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="mono">workflow.log</span>
+            <button class="btn btn--sm" id="flow-run" type="button">Run</button>
+          </div>
+          <div class="term__body" id="flow-log" aria-live="polite"><span class="t">Waiting for a trigger </span><span class="caret"></span></div>
         </div>
       </div>
-      <p class="pricing-note reveal reveal-delay-2">
-        Not sure which bucket you're in? Just tell me what's going on — I'll point you in the right direction, no sales pitch.
-      </p>
+    </div>
+  </section>
+
+  <!-- ══ TOOLS ═════════════════════════════════════════════ -->
+  <section class="sec sec--tight-top" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Tools</span>
+        <h2 class="h2" data-split>Put a number on the <em>problem.</em></h2>
+        <p data-reveal>Two tools I use at the start of most projects. They run in your browser, and nothing you type is saved or sent.</p>
+      </div>
+      <div class="tools">
+        <a class="card tool" href="/tools/#calculator" data-tilt data-reveal>
+          <div class="card__top mono"><span>Calculator</span><span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 class="h3">Cost of manual work</h3>
+          <p>Work out what a weekly manual task really costs, how much of it software could take over, and how fast a fix pays for itself.</p>
+        </a>
+        <a class="card tool" href="/tools/#diagnostic" data-tilt data-reveal style="--d:1">
+          <div class="card__top mono"><span>Self-assessment</span><span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div>
+          <h3 class="h3">Operations diagnostic</h3>
+          <p>Ten quick statements about how the business runs. You get a score, your weak spot, and what I'd fix first.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ APPROACH ══════════════════════════════════════════ -->
+  <section class="sec sec--sheet" data-theme="dark">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>How it works</span>
+        <h2 class="h2" data-split>From first call to finished <em>fix.</em></h2>
+      </div>
+      <div class="steps" data-progress>
+        <div class="step" data-reveal>
+          <span class="step__n">Talk</span>
+          <h3 class="h3">Tell me what's going on</h3>
+          <p>A 30-minute call, free, with no prep needed. You tell me what's broken or slow, and I ask a lot of questions.</p>
+        </div>
+        <div class="step" data-reveal style="--d:1">
+          <span class="step__n">Plan</span>
+          <h3 class="h3">I map out the fix</h3>
+          <p>I find the root cause and send you a short plan with an estimate. The first project is small on purpose, so you see a result before committing to more.</p>
+        </div>
+        <div class="step" data-reveal style="--d:2">
+          <span class="step__n">Build</span>
+          <h3 class="h3">I build it and hand it over</h3>
+          <p>I do the work myself, test it, and write down how it runs. When it's done, it's yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WORK ══════════════════════════════════════════════ -->
+  <section class="sec sec--tight-top" data-theme="dark">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Recent work</span>
+        <h2 class="h2" data-split>What was wrong, what I built, what <em>changed.</em></h2>
+      </div>
+      <div class="rows">
+        <a class="row" href="/work/procurement/" data-reveal>
+          <span class="row__t">A procurement department, built in four months</span>
+          <span class="row__o"><span class="row__tag mono">Procurement · Case study</span>Purchasing for a 120-person company across three countries, live in three weeks. Includes a working model of the request portal.</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="row" href="/work/#ops-board" data-reveal>
+          <span class="row__t">Operations &amp; project management system</span>
+          <span class="row__o"><span class="row__tag mono">Operations</span>Weekly reporting went from a two-hour chore to an email that sends itself every Monday.</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="row" href="/work/#financial-organizer" data-reveal>
+          <span class="row__t">AI-assisted financial organizer</span>
+          <span class="row__o"><span class="row__tag mono">Automation + AI</span>Month-end reconciliation went from hours to minutes.</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+        <a class="row" href="/work/#calendar-relay" data-reveal>
+          <span class="row__t">Time &amp; calendar relay</span>
+          <span class="row__o"><span class="row__tag mono">Automation</span>The team finally has a calendar they trust, and nobody has to update it.</span>
+          <span class="row__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LAB ═══════════════════════════════════════════════ -->
+  <section class="sec sec--sheet" id="lab" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Product lab</span>
+        <h2 class="h2" data-split>Things I build for <em>myself.</em></h2>
+        <p data-reveal>I also design and build my own software, start to finish. It's where I try new ideas before using them on client work.</p>
+      </div>
+      <div class="lab">
+        <article class="card" data-tilt data-reveal>
+          <div class="card__top mono"><span>Household OS</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-grid"><i style="--k:0"></i><i style="--k:7"></i><i style="--k:14"></i><i style="--k:21"></i><i style="--k:4"></i><i style="--k:11"></i><i style="--k:18"></i><i style="--k:1"></i><i style="--k:8"></i><i style="--k:15"></i><i style="--k:22"></i><i style="--k:5"></i><i style="--k:12"></i><i style="--k:19"></i><i style="--k:2"></i><i style="--k:9"></i><i style="--k:16"></i><i style="--k:23"></i><i style="--k:6"></i><i style="--k:13"></i><i style="--k:20"></i><i style="--k:3"></i><i style="--k:10"></i><i style="--k:17"></i></div></div>
+          <h3 class="h3">YonkUnity</h3>
+          <p>A self-hosted household operating system covering calendar, recipes and shopping, documents, finances and projects. It runs on a single machine at home, with no third party holding the data.</p>
+          <div class="card__stack"><span class="chip">Next.js</span><span class="chip">Fastify</span><span class="chip">PostgreSQL</span><span class="chip">Redis + BullMQ</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal style="--d:1">
+          <div class="card__top mono"><span>Marketing automation</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-pipe"><svg viewBox="0 0 260 110"><path class="wire" d="M20 55C70 55 70 20 130 20s60 35 110 35"/><path class="wire" d="M20 55c50 0 50 35 110 35s60-35 110-35"/><path class="pulse" d="M20 55C70 55 70 20 130 20s60 35 110 35"/><path class="pulse pulse--2" d="M20 55c50 0 50 35 110 35s60-35 110-35"/><circle cx="20" cy="55" r="7"/><circle cx="130" cy="20" r="7"/><circle cx="130" cy="90" r="7"/><circle cx="240" cy="55" r="7"/></svg></div></div>
+          <h3 class="h3">Nexus Marketing OS</h3>
+          <p>A self-hosted marketing platform with email and WhatsApp campaigns, automation workflows, contact management, lead scoring and an AI assistant.</p>
+          <div class="card__stack"><span class="chip">Fastify</span><span class="chip">Prisma</span><span class="chip">Docker</span><span class="chip">Claude API</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal>
+          <div class="card__top mono"><span>AI calendar</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-orbit"><svg viewBox="0 0 150 150"><circle class="ring" cx="75" cy="75" r="58"/><circle class="arc" cx="75" cy="75" r="58" stroke="#FF5A2B" stroke-dasharray="70 295"/><circle class="arc arc--2" cx="75" cy="75" r="58" stroke="#7B6CFF" stroke-dasharray="40 325" stroke-dashoffset="-150"/><path class="hand" d="M75 75V30"/><circle cx="75" cy="75" r="4" fill="currentColor"/></svg></div></div>
+          <h3 class="h3">Rainbow</h3>
+          <p>A calendar that places the day on a circular time ring, shows tasks as floating balloons and reschedules by voice command.</p>
+          <div class="card__stack"><span class="chip">React</span><span class="chip">Framer Motion</span><span class="chip">Express</span><span class="chip">Voice + LLM</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal style="--d:1">
+          <div class="card__top mono"><span>Real-time music</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-eq"><i style="--k:0"></i><i style="--k:5"></i><i style="--k:10"></i><i style="--k:2"></i><i style="--k:7"></i><i style="--k:12"></i><i style="--k:4"></i><i style="--k:9"></i><i style="--k:1"></i><i style="--k:6"></i><i style="--k:11"></i><i style="--k:3"></i><i style="--k:8"></i></div></div>
+          <h3 class="h3">LetsJam</h3>
+          <p>A session tool for musicians. One person leads, and every screen in the room follows the song in sync.</p>
+          <div class="card__stack"><span class="chip">Next.js</span><span class="chip">WebSockets</span><span class="chip">TypeScript</span><span class="chip">PWA</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRICING ══════════════════════════════════════════════ -->
+  <section class="sec sec--tight-top" id="pricing" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Pricing</span>
+        <h2 class="h2" data-split>Start small. Pay for what you <em>need.</em></h2>
+      </div>
+      <div class="pricing">
+        <div class="price" data-reveal>
+          <span class="mono">First conversation</span>
+          <div class="price__rate price__rate--talk">Free</div>
+          <p>A 30-minute call and my honest take on what's worth fixing first. No charge, and no pressure to go further.</p>
+        </div>
+        <div class="price price--main" data-reveal style="--d:1">
+          <span class="mono">Project work</span>
+          <div class="price__rate">$50<small>/ hr</small></div>
+          <p>Start with one fix. I send an estimate and you approve it before I begin, so you always know the cost. A first project can be just a few hours.</p>
+        </div>
+        <div class="price" data-reveal style="--d:2">
+          <span class="mono">Ongoing support</span>
+          <div class="price__rate price__rate--talk">Let's <em class="serif">talk</em></div>
+          <p>If you'd like continued help after the first fix, we agree on a scope and a monthly cost together. You can change it or stop whenever you need to.</p>
+        </div>
+      </div>
+      <p class="pricing__note" data-reveal>There's no minimum project size, and you don't pay anything until you've approved an estimate.</p>
     </div>
   </section>
 
   <!-- ══ CONTACT ════════════════════════════════════════════ -->
-  <section class="section" id="contact">
+  <section class="sec sec--sheet" id="contact" data-theme="dark">
     <div class="wrap">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <span class="section-label">05 — Contact</span>
-          <h2>Let's figure out<br />what you need.</h2>
-          <p>
-            Tell me what's going on. You don't need to have it all figured out —
-            that's literally what I'm here for.
-          </p>
-
-          <div class="contact-detail">
-            <a href="mailto:younkerstudio@gmail.com" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              younkerstudio@gmail.com
-            </a>
-            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <!-- TODO: add your GitHub URL below -->
-            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              GitHub
-            </a>
-            <!-- TODO: uncomment and add Calendly link when ready
-            <a href="https://calendly.com/younkerstudio" target="_blank" rel="noopener noreferrer" class="contact-link">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              Book a call
-            </a>
+      <div class="contact">
+        <div>
+          <span class="label" data-reveal>Contact</span>
+          <h2 class="h2" data-split>Let's figure out what you <em>need.</em></h2>
+          <p class="lede" data-reveal style="margin-top:28px">Tell me what's going on in the business. You don't need a brief or a plan. Working out the real problem is part of the job.</p>
+          <div class="contact__links" data-reveal>
+            <a href="mailto:younkerstudio@gmail.com">younkerstudio@gmail.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            <!-- TODO: add Calendly link when ready
+            <a href="https://calendly.com/younkerstudio" target="_blank" rel="noopener noreferrer">Book a call</a>
             -->
           </div>
         </div>
 
-        <div class="reveal reveal-delay-1">
-          <form class="form" id="contact-form" novalidate>
-            <!-- Honeypot: hidden from humans, bots fill it — reject on server side too -->
-            <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;overflow:hidden;" />
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-input" placeholder="you@company.com" required />
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="business" class="form-label">Business / Company</label>
-              <input type="text" id="business" name="business" class="form-input" placeholder="What's your business called?" />
-            </div>
-            <div class="form-group">
-              <label for="message" class="form-label">What's going on?</label>
-              <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about the problem, the project, or just where things stand. No format needed." required></textarea>
-            </div>
-            <button type="submit" class="form-submit" id="form-submit">Send it over</button>
-            <div class="form-status" id="form-status" role="alert"></div>
-          </form>
-        </div>
-
+        <form class="form" id="contact-form" novalidate data-reveal style="--d:1"
+              data-endpoint="https://script.google.com/macros/s/AKfycbwpDFqumAInS7RMIQfEWXY7d1UOyoSiDNOXTWnVWnukP82Vz0iPB95XyaEY0EwRmDF8YQ/exec">
+          <!-- Honeypot: hidden from humans, bots fill it — reject on server side too -->
+          <input type="text" name="website" id="hp-website" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form__row">
+            <div class="field"><input type="text" id="name" name="name" placeholder=" " autocomplete="name" required /><label for="name">Name</label></div>
+            <div class="field"><input type="email" id="email" name="email" placeholder=" " autocomplete="email" required /><label for="email">Email</label></div>
+          </div>
+          <div class="field"><input type="text" id="business" name="business" placeholder=" " autocomplete="organization" /><label for="business">Company</label></div>
+          <div class="field"><textarea id="message" name="message" placeholder=" " required></textarea><label for="message">What's going on?</label></div>
+          <button type="submit" class="btn" id="form-submit" data-magnetic><span>Send it over</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></button>
+          <div class="form__status" id="form-status" role="alert"></div>
+        </form>
       </div>
     </div>
   </section>
@@ -326,90 +465,35 @@
   </main>
 
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <a href="index.html" class="footer-wordmark">Younker<span>Studio</span></a>
-          <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
-        <ul class="footer-nav">
-          <li><a href="about/">About</a></li>
-          <li><a href="work/">Work</a></li>
-          <li><a href="faq/">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 YounkerStudio. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <!-- TODO: add GitHub URL -->
-          <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
       </div>
     </div>
   </footer>
 
-  <script src="main.js" defer></script>
-  <script>
-    // ── CONTACT FORM ───────────────────────────────────────
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('form-submit');
-    const statusEl = document.getElementById('form-status');
-
-    // TODO: paste your Google Apps Script web app URL below
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwpDFqumAInS7RMIQfEWXY7d1UOyoSiDNOXTWnVWnukP82Vz0iPB95XyaEY0EwRmDF8YQ/exec';
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Honeypot check — bots fill this field, humans don't
-      if (document.getElementById('hp-website').value) return;
-
-      // Basic validation
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-
-      if (!name || !email || !message) {
-        statusEl.textContent = 'Please fill in your name, email, and message.';
-        statusEl.className = 'form-status error';
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      statusEl.className = 'form-status';
-
-      const data = {
-        name,
-        email,
-        business: form.business.value.trim(),
-        message,
-        timestamp: new Date().toISOString(),
-        hp: document.getElementById('hp-website').value  // Apps Script should reject if non-empty
-      };
-
-      try {
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-        statusEl.textContent = "Got it — I'll be in touch shortly.";
-        statusEl.className = 'form-status success';
-        form.reset();
-      } catch (err) {
-        statusEl.textContent = 'Something went wrong. Try emailing me directly at younkerstudio@gmail.com';
-        statusEl.className = 'form-status error';
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send it over';
-      }
-    });
-  </script>
-
+  <script src="/main.js" defer></script>
 </body>
 </html>

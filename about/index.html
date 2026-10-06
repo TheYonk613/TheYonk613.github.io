@@ -4,305 +4,221 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — YounkerStudio</title>
-  <meta name="description" content="The person behind YounkerStudio. Career timeline, operating philosophy, and the toolkit." />
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Netanel Younker leads YounkerStudio, a one-person consultancy for small businesses covering operations, automation and web development." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://younkerstudio.com/about/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Open Graph / Twitter Card -->
   <meta property="og:title" content="About — YounkerStudio" />
-  <meta property="og:description" content="The person behind YounkerStudio. Career timeline, operating philosophy, and the toolkit." />
-  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.svg" />
+  <meta property="og:description" content="Netanel Younker leads YounkerStudio, a one-person consultancy for small businesses covering operations, automation and web development." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
   <meta property="og:url" content="https://younkerstudio.com/about/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- ANALYTICS: paste your GA4 measurement ID and uncomment to activate
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
 </head>
 <body>
 
   <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <!-- ══ NAV ══════════════════════════════════════════════ -->
-  <nav class="nav scrolled" id="nav">
-    <div class="nav-inner">
-      <a href="../" class="wordmark">Younker<span>Studio</span></a>
-      <ul class="nav-links">
-        <li><a href="./" class="active">About</a></li>
-        <li><a href="../work/">Work</a></li>
-        <li><a href="../faq/">FAQ</a></li>
-        <li><a href="../#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/">Work</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/" aria-current="page">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
 
-  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="./">About</a>
-    <a href="../work/">Work</a>
-    <a href="../faq/">FAQ</a>
-    <a href="../#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
   </div>
 
   <main id="main-content" tabindex="-1">
 
-  <!-- ══ HERO ══════════════════════════════════════════════ -->
-  <section class="page-hero">
+  <section class="phero" data-theme="dark">
     <div class="wrap">
-      <span class="section-label section-label--dark reveal">The Operator</span>
-      <h1 class="reveal reveal-delay-1">
-        I've always been<br />
-        the one they throw<br />
-        at the <span class="display-violet--light">fire.</span>
-      </h1>
-      <p class="reveal reveal-delay-2">
-        No matter the problem — a broken process, a missing system, a website that embarrassed everyone —
-        I was the one handed the match and told to fix it. Turns out, that's a skill.
-      </p>
+      <span class="label">About</span>
+      <h1 class="h1" data-split>I've always been<br />the one they throw<br />at the <em>fire.</em></h1>
+      <p class="lede" data-reveal style="--d:4">A broken process, a missing system, a website nobody wanted to show a client. Whatever it was, I was the one asked to fix it. It turns out that's a skill, and YounkerStudio is how I offer it to small businesses.</p>
     </div>
   </section>
 
-  <!-- ══ BIO ════════════════════════════════════════════════ -->
-  <section class="section">
-    <div class="wrap">
-      <div class="bio-grid">
-
-        <!-- Photo -->
-        <div class="reveal">
-          <div style="background:var(--bg-soft); aspect-ratio:4/5; border-radius:8px; border:1px solid var(--rule); display:flex; align-items:center; justify-content:center; overflow:hidden;">
-            <!-- TODO: add your headshot — replace this div with:
-            <img src="../assets/headshot.jpg" alt="Netanel Younker" style="width:100%; height:100%; object-fit:cover;" />
-            -->
-            <span style="font-size:12px; color:var(--ink-muted); letter-spacing:0.08em; text-transform:uppercase;">Photo coming soon</span>
-          </div>
-        </div>
-
-        <!-- Copy -->
-        <div class="reveal reveal-delay-1">
-          <span class="section-label">Background</span>
-          <h2 style="margin-bottom:32px;">Taking big ideas and making them actually work.</h2>
-
-          <div style="display:flex; flex-direction:column; gap:20px;">
-            <p>
-              My name is Netanel Younker. Since my first role out of university, I've lived in the space where
-              technology meets operations. Even back in school, my friend group was constantly building
-              servers and writing programs to make their lives run faster. My role in the group? Understanding
-              what they were trying to make happen — and figuring out the structure to actually do it properly.
-            </p>
-            <p>
-              That dynamic never really stopped. The most common blind spot I see in business is focusing
-              entirely on revenue and vision while ignoring how the day-to-day actually moves. A great idea
-              that takes 40 hours of manual work a week isn't a great business — it's a trap.
-            </p>
-            <p>
-              I built YounkerStudio because I saw too many small businesses hiring three different
-              vendors — a web person, an automation person, a strategy person — and ending up with a
-              fractured system where nobody owns the full picture. I'm one person. You bring me the
-              problem, and I build the system that solves it.
-            </p>
-          </div>
-        </div>
-
+  <section class="sec sec--sheet" data-theme="light">
+    <div class="wrap story">
+      <div>
+        <span class="label" data-reveal>Background</span>
+        <h2 class="h2" data-split style="font-size:clamp(34px,4.2vw,68px)">Taking big ideas and making them actually <em>work.</em></h2>
+      </div>
+      <div class="story__body">
+        <p data-reveal>I'm Netanel Younker. Since my first job out of university I've worked where technology meets operations. Even at school, my friends were always building servers and writing programs. My part was working out what they were trying to do and how to make it happen properly.</p>
+        <p data-reveal>That hasn't really changed. The blind spot I see most often is a business that's all revenue and vision, with a day-to-day that runs on manual effort. <strong>A great idea that needs 40 hours of manual work a week is a trap.</strong></p>
+        <p data-reveal>I started YounkerStudio because I kept seeing small businesses hire a web person, an automation person and a strategy person, and end up with a patchwork nobody owned. I'm one person. You bring me the problem and I build the thing that solves it.</p>
       </div>
     </div>
   </section>
 
-  <!-- ══ PHILOSOPHY ════════════════════════════════════════ -->
-  <section class="section section--soft">
+  <section class="sec sec--sheet" data-theme="dark">
     <div class="wrap">
-      <div class="section-header">
-        <span class="section-label reveal">How I Operate</span>
-        <h2 class="reveal reveal-delay-1">The 4 rules I don't<br />compromise on.</h2>
+      <div class="sec__head">
+        <span class="label" data-reveal>Principles</span>
+        <h2 class="h2" data-split>How I <em>work.</em></h2>
       </div>
-
-      <div class="philosophy-grid reveal reveal-delay-1">
-
-        <div class="philosophy-card">
-          <span class="philosophy-num">Rule 01</span>
-          <h3>Figure it out first</h3>
-          <p>No code is written, no tool is bought, no workflow is automated until we actually understand the root problem. Symptoms and causes are different things.</p>
+      <div class="rules">
+        <div class="rule" style="--i:0">
+          <span class="mono">Before</span>
+          <h3 class="h3">Figure it out first</h3>
+          <p>I don't buy a tool or automate anything until I understand the real problem. The symptom and the cause are usually different things.</p>
         </div>
-
-        <div class="philosophy-card">
-          <span class="philosophy-num">Rule 02</span>
-          <h3>Simple over clever</h3>
-          <p>Clever systems break. Simple systems scale. I don't build Rube Goldberg machines to make myself look smart — I build things that work when I'm not in the room.</p>
+        <div class="rule" style="--i:1">
+          <span class="mono">During</span>
+          <h3 class="h3">Simple over clever</h3>
+          <p>Clever systems break. Simple ones keep working when I'm not in the room, and that's the goal.</p>
         </div>
-
-        <div class="philosophy-card">
-          <span class="philosophy-num">Rule 03</span>
-          <h3>The unvarnished truth</h3>
-          <p>If an idea won't work, or a tool is wrong for the job, I'll say it plainly. You're paying for honest judgment, not for someone to agree with you.</p>
+        <div class="rule" style="--i:2">
+          <span class="mono">Throughout</span>
+          <h3 class="h3">Straight answers</h3>
+          <p>If an idea won't work or a tool is wrong for the job, I'll tell you. You're paying for an honest opinion.</p>
         </div>
-
-        <div class="philosophy-card">
-          <span class="philosophy-num">Rule 04</span>
-          <h3>You own it all</h3>
-          <p>Every deliverable, every line of code, every tool account — it belongs to you. I build systems you own outright, not dependencies on my continued involvement.</p>
+        <div class="rule" style="--i:3">
+          <span class="mono">After</span>
+          <h3 class="h3">You own it all</h3>
+          <p>Every file, account and line of code is yours. Nothing I build needs me around to keep running.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══ TIMELINE + TOOLKIT ════════════════════════════════ -->
-  <section class="section">
+  <section class="sec sec--sheet" data-theme="light">
     <div class="wrap">
-      <div class="timeline-grid">
-
-        <!-- Timeline -->
-        <div>
-          <span class="section-label reveal">Experience</span>
-          <h2 class="reveal reveal-delay-1" style="margin-bottom:48px;">The timeline.</h2>
-
-          <div class="timeline">
-
-            <div class="timeline-item reveal">
-              <span class="timeline-date">2024 — Present</span>
-              <div class="timeline-role">Operations Manager</div>
-              <span class="timeline-company">Rapaport</span>
-              <p class="timeline-desc">
-                Managing data accuracy across a 200,000+ contact HubSpot database while
-                handling operational relationships with international diamond businesses
-                and sourcing nations ahead of CEO engagement.
-              </p>
-            </div>
-
-            <div class="timeline-item reveal">
-              <span class="timeline-date">2022 — 2024</span>
-              <div class="timeline-role">VP Operations</div>
-              <span class="timeline-company">Eagle Rose / 540 Consulting</span>
-              <p class="timeline-desc">
-                Scaled operations for an $80M+ portfolio, managed a 540-vendor network,
-                digitized tracking systems, implemented automated invoicing workflows,
-                and architected the company website from scratch.
-              </p>
-            </div>
-
-            <div class="timeline-item reveal">
-              <span class="timeline-date">2022</span>
-              <div class="timeline-role">Business Development Manager</div>
-              <span class="timeline-company">Impact Financial</span>
-              <p class="timeline-desc">
-                Drove B2B partnerships in the tech sector, deployed HubSpot for
-                lead tracking, and aligned cross-functional teams around new KPIs.
-              </p>
-            </div>
-
-            <div class="timeline-item reveal" style="margin-bottom:0;">
-              <span class="timeline-date">Education</span>
-              <div class="timeline-role">UW Foster School of Business</div>
-              <span class="timeline-company">Cum Laude — 3.78 GPA</span>
-              <p class="timeline-desc">
-                Double focus in Finance &amp; Marketing. Studied international
-                business dynamics abroad in Ireland.
-              </p>
-            </div>
-
+      <div class="sec__head">
+        <span class="label" data-reveal>Experience</span>
+        <h2 class="h2" data-split>Where I've <em>worked.</em></h2>
+      </div>
+      <div class="timeline" data-progress>
+        <div class="tl" data-reveal>
+          <span class="mono">2024 — Present</span>
+          <div>
+            <h3 class="h3">Operations Manager</h3>
+            <div class="tl__org">Rapaport</div>
+            <p>I look after data quality for a HubSpot database of 200,000+ contacts, and manage relationships with international diamond businesses and sourcing countries ahead of CEO meetings.</p>
           </div>
         </div>
-
-        <!-- Toolkit -->
-        <div>
-          <span class="section-label reveal">The Toolkit</span>
-          <h2 class="reveal reveal-delay-1" style="margin-bottom:16px;">Hard skills.</h2>
-          <p class="reveal reveal-delay-2" style="margin-bottom:40px;">
-            Tools change. The fundamentals of how they connect don't.
-            Here's what I'm currently using to build systems and sites.
-          </p>
-
-          <div class="tech-grid reveal reveal-delay-2">
-            <div class="tech-col">
-              <span class="tech-cat">Operations &amp; CRM</span>
-              <ul class="tech-list">
-                <li>HubSpot CRM / Sales Hub</li>
-                <li>Salesforce (Administration)</li>
-                <li>Monday.com / Asana</li>
-                <li>Airtable</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <span class="tech-cat">Automation</span>
-              <ul class="tech-list">
-                <li>Zapier (Advanced)</li>
-                <li>Make (Integromat)</li>
-                <li>n8n</li>
-                <li>Webhooks &amp; API integrations</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <span class="tech-cat">Web Development</span>
-              <ul class="tech-list">
-                <li>HTML5 / CSS3 / Vanilla JS</li>
-                <li>Tailwind CSS</li>
-                <li>SEO Architecture</li>
-                <li>Git / GitHub</li>
-              </ul>
-            </div>
-            <div class="tech-col">
-              <span class="tech-cat">Languages</span>
-              <ul class="tech-list">
-                <li>English — Native</li>
-                <li>Hebrew — Business Proficient</li>
-              </ul>
-            </div>
+        <div class="tl" data-reveal>
+          <span class="mono">2022 — 2024</span>
+          <div>
+            <h3 class="h3">VP Operations</h3>
+            <div class="tl__org">Eagle Rose / 540 Consulting</div>
+            <p>Grew operations for an $80M+ portfolio, managed a network of 540 vendors, digitized tracking, automated invoicing and built the company website from scratch.</p>
           </div>
         </div>
-
+        <div class="tl" data-reveal>
+          <span class="mono">2022</span>
+          <div>
+            <h3 class="h3">Business Development Manager</h3>
+            <div class="tl__org">Impact Financial</div>
+            <p>Built B2B partnerships in tech, set up HubSpot for lead tracking and got teams working toward the same KPIs.</p>
+          </div>
+        </div>
+        <div class="tl" data-reveal>
+          <span class="mono">Education</span>
+          <div>
+            <h3 class="h3">UW Foster School of Business</h3>
+            <div class="tl__org">Cum Laude, 3.78 GPA</div>
+            <p>Concentrations in Finance and Marketing. Studied international business in Ireland.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ CTA STRIP ═════════════════════════════════════════ -->
-  <div class="cta-strip">
-    <div class="wrap" style="text-align:center;">
-      <h2 class="reveal" style="color:#fff;">Ready to get to work?</h2>
-      <p class="reveal reveal-delay-1" style="margin:16px auto 36px; color:rgba(255,255,255,0.75);">
-        Tell me what's broken. I'll tell you how to fix it.
-      </p>
-      <a href="../#contact" class="btn btn-ghost reveal reveal-delay-2">Start a Conversation</a>
+  <section class="sec sec--tight-top" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Toolkit</span>
+        <h2 class="h2" data-split>What I work <em>with.</em></h2>
+        <p data-reveal>Tools change. How they connect doesn't. This is what I'm using right now.</p>
+      </div>
+      <div class="kit">
+        <div class="kit__col" data-reveal>
+          <span class="mono">Operations &amp; CRM</span>
+          <ul><li>HubSpot CRM / Sales Hub</li><li>Salesforce (Administration)</li><li>Monday.com / Asana</li><li>Airtable</li></ul>
+        </div>
+        <div class="kit__col" data-reveal style="--d:1">
+          <span class="mono">Automation</span>
+          <ul><li>Zapier (Advanced)</li><li>Make (Integromat)</li><li>n8n</li><li>Webhooks &amp; API integrations</li></ul>
+        </div>
+        <div class="kit__col" data-reveal style="--d:2">
+          <span class="mono">Web development</span>
+          <ul><li>HTML5 / CSS3 / Vanilla JS</li><li>Tailwind CSS</li><li>SEO Architecture</li><li>Git / GitHub</li></ul>
+        </div>
+        <div class="kit__col" data-reveal style="--d:3">
+          <span class="mono">Languages</span>
+          <ul><li>English (native)</li><li>Hebrew (business proficient)</li></ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+  
+  <section class="sec sec--sheet cta" data-theme="dark">
+    <div class="wrap">
+      <h2 class="h2" data-split>Ready to fix <em>something?</em></h2>
+      <p data-reveal>Tell me what's broken and I'll tell you how I'd fix it.</p>
+      <a href="/#contact" class="btn" data-magnetic data-reveal style="--d:1">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </section>
 
   </main>
 
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <a href="../" class="footer-wordmark">Younker<span>Studio</span></a>
-          <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
-        <ul class="footer-nav">
-          <li><a href="./">About</a></li>
-          <li><a href="../work/">Work</a></li>
-          <li><a href="../faq/">FAQ</a></li>
-          <li><a href="../#contact">Contact</a></li>
-        </ul>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 YounkerStudio. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
       </div>
     </div>
   </footer>
 
-  <script src="../main.js" defer></script>
-
+  <script src="/main.js" defer></script>
 </body>
 </html>

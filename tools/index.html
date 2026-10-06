@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools — YounkerStudio</title>
+  <meta name="description" content="A cost-of-manual-work calculator and an operations diagnostic. Both run in your browser and store nothing." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://younkerstudio.com/tools/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:title" content="Tools — YounkerStudio" />
+  <meta property="og:description" content="A cost-of-manual-work calculator and an operations diagnostic. Both run in your browser and store nothing." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
+  <meta property="og:url" content="https://younkerstudio.com/tools/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ══ NAV ══════════════════════════════════════════════ -->
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/">Work</a>
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+
+  <section class="phero" data-theme="dark">
+    <div class="wrap">
+      <span class="label">Tools</span>
+      <h1 class="h1" data-split>Put a number on<br />the <em>problem.</em></h1>
+      <p class="lede" data-reveal style="--d:3">Two tools I use at the start of most projects. They run in your browser, and nothing you type is saved or sent.</p>
+    </div>
+  </section>
+
+  <!-- ══ CALCULATOR ════════════════════════════════════════ -->
+  <section class="sec sec--sheet" id="calculator" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Calculator</span>
+        <h2 class="h2" data-split>What's that manual task really <em>costing?</em></h2>
+        <p data-reveal>Pick one task you or your team do by hand every week, like re-typing orders, building a weekly report or chasing invoices. Then move the sliders.</p>
+      </div>
+
+      <div class="calc" id="calc" data-reveal>
+        <div class="calc__in">
+          <div class="range">
+            <div class="range__top"><label for="c-people">People who do this task</label><output for="c-people"></output></div>
+            <input type="range" id="c-people" name="people" min="1" max="10" step="1" value="1" />
+          </div>
+          <div class="range">
+            <div class="range__top"><label for="c-hours">Hours each spends on it per week</label><output for="c-hours"></output></div>
+            <input type="range" id="c-hours" name="hours" min="1" max="20" step="1" value="3" data-suf=" hrs" />
+          </div>
+          <div class="range">
+            <div class="range__top"><label for="c-rate">What an hour of their time is worth</label><output for="c-rate"></output></div>
+            <input type="range" id="c-rate" name="rate" min="15" max="100" step="5" value="25" data-pre="$" />
+          </div>
+          <div class="range">
+            <div class="range__top"><label for="c-auto">How much of it software could do</label><output for="c-auto"></output></div>
+            <input type="range" id="c-auto" name="auto" min="10" max="90" step="5" value="60" data-suf="%" />
+          </div>
+          <div class="range">
+            <div class="range__top"><label for="c-build">Hours to build the fix (my estimate)</label><output for="c-build"></output></div>
+            <input type="range" id="c-build" name="build" min="2" max="60" step="1" value="8" data-suf=" hrs" />
+          </div>
+          <div class="range">
+            <div class="range__top"><label for="c-tools">Monthly software cost</label><output for="c-tools"></output></div>
+            <input type="range" id="c-tools" name="tools" min="0" max="200" step="5" value="20" data-pre="$" />
+          </div>
+        </div>
+
+        <div class="calc__out" aria-live="polite">
+          <span class="mono">What this task costs you a year</span>
+          <div class="calc__big" id="calc-cost">$0</div>
+          <p class="calc__sub"><span id="calc-hours">0</span> hours a year</p>
+
+          <div class="calc__bars" aria-hidden="true">
+            <div class="calc__bar"><span class="mono">Today</span><i></i></div>
+            <div class="calc__bar calc__bar--after"><span class="mono">After</span><i></i></div>
+          </div>
+
+          <dl class="calc__rows">
+            <div><dt>Hours you get back each year</dt><dd id="calc-rec">0</dd></div>
+            <div><dt>Saved each year, after software</dt><dd id="calc-net" class="hot">$0</dd></div>
+            <div><dt>One-time cost of the fix</dt><dd id="calc-build">$0</dd></div>
+            <div><dt>Pays for itself in</dt><dd id="calc-payback">—</dd></div>
+            <div><dt>Where you are after year one</dt><dd id="calc-first">$0</dd></div>
+          </dl>
+          <p class="calc__note" id="calc-verdict" hidden>On these numbers, automating this isn't worth it. Changing the process itself is probably the better move.</p>
+          <p class="calc__note">Assumes 48 working weeks a year, my $50 hourly rate, and that the time you get back gets used for something else. Payback is in calendar time. This is an estimate to talk through, not a quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DIAGNOSTIC ════════════════════════════════════════ -->
+  <section class="sec sec--sheet" id="diagnostic" data-theme="dark">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Self-assessment</span>
+        <h2 class="h2" data-split>Where is the business feeling the <em>strain?</em></h2>
+        <p data-reveal>Rate ten statements about how things run today. The chart fills in as you go and shows where to start.</p>
+      </div>
+
+      <div class="diag" id="diag" data-reveal>
+        <div class="diag__card" id="diag-card">
+          <div class="diag__bar" aria-hidden="true"><i id="diag-bar"></i></div>
+          <div id="diag-ask" style="display:contents">
+            <span class="mono diag__dim" id="diag-dim"></span>
+            <p class="diag__q" id="diag-q" aria-live="polite"></p>
+            <div class="diag__opts" id="diag-opts"></div>
+            <button class="diag__back mono link-u" id="diag-back" type="button">Previous</button>
+          </div>
+          <div class="diag__result" id="diag-result" hidden>
+            <span class="mono">Your score</span>
+            <div class="diag__score" id="diag-score">0<small>/ 100</small></div>
+            <h3 class="h3" id="diag-band"></h3>
+            <p id="diag-rec"></p>
+            <div class="diag__actions">
+              <a href="/#contact" class="btn" data-magnetic>Talk it through <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <button class="btn btn--ghost" id="diag-reset" type="button">Start again</button>
+            </div>
+          </div>
+        </div>
+        <div class="diag__viz">
+          <svg class="radar" id="radar" viewBox="0 0 340 340" role="img" aria-label="Radar chart of the five diagnostic areas"></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="sec sec--sheet cta" data-theme="dark">
+    <div class="wrap">
+      <h2 class="h2" data-split>Want a second <em>opinion?</em></h2>
+      <p data-reveal>Send me what the tools showed and I'll suggest the smallest useful place to start.</p>
+      <a href="/#contact" class="btn" data-magnetic data-reveal style="--d:1">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+</body>
+</html>

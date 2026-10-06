@@ -1,248 +1,205 @@
 <!DOCTYPE html>
-<html lang="en" data-reveal-threshold="0.08">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work — YounkerStudio</title>
-  <meta name="description" content="A look at the systems, automations, and sites built by YounkerStudio. Real problems, real solutions." />
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
-  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Recent projects in operations, automation and AI-assisted tooling, each setting out the challenge, the approach and the result." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://younkerstudio.com/work/" />
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Open Graph / Twitter Card -->
   <meta property="og:title" content="Work — YounkerStudio" />
-  <meta property="og:description" content="A look at the systems, automations, and sites built by YounkerStudio. Real problems, real solutions." />
-  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.svg" />
+  <meta property="og:description" content="Recent projects in operations, automation and AI-assisted tooling, each setting out the challenge, the approach and the result." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
   <meta property="og:url" content="https://younkerstudio.com/work/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- ANALYTICS: paste your GA4 measurement ID and uncomment to activate
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  -->
 </head>
 <body>
 
   <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <!-- ══ NAV ══════════════════════════════════════════════ -->
-  <nav class="nav scrolled" id="nav">
-    <div class="nav-inner">
-      <a href="../" class="wordmark">Younker<span>Studio</span></a>
-      <ul class="nav-links">
-        <li><a href="../about/">About</a></li>
-        <li><a href="./" class="active">Work</a></li>
-        <li><a href="../faq/">FAQ</a></li>
-        <li><a href="../#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/" aria-current="page">Work</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
 
-  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="../about/">About</a>
-    <a href="./">Work</a>
-    <a href="../faq/">FAQ</a>
-    <a href="../#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
   </div>
 
   <main id="main-content" tabindex="-1">
 
-  <!-- ══ HERO ══════════════════════════════════════════════ -->
-  <section class="page-hero">
+  <section class="phero" data-theme="dark">
     <div class="wrap">
-      <span class="section-label section-label--dark reveal">The Work</span>
-      <h1 class="reveal reveal-delay-1">
-        Problems solved.<br />
-        Systems <span class="display-violet--light">built.</span>
-      </h1>
-      <p class="reveal reveal-delay-2">
-        A few examples of what I actually do — anonymized where needed,
-        honest about what the problem was and what fixing it looked like.
-      </p>
+      <span class="label">Work</span>
+      <h1 class="h1" data-split>Recent<br /><em>work.</em></h1>
+      <p class="lede" data-reveal style="--d:3">A few examples of what I do, with names left out where needed. Each one covers what was wrong, what I built and what changed.</p>
     </div>
   </section>
 
-  <!-- ══ PROJECT LIST ══════════════════════════════════════ -->
-  <section class="section">
+  <section class="sec sec--sheet" data-theme="light">
     <div class="wrap">
-      <span class="section-label reveal">01 — Projects</span>
-
-      <div class="project-list reveal reveal-delay-1">
-
-        <!-- ─────────────────────────────────────────────────
-             PROJECT CARD 1
-             TODO: update with more specific details when ready
-        ───────────────────────────────────────────────────── -->
-        <div class="project-card">
-          <div class="project-meta">
-            <span class="project-tag">Operations</span>
-            <div class="project-title">Private Operations &amp; Project Management Board</div>
-          </div>
-          <div class="project-body">
-            <div class="project-row">
-              <div>
-                <span class="project-block-label">The Problem</span>
-                <p class="project-block-text">
-                  A growing operation with multiple vendors, moving timelines, and no single place
-                  where anyone could see what was happening. Work was tracked in email threads,
-                  a shared spreadsheet nobody trusted, and people's heads.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">What I Built</span>
-                <p class="project-block-text">
-                  A full project management system built in Monday.com — organized by workstream,
-                  with task ownership, automated status updates, and a weekly rollup that generated
-                  itself. Everyone knew what was happening without a meeting to explain it.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">The Outcome</span>
-                <p class="project-block-text project-block-text--outcome">
-                  Zero dropped balls. Weekly reporting went from a manual two-hour exercise to an
-                  automatic email that went out every Monday morning.
-                </p>
-              </div>
-            </div>
-          </div>
+      <span class="label" data-reveal>Client work</span>
+      <!-- TODO: update each project with more specific details when ready -->
+      
+      <article class="case" id="procurement">
+        <div class="case__side" data-reveal>
+          <span class="label">Procurement</span>
+          <h2 class="h3" style="font-size:clamp(28px,3.2vw,48px)">A procurement department, built in four months</h2>
+          <a href="/work/procurement/" class="btn btn--sm" data-magnetic style="margin-top:24px">Read the full case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </div>
-
-        <!-- ─────────────────────────────────────────────────
-             PROJECT CARD 2
-             TODO: update with more specific details when ready
-        ───────────────────────────────────────────────────── -->
-        <div class="project-card">
-          <div class="project-meta">
-            <span class="project-tag">Automation + AI</span>
-            <div class="project-title">AI-Aided Financial Organizer</div>
-          </div>
-          <div class="project-body">
-            <div class="project-row">
-              <div>
-                <span class="project-block-label">The Problem</span>
-                <p class="project-block-text">
-                  Financial data scattered across accounts, platforms, and invoices with no clear
-                  picture of where money was going or what the actual position was at any given moment.
-                  Reconciliation was done manually at the end of the month — always late, always painful.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">What I Built</span>
-                <p class="project-block-text">
-                  An AI-aided program that pulls data from connected accounts, categorizes transactions
-                  automatically, flags anomalies, and surfaces a clean financial summary on demand.
-                  Built to be maintained without technical knowledge.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">The Outcome</span>
-                <p class="project-block-text project-block-text--outcome">
-                  Hours of monthly reconciliation reduced to minutes. The business finally had a
-                  real-time view of its financial position without waiting for end-of-month reports.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div class="case__grid">
+          <div class="case__block" data-reveal><span class="mono">The problem</span><p>A 120-person HVAC manufacturer with offices in four countries was buying office by office. There was no written policy, nobody owned the process, and Finance couldn't see what had been bought, by whom, or why.</p></div>
+          <div class="case__block" data-reveal><span class="mono">What I built</span><p>I was the single point of contact for purchasing across the US, Canada and Israel. I wrote the policy, designed the request and approval workflow, built one vendor list and one spend ledger, and added AI-assisted triage.</p></div>
+          <div class="case__block case__block--out" data-reveal><span class="mono">What changed</span><p>The process was live across the company three weeks after I started. About 130 requests went through it in the first three and a half months.</p></div>
         </div>
-
-        <!-- ─────────────────────────────────────────────────
-             PROJECT CARD 3
-             TODO: update with more specific details when ready
-        ───────────────────────────────────────────────────── -->
-        <div class="project-card">
-          <div class="project-meta">
-            <span class="project-tag">Automation</span>
-            <div class="project-title">Time &amp; Calendar Relay System</div>
-          </div>
-          <div class="project-body">
-            <div class="project-row">
-              <div>
-                <span class="project-block-label">The Problem</span>
-                <p class="project-block-text">
-                  A team calendar that was perpetually out of date. Updating it manually meant
-                  someone had to own that task — and nobody did, because it was always lower priority
-                  than everything else. Scheduling conflicts were frequent. Visibility was near zero.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">What I Built</span>
-                <p class="project-block-text">
-                  A relay system that pulls live task and event data from multiple sources and
-                  automatically populates a shared visual calendar. No manual input required.
-                  Changes made anywhere upstream reflected instantly everywhere downstream.
-                </p>
-              </div>
-              <div>
-                <span class="project-block-label">The Outcome</span>
-                <p class="project-block-text project-block-text--outcome">
-                  The calendar became trustworthy for the first time. Scheduling conflicts dropped
-                  to near zero. Nobody touches it manually — it just works.
-                </p>
-              </div>
-            </div>
-          </div>
+      </article>
+      
+      <article class="case" id="ops-board">
+        <div class="case__side" data-reveal>
+          <span class="label">Operations</span>
+          <h2 class="h3" style="font-size:clamp(28px,3.2vw,48px)">Operations &amp; project management system</h2>
         </div>
+        <div class="case__grid">
+          <div class="case__block" data-reveal><span class="mono">The problem</span><p>A growing operation with lots of vendors and moving timelines, and no single place to see what was going on. Work lived in email threads, a spreadsheet nobody trusted, and people's heads.</p></div>
+          <div class="case__block" data-reveal><span class="mono">What I built</span><p>A project management system in Monday.com, organized by workstream. Every task has an owner, status updates happen automatically, and the weekly summary writes itself.</p></div>
+          <div class="case__block case__block--out" data-reveal><span class="mono">What changed</span><p>Weekly reporting went from a two-hour chore to an email that sends itself every Monday. Everyone can see where things stand without a meeting.</p></div>
+        </div>
+      </article>
+      
+      <article class="case" id="financial-organizer">
+        <div class="case__side" data-reveal>
+          <span class="label">Automation + AI</span>
+          <h2 class="h3" style="font-size:clamp(28px,3.2vw,48px)">AI-assisted financial organizer</h2>
+        </div>
+        <div class="case__grid">
+          <div class="case__block" data-reveal><span class="mono">The problem</span><p>Financial data was spread across accounts, platforms and invoices, so nobody had a current picture of where the money was going. Reconciliation happened by hand at month end, and it was usually late.</p></div>
+          <div class="case__block" data-reveal><span class="mono">What I built</span><p>An AI-assisted tool that pulls data from the connected accounts, sorts transactions into categories, flags anything odd and gives a clean summary on demand. You don't need to be technical to keep it running.</p></div>
+          <div class="case__block case__block--out" data-reveal><span class="mono">What changed</span><p>Month-end reconciliation went from hours to minutes, and the business can see its position any day of the month.</p></div>
+        </div>
+      </article>
+      
+      <article class="case" id="calendar-relay">
+        <div class="case__side" data-reveal>
+          <span class="label">Automation</span>
+          <h2 class="h3" style="font-size:clamp(28px,3.2vw,48px)">Time &amp; calendar relay</h2>
+        </div>
+        <div class="case__grid">
+          <div class="case__block" data-reveal><span class="mono">The problem</span><p>The team calendar was always out of date because keeping it updated was nobody's job. Scheduling clashes were common.</p></div>
+          <div class="case__block" data-reveal><span class="mono">What I built</span><p>A relay that pulls live tasks and events from several sources and fills in a shared calendar by itself. Change something at the source and it shows up everywhere.</p></div>
+          <div class="case__block case__block--out" data-reveal><span class="mono">What changed</span><p>The team finally has a calendar they trust. Clashes dropped to almost none, and nobody updates it by hand.</p></div>
+        </div>
+      </article>
+      <!-- TODO: add more projects here — copy an <article class="case"> block above -->
+    </div>
+  </section>
 
-        <!-- ─────────────────────────────────────────────────
-             PROJECT CARD 4
-             TODO: add more project cards here using the same structure
-             Copy a card block above and paste it here
-        ───────────────────────────────────────────────────── -->
-
+  <section class="sec sec--sheet" id="lab" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>Product lab</span>
+        <h2 class="h2" data-split>Things I build for <em>myself.</em></h2>
+        <p data-reveal>I also design and build my own software, start to finish. It's where I try new ideas before using them on client work.</p>
+      </div>
+      <div class="lab">
+        <article class="card" data-tilt data-reveal>
+          <div class="card__top mono"><span>Household OS</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-grid"><i style="--k:0"></i><i style="--k:7"></i><i style="--k:14"></i><i style="--k:21"></i><i style="--k:4"></i><i style="--k:11"></i><i style="--k:18"></i><i style="--k:1"></i><i style="--k:8"></i><i style="--k:15"></i><i style="--k:22"></i><i style="--k:5"></i><i style="--k:12"></i><i style="--k:19"></i><i style="--k:2"></i><i style="--k:9"></i><i style="--k:16"></i><i style="--k:23"></i><i style="--k:6"></i><i style="--k:13"></i><i style="--k:20"></i><i style="--k:3"></i><i style="--k:10"></i><i style="--k:17"></i></div></div>
+          <h3 class="h3">YonkUnity</h3>
+          <p>A self-hosted household operating system covering calendar, recipes and shopping, documents, finances and projects. It runs on a single machine at home, with no third party holding the data.</p>
+          <div class="card__stack"><span class="chip">Next.js</span><span class="chip">Fastify</span><span class="chip">PostgreSQL</span><span class="chip">Redis + BullMQ</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal style="--d:1">
+          <div class="card__top mono"><span>Marketing automation</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-pipe"><svg viewBox="0 0 260 110"><path class="wire" d="M20 55C70 55 70 20 130 20s60 35 110 35"/><path class="wire" d="M20 55c50 0 50 35 110 35s60-35 110-35"/><path class="pulse" d="M20 55C70 55 70 20 130 20s60 35 110 35"/><path class="pulse pulse--2" d="M20 55c50 0 50 35 110 35s60-35 110-35"/><circle cx="20" cy="55" r="7"/><circle cx="130" cy="20" r="7"/><circle cx="130" cy="90" r="7"/><circle cx="240" cy="55" r="7"/></svg></div></div>
+          <h3 class="h3">Nexus Marketing OS</h3>
+          <p>A self-hosted marketing platform with email and WhatsApp campaigns, automation workflows, contact management, lead scoring and an AI assistant.</p>
+          <div class="card__stack"><span class="chip">Fastify</span><span class="chip">Prisma</span><span class="chip">Docker</span><span class="chip">Claude API</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal>
+          <div class="card__top mono"><span>AI calendar</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-orbit"><svg viewBox="0 0 150 150"><circle class="ring" cx="75" cy="75" r="58"/><circle class="arc" cx="75" cy="75" r="58" stroke="#FF5A2B" stroke-dasharray="70 295"/><circle class="arc arc--2" cx="75" cy="75" r="58" stroke="#7B6CFF" stroke-dasharray="40 325" stroke-dashoffset="-150"/><path class="hand" d="M75 75V30"/><circle cx="75" cy="75" r="4" fill="currentColor"/></svg></div></div>
+          <h3 class="h3">Rainbow</h3>
+          <p>A calendar that places the day on a circular time ring, shows tasks as floating balloons and reschedules by voice command.</p>
+          <div class="card__stack"><span class="chip">React</span><span class="chip">Framer Motion</span><span class="chip">Express</span><span class="chip">Voice + LLM</span></div>
+        </article>
+        <article class="card" data-tilt data-reveal style="--d:1">
+          <div class="card__top mono"><span>Real-time music</span><span>In development</span></div>
+          <div class="card__viz" aria-hidden="true"><div class="viz-eq"><i style="--k:0"></i><i style="--k:5"></i><i style="--k:10"></i><i style="--k:2"></i><i style="--k:7"></i><i style="--k:12"></i><i style="--k:4"></i><i style="--k:9"></i><i style="--k:1"></i><i style="--k:6"></i><i style="--k:11"></i><i style="--k:3"></i><i style="--k:8"></i></div></div>
+          <h3 class="h3">LetsJam</h3>
+          <p>A session tool for musicians. One person leads, and every screen in the room follows the song in sync.</p>
+          <div class="card__stack"><span class="chip">Next.js</span><span class="chip">WebSockets</span><span class="chip">TypeScript</span><span class="chip">PWA</span></div>
+        </article>
       </div>
     </div>
   </section>
-
-  <!-- ══ CTA STRIP ═════════════════════════════════════════ -->
-  <div class="cta-strip">
+  
+  <section class="sec sec--sheet cta" data-theme="dark">
     <div class="wrap">
-      <h2 class="reveal">Got a problem that sounds like these?<br />Or something totally different?</h2>
-      <p class="reveal reveal-delay-1">
-        I've worked on a lot of things that don't fit a neat category.<br />
-        Tell me what's going on — I'll tell you if I can help.
-      </p>
-      <a href="../#contact" class="btn btn-ghost reveal reveal-delay-2">Start a Conversation</a>
+      <h2 class="h2" data-split>Sound <em>familiar?</em></h2>
+      <p data-reveal>Tell me what's going on, even if it doesn't fit a neat category. I'll tell you honestly whether I can help.</p>
+      <a href="/#contact" class="btn" data-magnetic data-reveal style="--d:1">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     </div>
-  </div>
+  </section>
 
   </main>
 
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <a href="../" class="footer-wordmark">Younker<span>Studio</span></a>
-          <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
-        <ul class="footer-nav">
-          <li><a href="../about/">About</a></li>
-          <li><a href="./">Work</a></li>
-          <li><a href="../faq/">FAQ</a></li>
-          <li><a href="../#contact">Contact</a></li>
-        </ul>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 YounkerStudio. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
       </div>
     </div>
   </footer>
 
-  <script src="../main.js" defer></script>
-
+  <script src="/main.js" defer></script>
 </body>
 </html>

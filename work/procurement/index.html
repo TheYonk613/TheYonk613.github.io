@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case study: building a procurement department — YounkerStudio</title>
+  <meta name="description" content="How one person built purchasing for a 120-person company across three countries in four months, with a working model of the request portal." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://younkerstudio.com/work/procurement/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:title" content="Case study: building a procurement department — YounkerStudio" />
+  <meta property="og:description" content="How one person built purchasing for a 120-person company across three countries in four months, with a working model of the request portal." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
+  <meta property="og:url" content="https://younkerstudio.com/work/procurement/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="/work/procurement/portal.css" />
+</head>
+<body>
+
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- ══ NAV ══════════════════════════════════════════════ -->
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/" aria-current="page">Work</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
+
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+
+  <section class="phero" data-theme="dark">
+    <div class="wrap">
+      <span class="label">Case study · Procurement</span>
+      <h1 class="h1" data-split style="font-size:clamp(40px,6.4vw,112px)">A procurement department, built by one person in <em>four months.</em></h1>
+      <p class="lede" data-reveal style="--d:4;max-width:62ch">A 120-person HVAC manufacturer with offices in four countries was buying office by office, with no written policy and nobody owning the process. I joined as the single point of contact for purchasing across the US, Canada and Israel. This is what I built, with a working model of the request portal at the center of it.</p>
+      <div class="hero__cta" data-reveal style="--d:5">
+        <a href="#portal" class="btn" data-magnetic>Try the request portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a href="#built" class="btn btn--ghost" data-magnetic>See what I built</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet" data-theme="light">
+    <div class="wrap">
+      <span class="label" data-reveal>Headline results</span>
+      <div class="stats stats--4">
+        <div class="stat" data-reveal><span class="stat__n">3<sup>wks</sup></span><span class="stat__l">from my first day to a purchasing process live across the company</span></div>
+        <div class="stat" data-reveal style="--d:1"><span class="stat__n"><sup>~</sup>130</span><span class="stat__l">purchase requests through the workflow in its first three and a half months</span></div>
+        <div class="stat" data-reveal style="--d:2"><span class="stat__n"><sup>~</sup>75</span><span class="stat__l">vendors pulled into one master list with handling rules</span></div>
+        <div class="stat" data-reveal style="--d:3"><span class="stat__n">14</span><span class="stat__l">control gaps found and ranked in an audit of my own system, first fixes live within a week</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--tight-top" id="start" data-theme="light">
+    <div class="wrap story">
+      <div>
+        <span class="label" data-reveal>Where it started</span>
+        <h2 class="h2" data-split style="font-size:clamp(34px,4.2vw,68px)">Everyone was buying. Nobody could <em>see it.</em></h2>
+        <p data-reveal style="margin-top:24px;color:var(--muted);max-width:44ch">The company had grown faster than its back office. People got what they needed, but each office did it its own way, and Finance had no single picture of what had been bought, by whom, or why.</p>
+      </div>
+      <ul class="before">
+        <li data-reveal>Purchases were scattered across staff accounts and several company cards.</li>
+        <li data-reveal>There was no consolidated record of spend. I rebuilt the first ten weeks from card alerts and vendor emails.</li>
+        <li data-reveal>About 40 software subscriptions sat on cards with no clear owner.</li>
+        <li data-reveal>There was no single vendor list. The same supplier showed up under different names in different countries.</li>
+        <li data-reveal>A basic request form existed, but there was no written policy behind it, and a denial came back with no explanation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet" id="built" data-theme="dark">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>What I built</span>
+        <h2 class="h2" data-split>Six pieces that turn buying into a <em>process.</em></h2>
+        <p data-reveal>None of this needed procurement software priced per seat. It needed clear rules, one front door, and records that fill themselves in.</p>
+      </div>
+      <div class="kit kit--3">
+        <div class="kit__col" data-reveal style="--d:0"><h3 class="h3">A policy people can follow</h3><p>Two purchase types, a short list of required fields, and a written rule for when a request gets denied. Reviewed by Finance and launched to the whole company three weeks after I started.</p></div>
+        <div class="kit__col" data-reveal style="--d:1"><h3 class="h3">The request and approval portal</h3><p>One front door for every purchase. Requests route to the right department head, then Finance, then a subscription check when needed. Everyone hears the outcome by email.</p></div>
+        <div class="kit__col" data-reveal style="--d:2"><h3 class="h3">A vendor master</h3><p>About 75 vendors in one list, with aliases, Hebrew and English names, how each one invoices and how each should be handled, plus a register of who owns which vendor account.</p></div>
+        <div class="kit__col" data-reveal style="--d:0"><h3 class="h3">One spend ledger</h3><p>A single log across legal entities and three currencies, so Finance can answer "what did we buy and why" without digging through inboxes.</p></div>
+        <div class="kit__col" data-reveal style="--d:1"><h3 class="h3">AI-assisted triage</h3><p>A daily routine that reads the purchasing inbox, team chat and new requests, opens and updates tickets, and sends a morning digest. About 180 tickets in its first month. It drafts, and a person approves.</p></div>
+        <div class="kit__col" data-reveal style="--d:2"><h3 class="h3">An audit of my own system</h3><p>Three months in, I had the whole workflow audited end to end. It ranked 14 gaps. I fixed the first batch within a week and documented the rest for whoever came next.</p></div>
+      </div>
+      <p class="fineprint" data-reveal>Alongside these: a standard equipment list for laptops, desktops and phones across all three countries, staff purchasing accounts consolidated under the company with correct billing entities, a review of 3,600+ card transactions to find recurring charges, and the selection and rollout of a corporate travel platform.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet" id="portal" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head" style="margin-bottom:0">
+        <span class="label" data-reveal>The portal</span>
+        <h2 class="h2" data-split>Send a request and approve it <em>yourself.</em></h2>
+        <p data-reveal>This is a working model of the request portal. I reworked the form and designed the approval workflow and routing rules, and the company's IT team implemented the portal. Submit a request, then switch tabs to play the department head, Finance and the buyer.</p>
+        <p data-reveal class="mono" style="font-size:11px">Sample data only. Nothing you type here is saved or sent anywhere.</p>
+      </div>
+
+      <div class="portal" id="app">
+      <div class="pbar">
+        <div><strong>Purchase Portal</strong><span class="tag">Demo</span></div>
+        <button type="button" id="reset">Reset demo</button>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Portal views">
+        <button class="tab" role="tab" data-tab="new" aria-selected="true">New request</button>
+        <button class="tab" role="tab" data-tab="approve" aria-selected="false">Approvals <span class="count" id="c-approve">0</span></button>
+        <button class="tab" role="tab" data-tab="queue" aria-selected="false">Order queue <span class="count" id="c-queue">0</span></button>
+        <button class="tab" role="tab" data-tab="all" aria-selected="false">All requests</button>
+      </div>
+      <div class="pbody">
+        <div class="pmain">
+
+          <!-- NEW REQUEST -->
+          <div class="panel" id="p-new">
+            <div id="formwrap">
+              <div class="samples">
+                <span>Short on time?</span>
+                <button type="button" class="btn ghost sm" id="s-good">Fill a good request</button>
+                <button type="button" class="btn ghost sm" id="s-sub">Fill a subscription</button>
+                <button type="button" class="btn ghost sm" id="s-bad">Fill one that gets blocked</button>
+              </div>
+              <div class="errsum" id="errsum" role="alert"></div>
+              <form id="f" novalidate>
+                <div class="frow">
+                  <div data-f="name"><label for="name">Your name</label><input type="text" id="name" autocomplete="off"><div class="err">Add your name.</div></div>
+                  <div data-f="dept"><label for="dept">Department</label><select id="dept"></select><div class="route" id="route"></div></div>
+                </div>
+                <div class="frow">
+                  <div><label for="entity">Company entity</label><select id="entity"></select><div class="hint">Sets the currency and which books the purchase lands in.</div></div>
+                  <div><label>Purchase type</label>
+                    <div class="seg"><label><input type="radio" name="ptype" value="Standard" checked>Standard</label><label><input type="radio" name="ptype" value="Specific">Specific</label></div>
+                    <div class="hint" id="typehint"></div>
+                  </div>
+                </div>
+                <div class="frow">
+                  <div data-f="vendor"><label for="vendor">Vendor</label><input type="text" id="vendor" autocomplete="off"><div class="err">Name the vendor.</div></div>
+                  <div><label>Must it come from this vendor?</label>
+                    <div class="seg"><label><input type="radio" name="lock" value="Yes">Yes</label><label><input type="radio" name="lock" value="No" checked>No</label><label><input type="radio" name="lock" value="Maybe">Maybe</label></div>
+                    <div class="hint">"No" lets the buyer find a better price.</div>
+                  </div>
+                </div>
+
+                <label>Items</label>
+                <div class="items" data-f="items">
+                  <div class="irow ihead"><span>Description</span><span>Qty</span><span>Unit price</span><span></span></div>
+                  <div id="irows"></div>
+                  <button type="button" class="btn ghost sm" id="additem">Add item</button>
+                  <div class="frow" style="margin:12px 0 0">
+                    <div><label for="fees">Extra fees <span class="opt">shipping, tax, customs</span></label><input type="number" id="fees" min="0" step="0.01" value="0"></div>
+                    <div><label for="terms">Payment terms</label><select id="terms"><option>Company card</option><option>Prepaid</option><option>Net 30 invoice</option><option>Bank transfer</option></select></div>
+                  </div>
+                  <div class="total"><span>Estimated total</span><span id="total">0</span></div>
+                  <div class="err">Add at least one item with a description, quantity and unit price.</div>
+                </div>
+
+                <div class="frow one" data-f="purpose"><div><label for="purpose">Purpose</label><textarea id="purpose"></textarea><div class="hint">Who is it for and what does it solve?</div><div class="err">Say what it is for. "Needed for work" gets denied.</div></div></div>
+                <div class="frow one" data-f="address"><div><label for="address">Delivery address</label><input type="text" id="address" autocomplete="off"><div class="hint">Required every time. Addresses change between orders.</div><div class="err">A request with no delivery address is denied. Add it now.</div></div></div>
+                <div class="frow one" data-f="link"><div><label for="link">Link to the exact item <span class="opt" id="linkopt">optional for Standard</span></label><input type="url" id="link" placeholder="https://" autocomplete="off"><div class="err">Specific purchases need a direct product link, not the vendor homepage.</div></div></div>
+                <div class="frow">
+                  <div><label for="needby">Required by <span class="opt">optional</span></label><input type="date" id="needby"></div>
+                  <div><label>Recurring subscription?</label>
+                    <div class="seg"><label><input type="radio" name="subs" value="No" checked>No</label><label><input type="radio" name="subs" value="Yes">Yes</label></div>
+                    <div class="hint">"Yes" adds a subscription review after Finance.</div>
+                  </div>
+                </div>
+                <div class="formfoot">
+                  <button type="submit" class="btn">Submit request</button>
+                  <span class="muted small">No edits after submitting. A denied request comes back as a new one.</span>
+                </div>
+              </form>
+            </div>
+            <div id="donewrap" hidden></div>
+          </div>
+
+          <!-- APPROVALS -->
+          <div class="panel" id="p-approve" hidden>
+            <h4>Waiting for a decision</h4>
+            <p class="muted small">In the real portal each approver only sees their own queue. Here you get all three hats.</p>
+            <div id="approvals"></div>
+          </div>
+
+          <!-- QUEUE -->
+          <div class="panel" id="p-queue" hidden>
+            <h4>Ready to order</h4>
+            <p class="muted small">Fully approved requests land here for the buyer. One queue, one person placing orders, exact links attached.</p>
+            <div id="queue"></div>
+          </div>
+
+          <!-- ALL -->
+          <div class="panel" id="p-all" hidden>
+            <h4>Every request, one table</h4>
+            <p class="muted small">Click a row to see its trail: who decided what, when, and why.</p>
+            <div class="tablewrap"><table>
+              <thead><tr><th>PO</th><th>Requester</th><th>What</th><th class="amt">Total</th><th>Status</th></tr></thead>
+              <tbody id="rows"></tbody>
+            </table></div>
+          </div>
+
+        </div>
+        <aside class="pside">
+          <h4>Mail the system sent</h4>
+          <p class="muted small" style="margin:0">Every step notifies the next person. Nobody has to chase.</p>
+          <ul class="mail" id="mail" aria-live="polite"></ul>
+        </aside>
+      </div>
+    </div>
+
+      <ul class="pfacts">
+        <li data-reveal><b>The form says no first.</b>Missing address, missing link, vague purpose: blocked at submit, so approvers only see requests worth their time.</li>
+        <li data-reveal style="--d:1"><b>Every no comes with a reason.</b>A denial cannot be sent without one. The requester knows exactly what to fix.</li>
+        <li data-reveal style="--d:2"><b>Routing is a table, not code.</b>Each department maps to an approver. When a new office opened, adding it was one row.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec sec--tight-top" id="policy" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>The rules behind it</span>
+        <h2 class="h2" data-split>A policy that fits on <em>one page.</em></h2>
+        <p data-reveal>A portal only works if people know what a good request looks like. The policy came first, and the portal enforces it.</p>
+      </div>
+      <div class="ptables" data-reveal>
+        <table class="ptable">
+          <thead><tr><th colspan="2">Two purchase types</th></tr></thead>
+          <tbody>
+            <tr><td>Standard</td><td>A repeat purchase or a common office need. Paper, toner, things you have ordered before.</td></tr>
+            <tr><td>Specific</td><td>Anything else. Equipment, technical parts, specialist tools, or a first-time purchase. Needs a direct link to the exact item.</td></tr>
+            <tr><td>Not sure?</td><td>Treat it as Specific.</td></tr>
+          </tbody>
+        </table>
+        <table class="ptable ptable--dont">
+          <thead><tr><th>Do this</th><th>Not this</th></tr></thead>
+          <tbody>
+            <tr><td>Include the delivery address on every request</td><td>Leave it blank and assume we know</td></tr>
+            <tr><td>Paste a direct link to the exact product</td><td>Expect someone else to find the product</td></tr>
+            <tr><td>Write a clear reason for the request</td><td>Write "needed for work"</td></tr>
+            <tr><td>Check every field before submitting</td><td>Assume missing details can be added later</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fineprint" data-reveal>Routine weekly supplies stayed with each office manager. A process that makes people file a request for coffee gets ignored.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet" id="timeline" data-theme="dark">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>How it went</span>
+        <h2 class="h2" data-split>Four months, in <em>order.</em></h2>
+        <p data-reveal>I ran every piece by hand before automating it. If a process does not work manually, automating it only makes the mess faster.</p>
+      </div>
+      <div class="timeline" data-progress>
+        <div class="tl" data-reveal><span class="mono">Week 1</span><div><p>Wrote the system blueprint and tested the approval flow with dummy requests. Started meeting Finance, HR and the people doing the buying in each office.</p></div></div>
+        <div class="tl" data-reveal><span class="mono">Weeks 2 and 3</span><div><p>Wrote the policy and procedure guide, had Finance review them, and launched the process to the whole company.</p></div></div>
+        <div class="tl" data-reveal><span class="mono">Month 2</span><div><p>Brought staff purchasing accounts under the company. Extended routing when a new office opened. Started the vendor master. Rolled out a travel platform pilot.</p></div></div>
+        <div class="tl" data-reveal><span class="mono">Month 3</span><div><p>Reconstructed ten weeks of spend from card alerts and emails, then moved it into one running ledger. Reviewed 3,600+ card transactions for recurring charges.</p></div></div>
+        <div class="tl" data-reveal><span class="mono">Month 4</span><div><p>Switched on AI-assisted triage and ticket tracking. Audited the whole workflow, fixed the first batch of gaps, and packaged everything for handover.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet" id="results" data-theme="light">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="label" data-reveal>What changed</span>
+        <h2 class="h2" data-split>From "who ordered this?" to a record of <em>everything.</em></h2>
+      </div>
+      <div class="kit kit--3">
+        <div class="kit__col" data-reveal><h3 class="h3">One front door</h3><p>About 130 requests went through the workflow in three and a half months, across three countries and three currencies. About 98 were approved. Each one has a number, an owner and a trail.</p></div>
+        <div class="kit__col" data-reveal style="--d:1"><h3 class="h3">Finance can see spend</h3><p>Roughly 300 purchases logged in one ledger across entities and currencies, replacing a search through inboxes and statements.</p></div>
+        <div class="kit__col" data-reveal style="--d:2"><h3 class="h3">It runs without me</h3><p>Finance ran the same form and guide while I was out. The policy, vendor list, routing table and automations were all documented so the next person could pick them up.</p></div>
+      </div>
+      <p class="fineprint" data-reveal>Company name and people withheld. Figures cover the first four months of operation. The portal on this page is a working model with sample data, built to show the workflow and rules I designed. The production version was implemented by the company's IT team.</p>
+    </div>
+  </section>
+
+  <section class="sec sec--sheet cta cta--wide" data-theme="dark">
+    <div class="wrap">
+      <h2 class="h2" data-split>You probably do not need a procurement department. You need the parts that <em>matter.</em></h2>
+      <p data-reveal>A request form that routes itself. One list of who you buy from. A record of what was spent and why. I build these for small businesses with the tools you already pay for, starting with a free look at how buying works in your company today.</p>
+      <a href="/#contact" class="btn" data-magnetic data-reveal style="--d:1">Ask for a free look <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </section>
+  </main>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/main.js" defer></script>
+  <script src="/work/procurement/portal.js" defer></script>
+</body>
+</html>

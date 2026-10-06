@@ -3,88 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — YounkerStudio</title>
-  <meta name="description" content="This page doesn't exist — but the rest of the site does." />
-  <meta name="robots" content="noindex" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="styles.css" />
+  <title>Page not found — YounkerStudio</title>
+  <meta name="description" content="YounkerStudio helps small businesses find where time and money are leaking, then builds the simple systems that fix it. One person, start to finish." />
+  <meta name="theme-color" content="#0B0B0D" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://younkerstudio.com/404.html" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:title" content="Page not found — YounkerStudio" />
+  <meta property="og:description" content="YounkerStudio helps small businesses find where time and money are leaking, then builds the simple systems that fix it. One person, start to finish." />
+  <meta property="og:image" content="https://younkerstudio.com/assets/og-image.png" />
+  <meta property="og:url" content="https://younkerstudio.com/404.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
 
   <a href="#main-content" class="skip-nav">Skip to main content</a>
+  <div class="progress" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <!-- ══ NAV ══════════════════════════════════════════════ -->
-  <nav class="nav scrolled" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="wordmark">Younker<span>Studio</span></a>
-      <ul class="nav-links">
-        <li><a href="about/">About</a></li>
-        <li><a href="work/">Work</a></li>
-        <li><a href="faq/">FAQ</a></li>
-        <li><a href="index.html#contact" class="btn btn-primary nav-cta">Start a Conversation</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
+  <header class="nav" id="nav">
+    <a href="/" class="nav__mark" aria-label="YounkerStudio home"><span class="mark" aria-hidden="true">Y<i>S</i></span><span>Younker<em>Studio</em></span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="/work/">Work</a>
+      <a href="/tools/">Tools</a>
+      <a href="/about/">About</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <a href="/#contact" class="btn btn--sm" data-magnetic>Start a conversation</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </header>
 
-  <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="about/">About</a>
-    <a href="work/">Work</a>
-    <a href="faq/">FAQ</a>
-    <a href="index.html#contact" class="btn btn-primary" id="mobile-nav-cta">Start a Conversation</a>
+  <div class="menu" id="menu" role="navigation" aria-label="Mobile navigation">
+    <a href="/" style="--i:0">Home</a>
+    <a href="/work/" style="--i:1">Work</a>
+    <a href="/tools/" style="--i:2">Tools</a>
+    <a href="/about/" style="--i:3">About</a>
+    <a href="/faq/" style="--i:4">FAQ</a>
+    <a href="/#contact" class="btn">Start a conversation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
   </div>
 
-  <main id="main-content" tabindex="-1">
-
-  <!-- ══ 404 HERO ══════════════════════════════════════════ -->
-  <section class="page-hero" style="min-height:70vh; display:flex; align-items:center;">
-    <div class="wrap">
-      <span class="section-label section-label--dark">404</span>
-      <h1 style="margin-top:24px;">
-        This page<br />
-        doesn't <span class="display-violet--light">exist.</span>
-      </h1>
-      <p style="margin-top:24px; max-width:480px;">
-        Whatever you were looking for isn't here — but the problem you're trying to solve probably has a solution.
-        Let's find it.
-      </p>
-      <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:40px;">
-        <a href="index.html" class="btn btn-primary">Back to Home</a>
-        <a href="index.html#contact" class="btn btn-ghost">Start a Conversation</a>
-      </div>
+  <main id="main-content" tabindex="-1" class="lost" data-theme="dark">
+    <div>
+      <div class="lost__n" data-split>4<em>0</em>4</div>
+      <p class="lede" data-reveal>This page doesn't exist, or it moved. Everything else is back this way.</p>
+      <a href="/" class="btn" data-magnetic data-reveal style="--d:1">Back to home <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     </div>
-  </section>
-
   </main>
 
   <!-- ══ FOOTER ════════════════════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <a href="index.html" class="footer-wordmark">Younker<span>Studio</span></a>
-          <span class="footer-tagline">Every problem has a solution waiting to be built.</span>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <p class="footer__tag">Every problem has a solution waiting to be <span class="serif">built.</span></p>
+        <div class="footer__nav">
+          <div>
+            <span class="mono">Studio</span>
+            <a href="/work/">Work</a>
+            <a href="/tools/">Tools</a>
+            <a href="/about/">About</a>
+            <a href="/faq/">FAQ</a>
+          </div>
+          <div>
+            <span class="mono">Contact</span>
+            <a href="/#contact">Get in touch</a>
+            <a href="mailto:younkerstudio@gmail.com">Email</a>
+            <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
-        <ul class="footer-nav">
-          <li><a href="about/">About</a></li>
-          <li><a href="work/">Work</a></li>
-          <li><a href="faq/">FAQ</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
       </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">&copy; 2026 YounkerStudio. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/netanel-younker" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://github.com/TheYonk613" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+      <div class="footer__word" data-accent-from="7">YounkerStudio</div>
+      <div class="footer__bot mono">
+        <span>&copy; 2026 YounkerStudio. All rights reserved.</span>
+        <span>Consulting for small businesses</span>
       </div>
     </div>
   </footer>
 
-  <script src="main.js" defer></script>
-
+  <script src="/main.js" defer></script>
 </body>
 </html>
