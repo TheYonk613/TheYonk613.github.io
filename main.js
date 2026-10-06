@@ -368,6 +368,7 @@
   // cost/yr    = hours/yr × hourly value
   // recovered  = hours/yr × automatable share
   // net/yr     = recovered × hourly value − 12 × monthly software cost
+  // build cost = build hours × ₪250
   // payback    = build cost ÷ net/yr, in calendar time (the 48 working weeks span a 52-week year)
   // first year = net/yr − build cost
   function initCalc() {
@@ -375,11 +376,11 @@
     if (!el) return;
     const ins = $$('input[type=range]', el);
     const nf = new Intl.NumberFormat('en-US');
-    const money = n => (n < 0 ? '−$' : '$') + nf.format(Math.abs(Math.round(n)));
+    const money = n => (n < 0 ? '−₪' : '₪') + nf.format(Math.abs(Math.round(n)));
     const count = n => nf.format(Math.round(n));
     const out = { cost: [$('#calc-cost'), money], hours: [$('#calc-hours'), count], rec: [$('#calc-rec'), count], net: [$('#calc-net'), money], first: [$('#calc-first'), money] };
     const cur = { cost: 0, hours: 0, rec: 0, net: 0, first: 0 }, tgt = { ...cur };
-    const WEEKS = 48, RATE = 50;
+    const WEEKS = 48, RATE = 250; // hourly rate in shekels
 
     const read = () => {
       const v = {};

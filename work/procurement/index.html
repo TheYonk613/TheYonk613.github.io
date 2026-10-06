@@ -12,7 +12,7 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="/styles.css" />
   <script>document.documentElement.classList.add('js');</script>
 
@@ -203,21 +203,21 @@
 
           <!-- APPROVALS -->
           <div class="panel" id="p-approve" hidden>
-            <h4>Waiting for a decision</h4>
+            <h3 class="ph">Waiting for a decision</h3>
             <p class="muted small">In the real portal each approver only sees their own queue. Here you get all three hats.</p>
             <div id="approvals"></div>
           </div>
 
           <!-- QUEUE -->
           <div class="panel" id="p-queue" hidden>
-            <h4>Ready to order</h4>
+            <h3 class="ph">Ready to order</h3>
             <p class="muted small">Fully approved requests land here for the buyer. One queue, one person placing orders, exact links attached.</p>
             <div id="queue"></div>
           </div>
 
           <!-- ALL -->
           <div class="panel" id="p-all" hidden>
-            <h4>Every request, one table</h4>
+            <h3 class="ph">Every request, one table</h3>
             <p class="muted small">Click a row to see its trail: who decided what, when, and why.</p>
             <div class="tablewrap"><table>
               <thead><tr><th>PO</th><th>Requester</th><th>What</th><th class="amt">Total</th><th>Status</th></tr></thead>
@@ -227,7 +227,7 @@
 
         </div>
         <aside class="pside">
-          <h4>Mail the system sent</h4>
+          <h3 class="ph">Mail the system sent</h3>
           <p class="muted small" style="margin:0">Every step notifies the next person. Nobody has to chase.</p>
           <ul class="mail" id="mail" aria-live="polite"></ul>
         </aside>

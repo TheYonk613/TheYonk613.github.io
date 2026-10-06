@@ -12,7 +12,7 @@
   --paper-2:    #E7E2D5;
   --paper-3:    #FAF8F2;
   --signal:     #FF5A2B;
-  --signal-ink: #C93A10;
+  --signal-ink: #B8330C;
   --iris:       #7B6CFF;
 
   --f-display:  'Bricolage Grotesque', system-ui, sans-serif;
@@ -367,7 +367,7 @@ em { font-style: normal; }
 .term__dots { display: flex; gap: 6px; }
 .term__dots i { width: 10px; height: 10px; border-radius: 50%; background: #3A3A40; }
 .term__body { min-height: 208px; padding: 18px; font: 400 13px/1.9 var(--f-mono); white-space: pre-wrap; overflow-wrap: anywhere; }
-.term__body .t { color: #6F6C66; }
+.term__body .t { color: #86827B; }
 .term__body .k { color: var(--signal); }
 .term__body .ok { color: #5BE49B; }
 .term__body .caret { display: inline-block; width: 8px; height: 1em; background: var(--signal); vertical-align: -2px; animation: blink 1s steps(2) infinite; }

@@ -12,7 +12,7 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&amp;family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" />
   <link rel="stylesheet" href="/styles.css" />
   <script>document.documentElement.classList.add('js');</script>
 
@@ -84,7 +84,7 @@
           </div>
           <div class="range">
             <div class="range__top"><label for="c-rate">What an hour of their time is worth</label><output for="c-rate"></output></div>
-            <input type="range" id="c-rate" name="rate" min="15" max="100" step="5" value="25" data-pre="$" />
+            <input type="range" id="c-rate" name="rate" min="40" max="400" step="10" value="90" data-pre="₪" />
           </div>
           <div class="range">
             <div class="range__top"><label for="c-auto">How much of it software could do</label><output for="c-auto"></output></div>
@@ -96,13 +96,13 @@
           </div>
           <div class="range">
             <div class="range__top"><label for="c-tools">Monthly software cost</label><output for="c-tools"></output></div>
-            <input type="range" id="c-tools" name="tools" min="0" max="200" step="5" value="20" data-pre="$" />
+            <input type="range" id="c-tools" name="tools" min="0" max="800" step="20" value="80" data-pre="₪" />
           </div>
         </div>
 
         <div class="calc__out" aria-live="polite">
           <span class="mono">What this task costs you a year</span>
-          <div class="calc__big" id="calc-cost">$0</div>
+          <div class="calc__big" id="calc-cost">₪0</div>
           <p class="calc__sub"><span id="calc-hours">0</span> hours a year</p>
 
           <div class="calc__bars" aria-hidden="true">
@@ -112,13 +112,13 @@
 
           <dl class="calc__rows">
             <div><dt>Hours you get back each year</dt><dd id="calc-rec">0</dd></div>
-            <div><dt>Saved each year, after software</dt><dd id="calc-net" class="hot">$0</dd></div>
-            <div><dt>One-time cost of the fix</dt><dd id="calc-build">$0</dd></div>
+            <div><dt>Saved each year, after software</dt><dd id="calc-net" class="hot">₪0</dd></div>
+            <div><dt>One-time cost of the fix</dt><dd id="calc-build">₪0</dd></div>
             <div><dt>Pays for itself in</dt><dd id="calc-payback">—</dd></div>
-            <div><dt>Where you are after year one</dt><dd id="calc-first">$0</dd></div>
+            <div><dt>Where you are after year one</dt><dd id="calc-first">₪0</dd></div>
           </dl>
           <p class="calc__note" id="calc-verdict" hidden>On these numbers, automating this isn't worth it. Changing the process itself is probably the better move.</p>
-          <p class="calc__note">Assumes 48 working weeks a year, my $50 hourly rate, and that the time you get back gets used for something else. Payback is in calendar time. This is an estimate to talk through, not a quote.</p>
+          <p class="calc__note">Assumes 48 working weeks a year, my ₪250 hourly rate, and that the time you get back gets used for something else. Payback is in calendar time. This is an estimate to talk through, not a quote.</p>
         </div>
       </div>
     </div>

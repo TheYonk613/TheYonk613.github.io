@@ -10,7 +10,7 @@
 .portal .muted { color: #625E56; }
 .portal .small { font-size: .88em; }
 .portal h3 { font-size: 1.15em; font-weight: 600; letter-spacing: -.02em; }
-.portal h4 { margin: 0 0 4px; font: 500 11px/1.4 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: #625E56; }
+.portal .ph { margin: 0 0 4px; font: 500 11px/1.4 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: #625E56; }
 
 .portal .pbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 18px; background: var(--ink); color: var(--paper); }
 .portal .pbar strong { font-weight: 600; letter-spacing: -.02em; }
